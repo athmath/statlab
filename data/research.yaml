@@ -1,0 +1,23 @@
+- title: Statistics
+  description: >
+    Statistical inference, Bayesian methods,
+    regression, biostatistics and statistical learning.
+  url: "/research/statistics/"
+
+- title: Machine Learning
+  description: >
+    Supervised learning, deep learning,
+    reinforcement learning and AI applications.
+  url: "/research/machine-learning/"
+
+- title: Operations Research
+  description: >
+    Optimization, stochastic models,
+    queueing systems and decision analysis.
+  url: "/research/operations-research/"
+
+- title: Data Science
+  description: >
+    Data analysis, visualization,
+    computational statistics and scientific computing.
+  url: "/research/data-science/"
