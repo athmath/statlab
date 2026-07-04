@@ -1,0 +1,11 @@
+disabled = false
+locale = "el"
+label = "Ελληνικά"
+weight = 1
+title = "StatLab"
+
+[params]
+  displayName = "EL"
+  isoCode = "el-GR"
+  rtl = false
+  dateFormat = "2 January 2006"
