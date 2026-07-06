@@ -47,10 +47,11 @@ jobs:
 
       - name: Build
         run: |
-          hugo \
-            --gc \
-            --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
+        echo "Base URL = '${{ steps.pages.outputs.base_url }}'"
+        hugo \
+           --gc \
+           --minify \
+           --baseURL "${{ steps.pages.outputs.base_url }}/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
