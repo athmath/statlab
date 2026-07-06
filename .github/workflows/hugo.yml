@@ -46,10 +46,10 @@ jobs:
           [[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true
 
       - name: Build
-         run: |
-           hugo \
-             --gc \
-             --minify
+        run: |
+          hugo \
+            --gc \
+            --minify
       
 
       - name: Upload artifact
