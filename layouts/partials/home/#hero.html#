@@ -1,0 +1,39 @@
+<article class="max-w-6xl mx-auto py-24 px-6 text-center">
+
+  <!-- Logo -->
+  <img
+    src="{{ relURL "images/logo/centaur-full.png" }}"
+    alt="CENTAUR"
+    class="mx-auto max-w-3xl w-full mb-16">
+
+  <!-- Quick navigation -->
+  <div class="flex flex-wrap justify-center gap-4">
+
+    <a href="#research"
+       class="rounded-full border px-6 py-3 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition">
+      Research
+    </a>
+
+    <a href="#people"
+       class="rounded-full border px-6 py-3 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition">
+      People
+    </a>
+
+    <a href="#publications"
+       class="rounded-full border px-6 py-3 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition">
+      Publications
+    </a>
+
+    <a href="#seminars"
+       class="rounded-full border px-6 py-3 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition">
+      Seminars
+    </a>
+
+    <a href="#support"
+       class="rounded-full border px-6 py-3 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition">
+      Support
+    </a>
+
+  </div>
+
+</article>

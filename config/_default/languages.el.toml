@@ -9,3 +9,4 @@ title = "StatLab"
   isoCode = "el-GR"
   rtl = false
   dateFormat = "2 January 2006"
+  contentDir = "content/el"
