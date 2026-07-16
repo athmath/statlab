@@ -1,20 +1,50 @@
 {{/* ============================================================
      CENTAUR Homepage
-     This file assembles the homepage from reusable sections.
      ============================================================ */}}
 
-{{/* Hero */}}
+{{/* Full-width hero */}}
 {{ partial "home/hero.html" . }}
 
-{{/* People */}}
-{{ partial "home/people.html" . }}
+<style>
+  .centaur-home-layout {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+  }
 
-{{/* Research */}}
-{{ partial "home/research.html" . }}
+  .centaur-home-main {
+    min-width: 0;
+  }
 
-{{/* Seminars (temporary: events.html) */}}
-{{ partial "home/seminars.html" . }}
+  @media (min-width: 1024px) {
+    .centaur-home-layout {
+      display: grid;
+      grid-template-columns: 20rem minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: start;
+    }
+  }
+</style>
 
-{{/* Recent Publications */}}
-{{ partial "home/publications.html" . }}
+<div class="centaur-home-layout">
 
+  {{/* Left column: news, seminars, and announcements */}}
+  <aside class="centaur-home-sidebar">
+    {{ partial "home/seminars.html" . }}
+  </aside>
+
+  {{/* Right column: main institutional content */}}
+  <main class="centaur-home-main">
+
+    {{/* People */}}
+    {{ partial "home/people.html" . }}
+
+    {{/* Research */}}
+    {{ partial "home/research.html" . }}
+
+    {{/* Recent Publications */}}
+    {{ partial "home/publications.html" . }}
+
+  </main>
+
+</div>

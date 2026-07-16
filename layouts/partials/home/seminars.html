@@ -1,3 +1,23 @@
-<section id="seminars" class="max-w-6xl mx-auto py-20 px-6">
-  <h2 class="text-4xl font-bold text-center">Seminars</h2>
+<section id="seminars"
+         class="rounded-2xl border border-neutral-200 dark:border-neutral-700
+                bg-neutral-50 dark:bg-neutral-800 p-6">
+
+  {{ if eq .Site.Language.Lang "el" }}
+    <h2 class="text-2xl font-bold mb-5">
+      Νέα και ανακοινώσεις
+    </h2>
+
+    <p class="text-neutral-600 dark:text-neutral-300">
+      Εδώ θα εμφανίζονται τα πιο πρόσφατα νέα, σεμινάρια και ανακοινώσεις.
+    </p>
+  {{ else }}
+    <h2 class="text-2xl font-bold mb-5">
+      News and announcements
+    </h2>
+
+    <p class="text-neutral-600 dark:text-neutral-300">
+      The latest news, seminars, and announcements will appear here.
+    </p>
+  {{ end }}
+
 </section>
