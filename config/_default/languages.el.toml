@@ -1,4 +1,6 @@
 disabled = false
+contentDir = "content/el"
+
 locale = "el"
 label = "Ελληνικά"
 weight = 1
@@ -9,4 +11,3 @@ title = "StatLab"
   isoCode = "el-GR"
   rtl = false
   dateFormat = "2 January 2006"
-  contentDir = "content/el"

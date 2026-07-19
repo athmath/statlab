@@ -3,8 +3,7 @@
 [[main]]
 identifier = "people"
 name = "People"
-pageRef = "people"
-url = "/people"
+pageRef = "/people"
 weight = 20
 
 [[main]]
