@@ -4,11 +4,12 @@ contentDir = "content/en"
 locale = "en"
 label = "English"
 weight = 2
-title = "Blowfish"
+title = "StatLab"
 
 [params]
   displayName = "EN"
   isoCode = "en"
+  logo = "images/logo/centaur-full-en.png"
   rtl = false
   dateFormat = "2 January 2006"
   # logo = "img/logo.png"
