@@ -9,7 +9,7 @@ weight = 20
 [[main]]
 identifier = "research"
 name = "Έρευνα"
-pageRef = "research"
+pageRef = "areas"
 weight = 30
 
 [[main]]
