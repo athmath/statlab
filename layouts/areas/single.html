@@ -4,14 +4,14 @@
 
   <header class="mb-12">
 
-    <h1 class="text-5xl font-extrabold text-neutral-900 dark:text-neutral">
-      {{ .Title }}
-    </h1>
+   <h1 class="text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+     {{ .Title }}
+   </h1>
 
-    {{ with .Params.summary }}
-      <p class="mt-5 text-xl text-neutral-600 dark:text-neutral-400 max-w-4xl">
-        {{ . }}
-      </p>
+   {{ with .Params.summary }}
+    <p class="mt-5 text-xl text-neutral-600 dark:text-neutral-400 max-w-4xl">
+      {{ . }}
+    </p>
     {{ end }}
 
   </header>
