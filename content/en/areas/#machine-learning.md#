@@ -1,7 +1,6 @@
 ---
 title: "Machine Learning"
-summary: "Learning algorithms, artificial intelligence and computational statistics."
-tagline: "Learning algorithms, artificial intelligence and computational statistics."
+description: "Learning algorithms, artificial intelligence and computational statistics."
 weight: 40
 icon: "chart-bar"
 color: "blue"

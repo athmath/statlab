@@ -1,7 +1,9 @@
 ---
 title: "Operations Research"
-summary: "Mathematical modelling, optimization and decision making in complex systems."
+description: "Mathematical modelling, optimization and decision making in complex systems."
 weight: 30
+icon: "chart-bar"
+color: "blue"
 ---
 
 ## Overview

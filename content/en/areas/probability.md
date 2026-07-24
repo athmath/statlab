@@ -1,7 +1,9 @@
 ---
 title: "Probability"
-summary: "Probability theory, stochastic models and applications to complex systems."
+description: "Probability theory, stochastic models and applications to complex systems."
 weight: 20
+icon: "chart-bar"
+color: "blue"
 ---
 
 ## Overview

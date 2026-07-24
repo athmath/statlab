@@ -1,7 +1,9 @@
 ---
 title: "Statistics"
-summary: "Modern statistical inference, Bayesian methods and statistical learning."
+description: "Modern statistical inference, Bayesian methods and statistical learning."
 weight: 10
+icon: "chart-bar"
+color: "blue"
 ---
 
 ## Overview
