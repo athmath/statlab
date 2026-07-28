@@ -1,0 +1,60 @@
+{{ define "main" }}
+
+<article class="max-w-5xl mx-auto px-6 py-10">
+
+  <header class="mb-10">
+    <h1 class="text-5xl font-bold">{{ .Title }}</h1>
+
+    {{ with .Params.summary }}
+      <p class="mt-4 text-lg">{{ . }}</p>
+    {{ end }}
+  </header>
+
+  {{ $lang := .Site.Language.Lang }}
+
+  {{ $categories := slice
+      (dict "id" "faculty"   "en" "Faculty"                  "el" "ΔΕΠ")
+      (dict "id" "edip"      "en" "Special Teaching Staff"   "el" "ΕΔΙΠ")
+      (dict "id" "phd"       "en" "PhD Students"             "el" "Υποψήφιοι Διδάκτορες")
+      (dict "id" "graduate"  "en" "Graduate Students"        "el" "Μεταπτυχιακοί Φοιτητές")
+      (dict "id" "visiting"  "en" "Visiting Researchers"     "el" "Επισκέπτες Ερευνητές")
+      (dict "id" "alumni"    "en" "Alumni"                   "el" "Απόφοιτοι")
+  }}
+
+  {{ range $categories }}
+
+    {{ $people := where $.Pages "Params.category" .id }}
+
+    {{ if gt (len $people) 0 }}
+
+      <section class="mb-12">
+
+        <h2 class="text-3xl font-semibold mb-4">
+          {{ if eq $lang "el" }}
+            {{ .el }}
+          {{ else }}
+            {{ .en }}
+          {{ end }}
+        </h2>
+
+        <ul>
+
+        {{ range sort $people "Params.weight" }}
+
+          <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </li>
+
+        {{ end }}
+
+        </ul>
+
+      </section>
+
+    {{ end }}
+
+  {{ end }}
+
+</article>
+
+{{ end }}
