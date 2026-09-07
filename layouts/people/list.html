@@ -37,17 +37,13 @@
           {{ end }}
         </h2>
 
-        <ul>
 
-        {{ range sort $people "Params.weight" }}
+{{ range sort $people "Params.weight" }}
 
-          <li>
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-          </li>
+    {{ partial "people-card.html" . }}
 
-        {{ end }}
-
-        </ul>
+{{ end }}
+	
 
       </section>
 
