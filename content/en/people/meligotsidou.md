@@ -1,5 +1,5 @@
 ---
-title: "Loukia Meligotsidou""
+title: "Loukia Meligotsidou"
 
 category: faculty
 weight: 13

@@ -1,5 +1,5 @@
 ---
-title: "Antonis Economou""
+title: "Antonis Economou"
 
 category: faculty
 weight: 15

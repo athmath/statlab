@@ -1,5 +1,5 @@
 ---
-title: "Αντώνης Οικονόμου""
+title: "Αντώνης Οικονόμου"
 
 category: faculty
 weight: 15
