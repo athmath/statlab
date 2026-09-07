@@ -3,5 +3,10 @@ title: "Research"
 description: "Research activity at CENTAUR"
 ---
 
-In CENTAUR we conduct research in probability, statistics, operations research and machine learning.
+CENTAUR promotes research in mathematics and the quantitative sciences,
+with particular emphasis on probability, statistics, operations research
+and machine learning.
 
+Research at the Centre combines mathematical theory, statistical
+methodology, optimization and computational techniques to address
+challenging scientific and practical problems.
