@@ -9,7 +9,7 @@ sort_name: "Μπουρνέτας, Απόστολος"
 category: faculty
 
 
-position: Καθηγητής
+position: Καθηγητής, Διευθυντής Εργαστηρίου CENTAUR
 
 office: "Γραφείο 301"
 

@@ -9,7 +9,7 @@ sort_name: "Burnetas, Apostolos"
 category: faculty
 
 
-position: Professor
+position: Professor, DIrector of CENTAUR
 
 office: "Office 301"
 
