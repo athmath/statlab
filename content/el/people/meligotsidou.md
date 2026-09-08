@@ -1,10 +1,15 @@
 ---
-title: "Λουκία Μελιγοτσίδου"
+title: "Λουκία Μελιγκοτσίδου"
+
+given_name: "Λουκία"
+last_name: "Μελιγκοτσίδου"
+
+sort_name: "Μελιγκοτσίδου, Λουκία"
 
 category: faculty
-weight: 13
 
-role: Καθηγήτρια
+
+position: Καθηγήτρια
 
 summary: Καθηγήτρια Στατιστικής
 

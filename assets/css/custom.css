@@ -1,0 +1,29 @@
+/* ==========================================================
+   PEOPLE
+   ========================================================== */
+
+.people-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgb(229 229 229);
+}
+
+.people-photo {
+    flex: 0 0 112px;
+    width: 112px;
+    height: 112px;
+}
+
+.people-photo img {
+    display: block;
+    width: 112px;
+    height: 112px;
+    object-fit: cover;
+}
+
+.people-info {
+    flex: 1;
+    min-width: 0;
+}

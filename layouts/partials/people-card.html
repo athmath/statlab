@@ -1,3 +1,79 @@
-<div class="py-6 border-b border-neutral-200 dark:border-neutral-700">
-    {{ .Title }}
+<div class="people-card">
+
+  <!-- ===================================================== -->
+  <!-- Left column: photo                                    -->
+  <!-- ===================================================== -->
+
+  <div class="people-photo">
+
+    {{ $img := .Params.image | default "placeholder.svg" }}
+
+    <img
+      src="{{ (printf "images/people/%s" $img) | relURL }}"
+      alt="{{ .Title }}"
+      class="rounded-sm border border-neutral-200 dark:border-neutral-700"
+    >
+
+  </div>
+
+  <!-- ===================================================== -->
+  <!-- Right column: information                             -->
+  <!-- ===================================================== -->
+
+  <div class="people-info">
+
+    <!-- Name -->
+
+    <h2 class="text-2xl font-semibold">
+      {{ .Title }}
+    </h2>
+
+    <!-- Role -->
+
+    {{ with .Params.role }}
+      <div class="mt-1 text-neutral-700 dark:text-neutral-300">
+        {{ . }}
+      </div>
+    {{ end }}
+
+    <!-- Interests -->
+
+    {{ with .Params.interests }}
+      <div class="mt-3 text-sm italic text-neutral-600 dark:text-neutral-400">
+        {{ delimit . ", " }}
+      </div>
+    {{ end }}
+
+    <!-- Links -->
+
+    <div class="mt-3 flex flex-wrap gap-4 text-sm">
+
+      {{ with .Params.email }}
+        <a href="mailto:{{ . }}">Email</a>
+      {{ end }}
+
+      {{ with .Params.website }}
+        <a href="{{ . }}" target="_blank" rel="noopener">Website</a>
+      {{ end }}
+
+      {{ with .Params.scholar }}
+        <a href="{{ . }}" target="_blank" rel="noopener">Google Scholar</a>
+      {{ end }}
+
+      {{ with .Params.orcid }}
+        <a href="{{ . }}" target="_blank" rel="noopener">ORCID</a>
+      {{ end }}
+
+      {{ with .Params.github }}
+        <a href="{{ . }}" target="_blank" rel="noopener">GitHub</a>
+      {{ end }}
+
+      {{ with .Params.linkedin }}
+        <a href="{{ . }}" target="_blank" rel="noopener">LinkedIn</a>
+      {{ end }}
+
+    </div>
+
+  </div>
+
 </div>

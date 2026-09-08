@@ -1,10 +1,15 @@
 ---
 title: "Loukia Meligotsidou"
 
-category: faculty
-weight: 13
+given_name: "Loukia"
+last_name: "Meligotsidou"
 
-role: Professor
+sort_name: "Meligotsidou, Loukia"
+
+category: faculty
+
+
+position: Professor
 
 summary: Professor of Statistics
 

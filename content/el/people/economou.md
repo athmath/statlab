@@ -1,10 +1,14 @@
 ---
 title: "Αντώνης Οικονόμου"
 
-category: faculty
-weight: 15
+given_name: "Αντώνης"
+last_name: "Οικονόμου"
 
-role: Καθηγητής
+sort_name: "Οικονόμου, Αντώνης"
+
+category: faculty
+
+position: Καθηγητής
 
 summary: Καθηγητής Στοχαστικής Επιχειρησιακής Έρευνας
 

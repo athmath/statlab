@@ -1,10 +1,15 @@
 ---
 title: "Antonis Economou"
 
-category: faculty
-weight: 15
+given_name: "Antonis"
+last_name: "Economou"
 
-role: Professor
+sort_name: "Economou, Antonis"
+
+category: faculty
+
+
+position: Professor
 
 summary: Professor of Operations Resaerch
 

@@ -1,12 +1,21 @@
 ---
 title: "Apostolos Burnetas"
 
-category: faculty
-weight: 10
+given_name: "Apostolos"
+last_name: "Burnetas"
 
-role: Professor
+sort_name: "Burnetas, Apostolos"
+
+category: faculty
+
+
+position: Professor
+
+office: "Office 301"
 
 summary: Professor of Operations Research.
+
+image: burnetas.jpg
 
 interests:
   - Operations Research
