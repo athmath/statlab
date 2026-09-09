@@ -13,6 +13,8 @@ position: Professor
 
 summary: Professor of Statistics
 
+image: lucia.jpg
+
 interests: 
  - Statistics
  - Bayesian Methods

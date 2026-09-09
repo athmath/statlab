@@ -13,6 +13,8 @@ position: Καθηγήτρια
 
 summary: Καθηγήτρια Στατιστικής
 
+image: lucia.jpg
+
 interests: 
  - Στατιστική
  - Μπεϋζιανές Μέθοδοι
