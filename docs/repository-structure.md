@@ -47,14 +47,19 @@ statlab/
 ├── assets/                  Source assets processed by Hugo
 ├── config/_default/         Site, language, menu, markup, and theme settings
 ├── content/
-│   ├── el/                  Greek pages
-│   └── en/                  English pages
+│   ├── el/                  Greek pages and section directories
+│   │   ├── areas/           Greek research-area pages
+│   │   └── projects/        Greek research-project pages
+│   └── en/                  English pages and section directories
+│       ├── areas/           English research-area pages
+│       └── projects/        English research-project pages
 ├── data/                    Structured, reusable site data
 ├── docs/                    Project documentation
 ├── i18n/                    Optional interface translation strings
 ├── layouts/                 Project templates and theme overrides
 │   ├── areas/               Research-area list and detail templates
 │   ├── people/              People list and profile templates
+│   ├── projects/             Research-project detail templates
 │   └── partials/            Reusable presentation components
 │       └── home/            Homepage sections
 ├── static/                  Files copied directly to the built site
@@ -112,6 +117,7 @@ English (`en`) content. Both language trees should normally have matching
 sections:
 
 - `areas/` — research-area overview and individual research areas;
+- `projects/` — individual research projects and the projects section index;
 - `people/` — member listing and individual profiles;
 - `seminars/` — seminar information;
 - `publications/` — publication information;
@@ -129,11 +135,88 @@ This folder owns **editorial design and information hierarchy**: what the site
 says, which section a page belongs to, and how pages are ordered. Greek and
 English files are separate editorial sources, not automatic translations.
 
+#### Frozen research-area and project structure
+
+The Research Areas/Projects structure is currently considered stable. Each
+language has parallel `areas/` and `projects/` directories:
+
+```text
+content/
+├── en/
+│   ├── areas/
+│   │   ├── _index.md
+│   │   ├── probability.md
+│   │   ├── statistics.md
+│   │   ├── machine-learning.md
+│   │   ├── operations-research.md
+│   │   └── data-science.md
+│   └── projects/
+│       ├── _index.md
+│       └── project-slug.md
+└── el/
+    ├── areas/
+    │   ├── _index.md
+    │   ├── probability.md
+    │   ├── statistics.md
+    │   ├── machine-learning.md
+    │   ├── operations-research.md
+    │   └── data-science.md
+    └── projects/
+        ├── _index.md
+        └── project-slug.md
+```
+
+Adding a Markdown file to an `areas/` directory automatically adds that area to
+the language's main Research page and homepage Research Areas list. The
+filename without `.md` is the stable area identifier. English and Greek area
+files must therefore use matching filenames even though their displayed titles
+and prose differ.
+
+Area pages are ordered by `weight`. Their standard body headings use explicit,
+language-independent anchors so that the page navigation remains reliable:
+
+```markdown
+## Overview {#overview}
+## Research Themes {#research-themes}
+```
+
+The corresponding Greek headings use the same `#overview` and
+`#research-themes` identifiers. The Current Research Projects navigation item
+and section appear only when the area has at least one matching current
+project.
+
+Each project is stored once per language under `projects/`. A typical project
+file begins:
+
+```yaml
+---
+title: "Project title"
+description: "A short description with an optional [link](https://example.com)."
+status: current
+weight: 10
+research_areas:
+  - operations-research
+  - data-science
+---
+```
+
+The `research_areas` values refer to area filenames, not translated titles. A
+project can list any number of areas and is added automatically to every
+matching area page. Unknown identifiers are ignored without causing a build
+error. If a matching area file is created later, the project appears there
+automatically on the next build. Only projects with `status: current` appear in
+the Current Research Projects sections.
+
+Individual project pages list and link their existing research areas. Unknown
+or not-yet-created areas remain hidden until the corresponding area page
+exists. Short project descriptions support inline Markdown links.
+
 ### `data/`
 
-Contains reusable structured information. `research.yaml` is the current
-example. Data files are appropriate when a collection of facts needs to be read
-by several templates or pages and is not naturally a standalone content page.
+Contains reusable structured information when a collection of facts needs to
+be read by several templates or pages and is not naturally a standalone content
+page. Research areas are not stored here: their Markdown pages under `content/`
+are the canonical source for the Research page and homepage list.
 
 This folder owns the **structured information model**. Avoid maintaining the
 same facts in both `data/` and `content/`; choose one canonical source and have
@@ -163,9 +246,13 @@ template from Blowfish without modifying the theme submodule.
 
 - `layouts/areas/list.html` controls the research-area listing.
 - `layouts/areas/single.html` controls individual research-area pages.
+- `layouts/projects/single.html` controls individual project pages and links
+  each project back to its existing research areas.
 - `layouts/people/list.html` groups and displays people.
 - `layouts/people/single.html` controls individual profile pages.
 - `layouts/partials/research-panel.html` is a reusable research-area component.
+- `layouts/partials/project-summary.html` renders projects within research-area
+  pages, including Markdown links in short descriptions.
 - `layouts/partials/home/` contains the components used to assemble the
   homepage, including the hero, people, research, seminars, publications, and
   support sections.
@@ -229,6 +316,18 @@ For example, a research-area page gets its title and description from
 shared visual foundation from Blowfish, and global behaviour from
 `config/_default/`.
 
+Project associations follow this flow:
+
+```text
+project research_areas identifiers
+              |
+              v
+matching area filenames in the same language
+              |
+              v
+automatic project summaries on each matching area page
+```
+
 ## Change-placement examples
 
 - Correct a person's biography: edit the corresponding files under
@@ -237,6 +336,11 @@ shared visual foundation from Blowfish, and global behaviour from
   `config/_default/`.
 - Change how all people are grouped: edit `layouts/people/list.html`.
 - Change how one profile is displayed: edit `layouts/people/single.html`.
+- Add a research area: create matching Markdown files under the English and
+  Greek `areas/` directories and assign their ordering weights.
+- Add a project: create matching Markdown files under the English and Greek
+  `projects/` directories and list the relevant area filename identifiers in
+  `research_areas`.
 - Add a homepage section: create or update a partial under
   `layouts/partials/home/` and include it from the homepage composition.
 - Change colors or spacing across the site: use configuration where Blowfish
@@ -256,4 +360,3 @@ shared visual foundation from Blowfish, and global behaviour from
 - Test locally with `hugo --noBuildLock` before committing.
 - Keep content changes, template changes, and theme upgrades in focused commits
   when practical; this makes review and rollback easier.
-

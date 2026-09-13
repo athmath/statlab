@@ -1,17 +1,17 @@
 ---
 title: "Statistics"
 description: "Modern statistical inference, Bayesian methods and statistical learning."
-weight: 10
+weight: 20
 icon: "chart-bar"
 color: "blue"
 ---
 
-## Overview
+## Overview {#overview}
 
 The Statistics group at CENTAUR conducts research in statistical methodology,
 Bayesian statistics, statistical learning, biostatistics and data science.
 
-## Research Themes
+## Research Themes {#research-themes}
 
 - Bayesian Statistics
 - Statistical Learning
