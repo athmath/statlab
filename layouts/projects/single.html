@@ -19,6 +19,12 @@
         {{ $project.RenderString (dict "display" "inline") . }}
       </p>
     {{ end }}
+
+    {{ with .Params.team }}
+      <p class="mt-4 text-base text-neutral-600 dark:text-neutral-400 max-w-4xl">
+        {{ $project.RenderString (dict "display" "inline") . }}
+      </p>
+    {{ end }}
   </header>
 
   {{ if gt (len $areas) 0 }}

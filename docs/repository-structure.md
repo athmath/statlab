@@ -192,6 +192,7 @@ file begins:
 ---
 title: "Project title"
 description: "A short description with an optional [link](https://example.com)."
+team: "**Lab Member**, in collaboration with External Collaborator from Institution."
 status: current
 weight: 10
 research_areas:
@@ -207,9 +208,14 @@ error. If a matching area file is created later, the project appears there
 automatically on the next build. Only projects with `status: current` appear in
 the Current Research Projects sections.
 
+The optional `team` field is a Markdown-enabled prose line shown immediately
+below the project description without a visible label. Lab members can be
+emphasized manually with Markdown bold text while collaborators and affiliations
+remain ordinary prose. It deliberately does not link projects to People records.
+
 Individual project pages list and link their existing research areas. Unknown
 or not-yet-created areas remain hidden until the corresponding area page
-exists. Short project descriptions support inline Markdown links.
+exists. Short project descriptions and team lines support inline Markdown.
 
 ### `data/`
 
