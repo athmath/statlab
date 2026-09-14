@@ -1,0 +1,64 @@
+{{ define "main" }}
+
+{{ $areaID := .File.ContentBaseName }}
+{{ $projects := where .Site.RegularPages "Section" "projects" }}
+{{ $projects = where $projects "Params.status" "current" }}
+{{ $projects = where $projects "Params.research_areas" "intersect" (slice $areaID) }}
+
+<article class="mx-auto max-w-5xl">
+
+  <header class="mb-6">
+
+   <h1 class="text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+     {{ .Title }}
+   </h1>
+
+   {{ with .Params.description }}
+    <p class="mt-5 text-xl text-neutral-600 dark:text-neutral-400 max-w-4xl">
+      {{ . }}
+    </p>
+    {{ end }}
+
+  </header>
+
+  <nav
+    class="mb-10 text-sm text-neutral-600 dark:text-neutral-400"
+    aria-label="{{ if eq .Site.Language.Lang "el" }}Ενότητες ερευνητικής περιοχής{{ else }}Research area sections{{ end }}">
+    <a href="#overview" class="hover:underline">
+      {{ if eq .Site.Language.Lang "el" }}Επισκόπηση{{ else }}Overview{{ end }}
+    </a>
+    <span class="mx-2" aria-hidden="true">·</span>
+    <a href="#research-themes" class="hover:underline">
+      {{ if eq .Site.Language.Lang "el" }}Ερευνητικές Κατευθύνσεις{{ else }}Research Themes{{ end }}
+    </a>
+    {{ if gt (len $projects) 0 }}
+      <span class="mx-2" aria-hidden="true">·</span>
+      <a href="#current-projects" class="hover:underline">
+        {{ if eq .Site.Language.Lang "el" }}Τρέχοντα Ερευνητικά Έργα{{ else }}Current Research Projects{{ end }}
+      </a>
+    {{ end }}
+  </nav>
+
+  <div class="prose prose-neutral dark:prose-invert max-w-none">
+    {{ .Content }}
+
+    {{ if gt (len $projects) 0 }}
+      <section id="current-projects">
+        <h2>
+          {{ if eq .Site.Language.Lang "el" }}
+            Τρέχοντα Ερευνητικά Έργα
+          {{ else }}
+            Current Research Projects
+          {{ end }}
+        </h2>
+
+        {{ range $projects.ByWeight }}
+          {{ partial "project-summary.html" . }}
+        {{ end }}
+      </section>
+    {{ end }}
+  </div>
+
+</article>
+
+{{ end }}

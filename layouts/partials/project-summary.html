@@ -1,0 +1,21 @@
+{{ $project := . }}
+
+<article class="mt-6">
+  <h3 class="mt-0 mb-0 text-lg font-semibold">
+    <a href="{{ .RelPermalink }}" class="hover:underline">
+      {{ .Title }}
+    </a>
+  </h3>
+
+  {{ with .Params.description }}
+    <p class="mt-2 mb-0">
+      {{ $project.RenderString (dict "display" "inline") . }}
+    </p>
+  {{ end }}
+
+  {{ with .Params.team }}
+    <p class="mt-3 mb-0">
+      {{ $project.RenderString (dict "display" "inline") . }}
+    </p>
+  {{ end }}
+</article>

@@ -1,35 +1,26 @@
 <section id="research" class="max-w-6xl mx-auto py-20 px-6">
 
   <h2 class="text-4xl font-bold text-center mb-16">
-    Research Areas
+    {{ if eq .Site.Language.Lang "el" }}Ερευνητικές Περιοχές{{ else }}Research Areas{{ end }}
   </h2>
 
-  <div class="grid gap-8 md:grid-cols-2">
-
-    {{ range site.Data.research }}
-
-      <div class="rounded-xl border p-8">
-
-        <h3 class="text-2xl font-semibold mb-4">
-          {{ .title }}
-        </h3>
-
-        <p class="text-neutral-600 dark:text-neutral-400 mb-6">
-          {{ .description }}
-        </p>
-
-        <a
-          href="{{ .url }}"
-          class="text-primary-600 font-semibold hover:underline">
-
-          Learn more →
-
-        </a>
-
-      </div>
-
-    {{ end }}
-
-  </div>
+  {{ with .Site.GetPage "/areas" }}
+    <div class="grid gap-x-10 md:grid-cols-2">
+      {{ range .RegularPages.ByWeight }}
+        <article class="py-6 border-b border-neutral-200 dark:border-neutral-700">
+          <h3 class="text-2xl font-semibold">
+            <a href="{{ .RelPermalink }}" class="hover:underline">
+              {{ .Title }}
+            </a>
+          </h3>
+          {{ with .Params.description }}
+            <p class="mt-2 text-neutral-600 dark:text-neutral-400">
+              {{ . }}
+            </p>
+          {{ end }}
+        </article>
+      {{ end }}
+    </div>
+  {{ end }}
 
 </section>

@@ -1,4 +1,6 @@
 disabled = false
+contentDir = "content/el"
+
 locale = "el"
 label = "Ελληνικά"
 weight = 1
@@ -7,5 +9,6 @@ title = "StatLab"
 [params]
   displayName = "EL"
   isoCode = "el-GR"
+  logo = "images/logo/centaur-full-el.png"
   rtl = false
   dateFormat = "2 January 2006"
