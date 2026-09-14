@@ -29,6 +29,13 @@ enableEmoji = true
   category = "categories"
   author = "authors"
   series = "series"
+  research_area = "research_areas"
+
+[permalinks]
+  [permalinks.taxonomy]
+    research_areas = "/areas/current-projects/"
+  [permalinks.term]
+    research_areas = "/areas/:slug/current-projects/"
 
 [sitemap]
   changefreq = 'daily'

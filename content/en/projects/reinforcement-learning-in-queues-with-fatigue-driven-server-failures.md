@@ -6,4 +6,6 @@ weight: 10
 research_areas:
   - operations-research
   - reinforcement-learning
+members:
+  - burnetas
 ---

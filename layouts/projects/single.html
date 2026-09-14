@@ -1,12 +1,6 @@
 {{ define "main" }}
 
 {{ $project := . }}
-{{ $areas := slice }}
-{{ range .Params.research_areas }}
-  {{ with $project.Site.GetPage (printf "/areas/%s" .) }}
-    {{ $areas = $areas | append . }}
-  {{ end }}
-{{ end }}
 
 <article class="mx-auto max-w-5xl">
   <header class="mb-12">
@@ -20,28 +14,14 @@
       </p>
     {{ end }}
 
+    {{ partial "project-associations.html" . }}
+
     {{ with .Params.team }}
       <p class="mt-4 text-base text-neutral-600 dark:text-neutral-400 max-w-4xl">
         {{ $project.RenderString (dict "display" "inline") . }}
       </p>
     {{ end }}
   </header>
-
-  {{ if gt (len $areas) 0 }}
-    <nav
-      class="mb-10 text-sm text-neutral-600 dark:text-neutral-400"
-      aria-label="{{ if eq .Site.Language.Lang "el" }}Ερευνητικές περιοχές έργου{{ else }}Project research areas{{ end }}">
-      <span class="font-semibold">
-        {{ if eq .Site.Language.Lang "el" }}Ερευνητικές Περιοχές:{{ else }}Research Areas:{{ end }}
-      </span>
-      {{ range $index, $area := $areas }}
-        {{ if gt $index 0 }}<span class="mx-2" aria-hidden="true">·</span>{{ end }}
-        <a href="{{ $area.RelPermalink }}" class="hover:underline">
-          {{ $area.Title }}
-        </a>
-      {{ end }}
-    </nav>
-  {{ end }}
 
   <div class="prose prose-neutral dark:prose-invert max-w-none">
     {{ .Content }}

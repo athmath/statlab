@@ -13,4 +13,6 @@ status: current
 weight: 20
 research_areas:
   - statistics
+members:
+  - meligkotsidou
 ---

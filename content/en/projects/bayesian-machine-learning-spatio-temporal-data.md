@@ -15,4 +15,6 @@ research_areas:
   - statistics
   - machine-learning
   - data-science
+members:
+  - meligkotsidou
 ---

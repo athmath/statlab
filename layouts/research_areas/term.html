@@ -1,0 +1,115 @@
+{{ define "main" }}
+
+{{ $areaID := .Data.Term }}
+{{ $area := .Site.GetPage (printf "/areas/%s" $areaID) }}
+{{ $projects := where .Pages "Params.status" "current" }}
+{{ $members := slice }}
+
+{{ range $projects }}
+  {{ range .Params.members }}
+    {{ with $.Site.GetPage (printf "/people/%s" .) }}
+      {{ if not (in $members .) }}
+        {{ $members = $members | append . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $members = sort $members "Params.sort_name" }}
+
+<article class="mx-auto max-w-5xl" data-project-member-browser>
+  <header class="mb-10">
+    <p class="mb-2 text-sm text-neutral-600 dark:text-neutral-400">
+      <a href="{{ $area.RelPermalink }}" class="hover:underline">{{ $area.Title }}</a>
+    </p>
+    <h1 class="text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      {{ if eq .Site.Language.Lang "el" }}Τρέχοντα Ερευνητικά Έργα{{ else }}Current Research Projects{{ end }}
+    </h1>
+    <p class="mt-5 text-xl text-neutral-600 dark:text-neutral-400 max-w-4xl">
+      {{ if eq .Site.Language.Lang "el" }}
+        Επιλέξτε ένα μέλος για να δείτε τα τρέχοντα ερευνητικά έργα του σε αυτή την ερευνητική περιοχή.
+      {{ else }}
+        Select a member to view their current projects in this research area.
+      {{ end }}
+    </p>
+  </header>
+
+  {{ if gt (len $members) 0 }}
+    <nav
+      class="mb-10"
+      aria-label="{{ if eq .Site.Language.Lang "el" }}Μέλη με τρέχοντα έργα{{ else }}Members with current projects{{ end }}">
+      <ul class="flex flex-wrap gap-x-5 gap-y-3" role="list">
+        {{ range $members }}
+          {{ $memberID := .File.ContentBaseName }}
+          <li>
+            <a
+              href="#projects-{{ $memberID }}"
+              class="text-lg hover:underline"
+              data-project-member-link
+              aria-controls="projects-{{ $memberID }}"
+              aria-expanded="false">
+              {{ .Title }}
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </nav>
+
+    <div class="prose prose-neutral dark:prose-invert max-w-none">
+      {{ range $members }}
+        {{ $member := . }}
+        {{ $memberID := .File.ContentBaseName }}
+        {{ $memberProjects := where $projects "Params.members" "intersect" (slice $memberID) }}
+        <section id="projects-{{ $memberID }}" data-project-member-panel hidden tabindex="-1">
+          <h2>{{ $member.Title }}</h2>
+          {{ range $memberProjects.ByWeight }}
+            {{ partial "project-summary.html" . }}
+          {{ end }}
+        </section>
+      {{ end }}
+    </div>
+  {{ else }}
+    <p class="text-neutral-600 dark:text-neutral-400">
+      {{ if eq .Site.Language.Lang "el" }}Δεν υπάρχουν τρέχοντα έργα για αυτή την ερευνητική περιοχή.{{ else }}There are no current projects for this research area.{{ end }}
+    </p>
+  {{ end }}
+</article>
+
+{{ if gt (len $members) 0 }}
+  <script>
+    (() => {
+      const browser = document.querySelector('[data-project-member-browser]');
+      if (!browser) return;
+
+      const links = [...browser.querySelectorAll('[data-project-member-link]')];
+      const panels = [...browser.querySelectorAll('[data-project-member-panel]')];
+
+      const showPanel = (id, moveFocus = false) => {
+        const selected = panels.find((panel) => panel.id === id);
+        if (!selected) return;
+
+        panels.forEach((panel) => { panel.hidden = panel !== selected; });
+        links.forEach((link) => {
+          const active = link.getAttribute('aria-controls') === id;
+          link.setAttribute('aria-expanded', String(active));
+          link.classList.toggle('font-semibold', active);
+        });
+
+        if (moveFocus) selected.focus({ preventScroll: true });
+      };
+
+      links.forEach((link) => {
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          const id = link.getAttribute('aria-controls');
+          history.replaceState(null, '', `#${id}`);
+          showPanel(id, true);
+        });
+      });
+
+      if (window.location.hash) showPanel(window.location.hash.slice(1));
+    })();
+  </script>
+{{ end }}
+
+{{ end }}
