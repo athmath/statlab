@@ -13,4 +13,6 @@ weight: 30
 research_areas:
   - statistics
   - machine-learning
+members:
+  - meligkotsidou
 ---
