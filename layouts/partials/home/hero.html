@@ -1,6 +1,6 @@
 {{ $areasPage := .Site.GetPage "/areas" }}
 
-<article class="max-w-6xl mx-auto pt-20 pb-24 md:pb-28 px-6">
+<article class="home-hero max-w-6xl mx-auto pt-20 pb-24 md:pb-28 px-6">
 
   <h1 class="sr-only">{{ .Site.Title }}</h1>
 
@@ -8,7 +8,14 @@
   <img
     src="{{ relURL .Site.Params.logo }}"
     alt="CENTAUR"
-    class="mx-auto max-w-3xl w-full mb-16">
+    class="home-logo mx-auto max-w-3xl w-full">
+
+  {{ with .Content }}
+    <div class="home-intro mx-auto max-w-3xl mb-12">
+      {{ . }}
+    </div>
+  {{ end }}
+    
 
   {{ with $areasPage }}
     <nav

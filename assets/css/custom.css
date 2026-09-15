@@ -27,3 +27,20 @@
     flex: 1;
     min-width: 0;
 }
+
+/* ==========================================================
+   HOMEPAGE
+   ========================================================== */
+
+.home-hero {
+    margin-bottom: 3rem;
+}
+
+.home-intro {
+    text-align: justify;
+}
+
+.home-logo {
+    margin-bottom: -2rem;
+}
+

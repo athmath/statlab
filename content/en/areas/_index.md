@@ -3,10 +3,6 @@ title: "Research"
 description: "Research activity at CENTAUR"
 ---
 
-CENTAUR promotes research in mathematics and the quantitative sciences,
-with particular emphasis on probability, statistics, machine learning,
-operations research and data science.
+CENTAUR is a research laboratory within the Department of Mathematics at the National and Kapodistrian University of Athens. Its research spans Statistics, Data Science, Operations Research, Machine Learning, and Applied Probability, with emphasis on both the mathematical foundations and the application of methods in these areas.
 
-Research at the Centre combines mathematical theory, statistical
-methodology, optimization and computational techniques to address
-challenging scientific and practical problems.
+The laboratory aims to promote  research collaboration and is open to interdisciplinary partnerships within the framework of research and academic projects. It is also interested in collaborations addressing methodological and quantitative problems arising in industry and other applied settings.

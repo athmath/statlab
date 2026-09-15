@@ -2,7 +2,7 @@
 {{ $newsItems := where .Site.RegularPages "Section" "news" }}
 {{ $newsItems = first 4 $newsItems.ByDate.Reverse }}
 
-<section id="news" class="max-w-6xl mx-auto px-6 pb-24" aria-labelledby="news-heading">
+<section id="news" class="max-w-6xl mx-auto px-6  pb-24" aria-labelledby="news-heading">
   <div class="border-t border-neutral-300 dark:border-neutral-700 pt-9">
     <div class="mb-8 flex items-baseline justify-between gap-6">
       <h2 id="news-heading" class="text-2xl font-bold">
