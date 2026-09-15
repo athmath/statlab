@@ -1,4 +1,5 @@
 ---
+type: "research_paper"
 year: 2026
 
 authors:

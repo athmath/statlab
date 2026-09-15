@@ -8,114 +8,39 @@
       </h1>
     </header>
 
-    {{/* Canonical publication records always come from English content */}}
-    {{ $englishSite := index (where site.Sites "Language.Lang" "en") 0 }}
-    {{ $publications := where $englishSite.RegularPages "Section" "publications" }}
+    <div class="space-y-4">
 
-    {{/* Collect years */}}
-    {{ $years := slice }}
-    {{ range $publications }}
-      {{ with .Params.year }}
-        {{ $years = $years | append . }}
-      {{ end }}
-    {{ end }}
-
-    {{ $years = uniq $years }}
-    {{ $years = sort $years "value" "desc" }}
-
-    {{/* Year navigation */}}
-    {{ if gt (len $years) 0 }}
-      <nav class="mb-10 text-sm">
-        {{ range $i, $year := $years }}
-          {{ if $i }}
-            <span class="mx-2">·</span>
+      <p>
+        <a href="{{ "publications/research-papers/" | relLangURL }}">
+          {{ if eq .Site.Language.Lang "el" }}
+            Ερευνητικές Δημοσιεύσεις
+          {{ else }}
+            Research Papers
           {{ end }}
-          <a href="#year-{{ $year }}">
-            {{ $year }}
-          </a>
-        {{ end }}
-      </nav>
-    {{ end }}
+        </a>
+      </p>
 
-    {{/* Publications grouped by year */}}
-    {{ range $year := $years }}
-
-      <section id="year-{{ $year }}" class="mb-10">
-
-        <h2 class="text-2xl font-semibold mb-4">
-          {{ $year }}
-        </h2>
-
-        {{ $yearPublications := where $publications "Params.year" $year }}
-
-        {{/*
-          Build sortable records because Hugo cannot directly sort
-          on the first element of authors.
-        */}}
-        {{ $sortable := slice }}
-
-        {{ range $publication := $yearPublications }}
-
-          {{ $sortAuthor := "" }}
-
-          {{ with $publication.Params.authors }}
-            {{ if gt (len .) 0 }}
-              {{ $sortAuthor = index . 0 }}
-            {{ end }}
+      <p>
+        <a href="{{ "publications/phd-theses/" | relLangURL }}">
+          {{ if eq .Site.Language.Lang "el" }}
+            Διδακτορικές Διατριβές
+          {{ else }}
+            PhD Dissertations
           {{ end }}
+        </a>
+      </p>
 
-          {{ $sortable = $sortable | append (dict
-              "sortAuthor" $sortAuthor
-              "page" $publication
-          ) }}
-
-        {{ end }}
-
-        {{ $sortable = sort $sortable "sortAuthor" "asc" }}
-
-        <div class="space-y-5">
-
-          {{ range $item := $sortable }}
-
-            {{ $publication := $item.page }}
-
-            <div class="publication-item">
-
-              <p>
-                {{ $publication.Params.citation | markdownify }}
-              </p>
-
-              {{ if or $publication.Params.doi $publication.Params.link }}
-                <p class="text-sm mt-1">
-
-                  {{ with $publication.Params.doi }}
-                    <a href="{{ . }}" target="_blank" rel="noopener">
-                      DOI
-                    </a>
-                  {{ end }}
-
-                  {{ if and $publication.Params.doi $publication.Params.link }}
-                    <span class="mx-1">·</span>
-                  {{ end }}
-
-                  {{ with $publication.Params.link }}
-                    <a href="{{ . }}" target="_blank" rel="noopener">
-                      Link
-                    </a>
-                  {{ end }}
-
-                </p>
-              {{ end }}
-
-            </div>
-
+      <p>
+        <a href="{{ "publications/msc-theses/" | relLangURL }}">
+          {{ if eq .Site.Language.Lang "el" }}
+            Μεταπτυχιακές Διπλωματικές Εργασίες
+          {{ else }}
+            MSc Theses
           {{ end }}
+        </a>
+      </p>
 
-        </div>
-
-      </section>
-
-    {{ end }}
+    </div>
 
   </article>
 
