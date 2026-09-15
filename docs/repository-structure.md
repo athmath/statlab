@@ -282,9 +282,10 @@ template from Blowfish without modifying the theme submodule.
   member-filtered project browser.
 - `layouts/partials/project-associations.html` resolves and links a project's
   research-area and member identifiers for summaries and project pages.
-- `layouts/partials/home/` contains the components used to assemble the
-  homepage, including the hero, people, research, seminars, publications, and
-  support sections.
+- `layouts/partials/home/` contains the homepage components. The active
+  composition uses the hero for the logo and research-area directory, followed
+  by the news section. Older section partials remain available but are not
+  currently included on the homepage.
 
 This folder owns **structural and component design**: which fields are shown,
 their HTML hierarchy, and how reusable page sections are composed. Broad visual

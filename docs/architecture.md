@@ -241,17 +241,15 @@ index.html
         ↓
 centaur.html
         ↓
-hero
-people
-research
-seminars
-publications
+hero: logo + research-area directory
 news
 ```
 
 The homepage acts as the entry point to the website.
 
-Each section provides a concise overview together with a link to the corresponding full page.
+Research-area entries link directly to their corresponding area pages. The
+homepage does not duplicate the People, Research, Seminars, Publications, or
+Support sections; those remain available through the main navigation.
 
 ---
 
@@ -259,12 +257,9 @@ Each section provides a concise overview together with a link to the correspondi
 
 Version 1.0 contains the following sections.
 
-1. Hero
-2. People
-3. Research
-4. Seminars
-5. Recent Publications
-6. Latest News
+1. Institutional logo
+2. Research Areas directory
+3. Latest News and announcements
 
 Future versions may extend the homepage, but unnecessary sections should be avoided.
 
