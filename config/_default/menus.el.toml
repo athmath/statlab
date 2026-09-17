@@ -25,9 +25,9 @@ pageRef = "publications"
 weight = 50
 
 [[main]]
-identifier = "support"
-name = "Υποστήριξη"
-pageRef = "support"
+identifier = "collaborations"
+name = "Συνεργασίες"
+pageRef = "collaborations"
 weight = 60
 
 [[main]]

@@ -14,4 +14,5 @@ research_areas:
   - machine-learning
 members:
   - meligkotsidou
+  - lefkakis
 ---

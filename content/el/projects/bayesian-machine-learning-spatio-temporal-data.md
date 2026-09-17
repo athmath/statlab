@@ -18,4 +18,5 @@ research_areas:
   - data-science
 members:
   - meligkotsidou
+  - kampa
 ---

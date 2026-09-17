@@ -1,7 +1,7 @@
 ---
 title: "Data Science"
 description: "Statistical data science, data analytics, visualization, computational statistics and scientific computing."
-weight: 50
+weight: 20
 icon: "chart-bar"
 color: "blue"
 ---

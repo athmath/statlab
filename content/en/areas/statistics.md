@@ -1,7 +1,7 @@
 ---
 title: "Statistics"
 description: "Statistical modelling and inference, Bayesian methods, statistical learning and applications."
-weight: 20
+weight: 10
 icon: "chart-bar"
 color: "blue"
 ---
