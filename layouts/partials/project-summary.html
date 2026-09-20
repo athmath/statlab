@@ -13,6 +13,8 @@
     </p>
   {{ end }}
 
+  {{ partial "project-status.html" . }}
+
   {{ partial "project-associations.html" . }}
 
   {{ with .Params.team }}

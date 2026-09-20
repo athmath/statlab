@@ -14,7 +14,11 @@
       </p>
     {{ end }}
 
+    {{ partial "project-status.html" . }}
+
     {{ partial "project-associations.html" . }}
+
+    {{ partial "project-funding.html" . }}
 
     {{ with .Params.team }}
       <p class="mt-4 text-base text-neutral-600 dark:text-neutral-400 max-w-4xl">

@@ -1,0 +1,25 @@
+{{ $project := . }}
+{{ with $project.Params.funding }}
+  {{ $funding := . }}
+  {{ $details := slice }}
+  {{ with $funding.funder }}{{ $details = $details | append . }}{{ end }}
+  {{ with $funding.programme }}{{ $details = $details | append . }}{{ end }}
+  {{ with $funding.period }}{{ $details = $details | append . }}{{ end }}
+
+  {{ if or (in (slice "funded" "seeking") ($funding.status | default "")) (gt (len $details) 0) $funding.url }}
+    <p class="mt-4 mb-0 text-base text-neutral-600 dark:text-neutral-400 max-w-4xl">
+      <span class="font-semibold">
+        {{ if eq $project.Site.Language.Lang "el" }}Χρηματοδότηση:{{ else }}Funding:{{ end }}
+      </span>
+      {{ if eq $funding.status "funded" }}
+        {{ if eq $project.Site.Language.Lang "el" }}Χρηματοδοτούμενο{{ else }}Funded{{ end }}
+      {{ else if eq $funding.status "seeking" }}
+        {{ if eq $project.Site.Language.Lang "el" }}Αναζητεί χρηματοδότηση{{ else }}Seeking funding{{ end }}
+      {{ end }}
+      {{ if gt (len $details) 0 }}{{ if in (slice "funded" "seeking") ($funding.status | default "") }} · {{ end }}{{ delimit $details " · " }}{{ end }}
+      {{ with $funding.url }}
+        · <a href="{{ . }}" class="hover:underline">{{ if eq $project.Site.Language.Lang "el" }}Πληροφορίες χρηματοδότησης{{ else }}Funding information{{ end }}</a>
+      {{ end }}
+    </p>
+  {{ end }}
+{{ end }}

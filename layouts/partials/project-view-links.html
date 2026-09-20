@@ -1,0 +1,31 @@
+{{ $currentPage := . }}
+{{ $site := $currentPage.Site }}
+{{ $projects := where $site.RegularPages "Section" "projects" }}
+{{ $currentProjects := where $projects "Params.status" "current" }}
+{{ $availableProjects := where $projects "Params.open_for_collaboration" true }}
+{{ $fundedProjects := where $projects "Params.funding.status" "funded" }}
+{{ $completedProjects := where $projects "Params.status" "completed" }}
+{{ $views := slice
+  (dict "path" "/projects" "count" (len $projects))
+  (dict "path" "/projects/current" "count" (len $currentProjects))
+  (dict "path" "/projects/available" "count" (len $availableProjects))
+  (dict "path" "/projects/funded" "count" (len $fundedProjects))
+  (dict "path" "/projects/completed" "count" (len $completedProjects))
+}}
+
+<ul class="project-view-links flex flex-wrap gap-x-5 gap-y-2" role="list">
+  {{ range $views }}
+    {{ if gt .count 0 }}
+      {{ with $site.GetPage .path }}
+        <li>
+          <a
+            href="{{ .RelPermalink }}"
+            class="hover:underline{{ if eq .RelPermalink $currentPage.RelPermalink }} font-semibold{{ end }}"
+            {{ if eq .RelPermalink $currentPage.RelPermalink }}aria-current="page"{{ end }}>
+            {{ .Params.navigation_title | default .Title }}
+          </a>
+        </li>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+</ul>

@@ -152,6 +152,10 @@ content/
 │   │   └── data-science.md
 │   └── projects/
 │       ├── _index.md
+│       ├── current/_index.md
+│       ├── available/_index.md
+│       ├── funded/_index.md
+│       ├── completed/_index.md
 │       └── project-slug.md
 └── el/
     ├── areas/
@@ -163,6 +167,10 @@ content/
     │   └── data-science.md
     └── projects/
         ├── _index.md
+        ├── current/_index.md
+        ├── available/_index.md
+        ├── funded/_index.md
+        ├── completed/_index.md
         └── project-slug.md
 ```
 
@@ -195,21 +203,63 @@ title: "Project title"
 description: "A short description with an optional [link](https://example.com)."
 team: "In collaboration with External Collaborator from Institution."
 status: current
+open_for_collaboration: true
 weight: 10
 research_areas:
   - operations-research
   - data-science
 members:
   - burnetas
+funding:
+  status: funded
+  funder: "Funding organization"
+  programme: "Programme or grant name"
+  period: "2025–2028"
+  url: "https://example.org/grant"
 ---
 ```
+
+Project discovery uses separate fields because lifecycle, collaboration, and
+funding can overlap:
+
+- `status` describes the project's lifecycle. Supported values are `current`,
+  `completed`, and `proposed`.
+- `open_for_collaboration: true` advertises that the project welcomes new
+  collaborators. Omit the field, or set it to `false`, when the project should
+  not be advertised in that view.
+- `funding.status` records `funded`, `seeking`, or `unfunded`. The remaining
+  funding fields are optional and are displayed only when supplied. Omit the
+  entire `funding` block when the funding position is not known.
+
+These values remain in English in both language versions because templates use
+them as stable identifiers; only titles, descriptions, and other visible prose
+are translated. The project archetype at `archetypes/projects.md` contains a
+ready-to-edit version of this structure.
+
+The main Research page links to five automatically generated project views:
+
+- All Projects includes every published project file;
+- Current Projects selects `status: current`;
+- Open for Collaboration selects `open_for_collaboration: true`;
+- Funded Projects selects `funding.status: funded`;
+- Completed Projects selects `status: completed`.
+
+A single project may appear in several views. For example, a current funded
+project that is open for collaboration appears in All, Current, Open for
+Collaboration, and Funded. The view pages contain no copied project content;
+their `_index.md` files only define the localized page title and filter.
+Navigation links to Current, Open for Collaboration, Funded, and Completed are
+shown only when the corresponding view contains at least one project. A hidden
+link appears automatically on the next build as soon as a project matches it.
 
 The `research_areas` values refer to area filenames, not translated titles. A
 project can list any number of areas and is added automatically to every
 matching area's Current Research Projects page. Unknown identifiers are ignored
 by association links without causing a build error. If a matching area file is
-created later, its link appears automatically on the next build. Only projects
-with `status: current` appear on the Current Research Projects pages.
+created later, its link appears automatically on the next build. Area-specific
+Current Research Projects pages continue to show only projects with
+`status: current`; completed projects remain discoverable through the global
+Completed Projects view.
 
 The `members` values refer to filenames under `content/<language>/people/`, in
 the same way that `research_areas` values refer to area filenames. A project can
