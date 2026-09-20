@@ -19,7 +19,7 @@ image: lucia.jpg
 
 email: "meligots@uoa.gr"
 
-website: "http://users.uoa.gr/meligots/"
+website: "http://users.uoa.gr/~meligots/"
 
 scholar: "https://scholar.google.com/citations?hl=el&user=PZ7w9y4AAAAJ"
 
