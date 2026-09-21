@@ -18,9 +18,9 @@ image: goikon.jpg
 
 email: "goikon@math.uoa.gr"
 
-website: "http://users.uoa.gr/\~goikon/"
+website: "http://users.uoa.gr/~goikon/"
 
-scholar: "https://scholar.google.com/citations?user=UUnBj3oAAAAJ\&hl=el\&oi=ao"
+scholar: "https://scholar.google.com/citations?user=UUnBj3oAAAAJ&hl=el&oi=ao"
 
 orcid: "https://orcid.org/my-orcid?orcid=0000-0001-8130-2104"
 

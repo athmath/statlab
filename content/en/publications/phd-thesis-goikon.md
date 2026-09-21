@@ -1,6 +1,6 @@
 ---
 type: phd_thesis
-year: 2026
+year: 2025
 
 authors:
   - goikon
