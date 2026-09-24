@@ -1,0 +1,201 @@
+{{ define "main" }}
+
+  {{ $category := .Params.category | default "seminar" }}
+  {{ $categoryClass := printf "news-category--%s" (replace $category "_" "-") }}
+
+  {{ $categoryLabel := "" }}
+
+  {{ if eq $category "research_talk" }}
+    {{ if eq .Site.Language.Lang "el" }}
+      {{ $categoryLabel = "Ερευνητική ομιλία" }}
+    {{ else }}
+      {{ $categoryLabel = "Research talk" }}
+    {{ end }}
+
+  {{ else if eq $category "seminar" }}
+    {{ if eq .Site.Language.Lang "el" }}
+      {{ $categoryLabel = "Σεμινάριο / ανακοίνωση" }}
+    {{ else }}
+      {{ $categoryLabel = "Seminar / announcement" }}
+    {{ end }}
+
+  {{ else if eq $category "phd_defense" }}
+    {{ if eq .Site.Language.Lang "el" }}
+      {{ $categoryLabel = "Υποστήριξη διδακτορικής διατριβής" }}
+    {{ else }}
+      {{ $categoryLabel = "PhD defense" }}
+    {{ end }}
+
+  {{ else if eq $category "msc_presentation" }}
+    {{ if eq .Site.Language.Lang "el" }}
+      {{ $categoryLabel = "Παρουσίαση μεταπτυχιακής εργασίας" }}
+    {{ else }}
+      {{ $categoryLabel = "MSc presentation" }}
+    {{ end }}
+  {{ end }}
+
+
+  {{ $attendance := .Params.attendance | default "in_person" }}
+  {{ $attendanceLabel := "" }}
+
+  {{ if eq $attendance "online" }}
+    {{ if eq .Site.Language.Lang "el" }}
+      {{ $attendanceLabel = "Διαδικτυακά" }}
+    {{ else }}
+      {{ $attendanceLabel = "Online" }}
+    {{ end }}
+
+  {{ else if eq $attendance "hybrid" }}
+    {{ if eq .Site.Language.Lang "el" }}
+      {{ $attendanceLabel = "Υβριδικά" }}
+    {{ else }}
+      {{ $attendanceLabel = "Hybrid" }}
+    {{ end }}
+
+  {{ else }}
+    {{ if eq .Site.Language.Lang "el" }}
+      {{ $attendanceLabel = "Με φυσική παρουσία" }}
+    {{ else }}
+      {{ $attendanceLabel = "In person" }}
+    {{ end }}
+  {{ end }}
+
+
+  {{ $eventDate := time.AsTime .Params.event_date }}
+
+
+  <article class="{{ $categoryClass }}">
+
+    <header
+      id="single_header"
+      class="mt-5 max-w-prose border-t-4 pt-6"
+      style="border-color: var(--news-accent);"
+    >
+
+      <div class="mb-5 flex flex-wrap gap-2">
+
+        <span class="news-category-badge">
+          {{ $categoryLabel }}
+        </span>
+
+        <span class="news-attendance-badge">
+          {{ $attendanceLabel }}
+        </span>
+
+      </div>
+
+
+      <h1 class="mt-0 text-3xl font-bold leading-tight text-neutral-900 dark:text-neutral">
+        {{ .Title | emojify }}
+      </h1>
+
+
+      <p class="mt-4 text-base font-semibold text-neutral-500 dark:text-neutral-400">
+        <time datetime="{{ $eventDate.Format "2006-01-02T15:04:05Z07:00" }}">
+          {{ $eventDate | time.Format ":date_long" }}
+          <span aria-hidden="true">·</span>
+          {{ $eventDate | time.Format "15:04" }}
+        </time>
+      </p>
+
+
+      {{ if or .Params.presenter .Params.affiliation }}
+
+        <div class="mt-6">
+
+          {{ with .Params.presenter }}
+            <p class="text-lg font-semibold">
+              {{ . }}
+            </p>
+          {{ end }}
+
+          {{ with .Params.affiliation }}
+            <p class="mt-1 text-neutral-500 dark:text-neutral-400">
+              {{ . }}
+            </p>
+          {{ end }}
+
+        </div>
+
+      {{ end }}
+
+
+      <div class="mt-6 space-y-2 text-sm text-neutral-600 dark:text-neutral-300">
+
+        {{ with .Params.venue }}
+          <p>
+            <strong>
+              {{ if eq $.Site.Language.Lang "el" }}
+                Χώρος:
+              {{ else }}
+                Venue:
+              {{ end }}
+            </strong>
+            {{ . }}
+          </p>
+        {{ end }}
+
+
+        {{ if or (eq $attendance "online") (eq $attendance "hybrid") }}
+
+          {{ with .Params.online_url }}
+            <p>
+              <strong>
+                {{ if eq $.Site.Language.Lang "el" }}
+                  Σύνδεσμος:
+                {{ else }}
+                  Online:
+                {{ end }}
+              </strong>
+
+              <a
+                href="{{ . }}"
+                class="underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ . }}
+              </a>
+            </p>
+          {{ end }}
+
+        {{ end }}
+
+
+        {{ with .Params.event_link }}
+          <p>
+            <a
+              href="{{ . }}"
+              class="font-semibold underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ if eq $.Site.Language.Lang "el" }}
+                Περισσότερες πληροφορίες
+              {{ else }}
+                More information
+              {{ end }}
+            </a>
+          </p>
+        {{ end }}
+
+      </div>
+
+    </header>
+
+
+    <section class="mt-10 flex flex-col max-w-full prose dark:prose-invert lg:flex-row">
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+
+        <div class="article-content max-w-prose mb-20">
+          {{ .Content }}
+        </div>
+
+      </div>
+
+    </section>
+
+  </article>
+
+{{ end }}
