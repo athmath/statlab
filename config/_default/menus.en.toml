@@ -25,9 +25,9 @@ pageRef = "publications"
 weight = 50
 
 [[main]]
-identifier = "support"
-name = "Support"
-pageRef = "support"
+identifier = "collaborations"
+name = "Collaborations"
+pageRef = "collaborations"
 weight = 60
 
 [[main]]

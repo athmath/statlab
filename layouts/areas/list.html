@@ -1,16 +1,47 @@
 {{ define "main" }}
 
-<article class="prose dark:prose-invert max-w-none">
+{{ $areas := .RegularPages.ByWeight }}
 
-  <h1>{{ .Title }}</h1>
+<article class="mx-auto max-w-5xl">
+  <div class="prose prose-neutral dark:prose-invert max-w-none">
+    <h1>{{ .Title }}</h1>
 
-  {{ .Content }}
+    {{ .Content }}
+  </div>
 
-  {{ range .RegularPages.ByWeight }}
+  <nav
+    class="research-index-nav not-prose text-sm text-neutral-600 dark:text-neutral-400"
+    aria-label="{{ if eq .Site.Language.Lang "el" }}Πλοήγηση έρευνας{{ else }}Research navigation{{ end }}">
+    <div>
+      <div class="research-index-nav-row">
+        <a href="#research-areas" class="research-index-nav-label font-semibold hover:underline">
+          {{ if eq .Site.Language.Lang "el" }}Ερευνητικές Περιοχές{{ else }}Research Areas{{ end }}
+        </a>
+        <ul class="research-index-nav-links" role="list">
+          {{ range $areas }}
+            <li>
+              <a href="#research-area-{{ .File.ContentBaseName }}" class="hover:underline">
+                {{ .Title }}
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
 
-    {{ partial "research-panel.html" . }}
+      <div class="research-index-nav-row">
+        <span class="research-index-nav-label font-semibold">
+          {{ if eq .Site.Language.Lang "el" }}Ερευνητικά Έργα{{ else }}Projects{{ end }}
+        </span>
+        {{ partial "project-view-links.html" . }}
+      </div>
+    </div>
+  </nav>
 
-  {{ end }}
+  <div id="research-areas" class="research-area-anchor prose prose-neutral dark:prose-invert max-w-none">
+    {{ range $areas }}
+      {{ partial "research-panel.html" . }}
+    {{ end }}
+  </div>
 
 </article>
 

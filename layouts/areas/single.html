@@ -4,6 +4,7 @@
 {{ $projects := where .Site.RegularPages "Section" "projects" }}
 {{ $projects = where $projects "Params.status" "current" }}
 {{ $projects = where $projects "Params.research_areas" "intersect" (slice $areaID) }}
+{{ $projectsPage := .Site.GetPage (printf "/research_areas/%s" $areaID) }}
 
 <article class="mx-auto max-w-5xl">
 
@@ -33,7 +34,7 @@
     </a>
     {{ if gt (len $projects) 0 }}
       <span class="mx-2" aria-hidden="true">·</span>
-      <a href="#current-projects" class="hover:underline">
+      <a href="{{ $projectsPage.RelPermalink }}" class="hover:underline">
         {{ if eq .Site.Language.Lang "el" }}Τρέχοντα Ερευνητικά Έργα{{ else }}Current Research Projects{{ end }}
       </a>
     {{ end }}
@@ -41,22 +42,6 @@
 
   <div class="prose prose-neutral dark:prose-invert max-w-none">
     {{ .Content }}
-
-    {{ if gt (len $projects) 0 }}
-      <section id="current-projects">
-        <h2>
-          {{ if eq .Site.Language.Lang "el" }}
-            Τρέχοντα Ερευνητικά Έργα
-          {{ else }}
-            Current Research Projects
-          {{ end }}
-        </h2>
-
-        {{ range $projects.ByWeight }}
-          {{ partial "project-summary.html" . }}
-        {{ end }}
-      </section>
-    {{ end }}
   </div>
 
 </article>

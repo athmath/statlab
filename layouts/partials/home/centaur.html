@@ -2,49 +2,8 @@
      CENTAUR Homepage
      ============================================================ */}}
 
-{{/* Full-width hero */}}
+{{/* Logo and research-area directory */}}
 {{ partial "home/hero.html" . }}
 
-<style>
-  .centaur-home-layout {
-    max-width: 72rem;
-    margin: 0 auto;
-    padding: 3rem 1.5rem;
-  }
-
-  .centaur-home-main {
-    min-width: 0;
-  }
-
-  @media (min-width: 1024px) {
-    .centaur-home-layout {
-      display: grid;
-      grid-template-columns: 20rem minmax(0, 1fr);
-      gap: 2.5rem;
-      align-items: start;
-    }
-  }
-</style>
-
-<div class="centaur-home-layout">
-
-  {{/* Left column: news, seminars, and announcements */}}
-  <aside class="centaur-home-sidebar">
-    {{ partial "home/seminars.html" . }}
-  </aside>
-
-  {{/* Right column: main institutional content */}}
-  <main class="centaur-home-main">
-
-    {{/* People */}}
-    {{ partial "home/people.html" . }}
-
-    {{/* Research */}}
-    {{ partial "home/research.html" . }}
-
-    {{/* Recent Publications */}}
-    {{ partial "home/publications.html" . }}
-
-  </main>
-
-</div>
+{{/* Latest news and announcements */}}
+{{ partial "home/news.html" . }}

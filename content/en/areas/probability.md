@@ -1,7 +1,7 @@
 ---
 title: "Probability"
 description: "Probability theory, stochastic models and applications to complex systems."
-weight: 10
+weight: 50
 icon: "chart-bar"
 color: "blue"
 ---

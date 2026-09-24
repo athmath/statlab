@@ -9,11 +9,14 @@ description: >-
   εξαρτήσεις, παρέχοντας παράλληλα αξιόπιστες προβλέψεις και ποσοτικοποίηση της
   αβεβαιότητας.
 team: >-
-  **Φωτεινή Κάμπα** και **Λουκία Μελιγκοτσίδου**
+  **Φωτεινή Καμπά** και **Λουκία Μελιγκοτσίδου**
 status: current
 weight: 40
 research_areas:
   - statistics
   - machine-learning
   - data-science
+members:
+  - meligkotsidou
+  - kampa
 ---

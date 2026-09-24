@@ -17,4 +17,8 @@ weight: 60
 research_areas:
   - statistics
   - data-science
+members:
+  - meligkotsidou
+  - tsetso
+  - markoulidakis
 ---

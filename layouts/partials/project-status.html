@@ -1,0 +1,40 @@
+{{ $project := . }}
+{{ $status := $project.Params.status | default "" }}
+{{ $fundingStatus := "" }}
+{{ with $project.Params.funding }}
+  {{ with .status }}{{ $fundingStatus = . }}{{ end }}
+{{ end }}
+
+{{ if or $status $project.Params.open_for_collaboration (in (slice "funded" "seeking") $fundingStatus) }}
+  <div class="mt-3 mb-0 flex flex-wrap gap-2 text-sm text-neutral-600 dark:text-neutral-400">
+    {{ if eq $status "current" }}
+      <span class="inline-block rounded-md border border-neutral-300 px-2 py-0.5 dark:border-neutral-600">
+        {{ if eq $project.Site.Language.Lang "el" }}Τρέχον{{ else }}Current{{ end }}
+      </span>
+    {{ else if eq $status "completed" }}
+      <span class="inline-block rounded-md border border-neutral-300 px-2 py-0.5 dark:border-neutral-600">
+        {{ if eq $project.Site.Language.Lang "el" }}Ολοκληρωμένο{{ else }}Completed{{ end }}
+      </span>
+    {{ else if eq $status "proposed" }}
+      <span class="inline-block rounded-md border border-neutral-300 px-2 py-0.5 dark:border-neutral-600">
+        {{ if eq $project.Site.Language.Lang "el" }}Προτεινόμενο{{ else }}Proposed{{ end }}
+      </span>
+    {{ end }}
+
+    {{ if $project.Params.open_for_collaboration }}
+      <span class="inline-block rounded-md border border-neutral-300 px-2 py-0.5 dark:border-neutral-600">
+        {{ if eq $project.Site.Language.Lang "el" }}Ανοιχτό για συνεργασία{{ else }}Open for collaboration{{ end }}
+      </span>
+    {{ end }}
+
+    {{ if eq $fundingStatus "funded" }}
+      <span class="inline-block rounded-md border border-neutral-300 px-2 py-0.5 dark:border-neutral-600">
+        {{ if eq $project.Site.Language.Lang "el" }}Χρηματοδοτούμενο{{ else }}Funded{{ end }}
+      </span>
+    {{ else if eq $fundingStatus "seeking" }}
+      <span class="inline-block rounded-md border border-neutral-300 px-2 py-0.5 dark:border-neutral-600">
+        {{ if eq $project.Site.Language.Lang "el" }}Αναζητεί χρηματοδότηση{{ else }}Seeking funding{{ end }}
+      </span>
+    {{ end }}
+  </div>
+{{ end }}

@@ -1,0 +1,126 @@
+{{ define "main" }}
+
+  <article class="max-w-prose mx-auto">
+
+    <header class="mb-8">
+      <h1 class="text-4xl font-extrabold">
+        {{ .Title }}
+      </h1>
+    </header>
+
+    {{/* Canonical publication records come from English content */}}
+    {{ $englishSite := index (where site.Sites "Language.Lang" "en") 0 }}
+
+    {{/* Get only actual publication records of the requested type */}}
+    {{ $allPublications := where $englishSite.RegularPages "Section" "publications" }}
+    {{ $publications := where $allPublications "Params.type" .Params.publication_type }}
+
+    {{/* Collect years */}}
+    {{ $years := slice }}
+
+    {{ range $publications }}
+      {{ with .Params.year }}
+        {{ $years = $years | append . }}
+      {{ end }}
+    {{ end }}
+
+    {{ $years = uniq $years }}
+    {{ $years = sort $years "value" "desc" }}
+
+    {{/* Year navigation */}}
+    {{ if gt (len $years) 0 }}
+      <nav class="mb-10 text-sm">
+        {{ range $i, $year := $years }}
+          {{ if $i }}
+            <span class="mx-2">·</span>
+          {{ end }}
+
+          <a href="#year-{{ $year }}">
+            {{ $year }}
+          </a>
+        {{ end }}
+      </nav>
+    {{ end }}
+
+    {{/* Publications grouped by year */}}
+    {{ range $year := $years }}
+
+      <section id="year-{{ $year }}" class="mb-10">
+
+        <h2 class="text-2xl font-semibold mb-4">
+          {{ $year }}
+        </h2>
+
+        {{ $yearPublications := where $publications "Params.year" $year }}
+
+        {{/* Sort by first author identifier */}}
+        {{ $sortable := slice }}
+
+        {{ range $publication := $yearPublications }}
+
+          {{ $sortAuthor := "" }}
+
+          {{ with $publication.Params.authors }}
+            {{ if gt (len .) 0 }}
+              {{ $sortAuthor = index . 0 }}
+            {{ end }}
+          {{ end }}
+
+          {{ $sortable = $sortable | append
+              (dict
+                "sortAuthor" $sortAuthor
+                "page" $publication
+              )
+          }}
+
+        {{ end }}
+
+        {{ $sortable = sort $sortable "sortAuthor" "asc" }}
+
+        <div class="space-y-5">
+
+          {{ range $item := $sortable }}
+
+            {{ $publication := $item.page }}
+
+            <div class="publication-item">
+
+              <p>
+                {{ $publication.Params.citation | markdownify }}
+              </p>
+
+              {{ if or $publication.Params.doi $publication.Params.link }}
+                <p class="text-sm mt-1">
+
+                  {{ with $publication.Params.doi }}
+                    <a href="{{ . }}" target="_blank" rel="noopener">
+                      DOI
+                    </a>
+                  {{ end }}
+
+                  {{ if and $publication.Params.doi $publication.Params.link }}
+                    <span class="mx-1">·</span>
+                  {{ end }}
+
+                  {{ with $publication.Params.link }}
+                    <a href="{{ . }}" target="_blank" rel="noopener">
+                      Link
+                    </a>
+                  {{ end }}
+
+                </p>
+              {{ end }}
+
+            </div>
+
+          {{ end }}
+
+        </div>
+
+      </section>
+
+    {{ end }}
+
+  </article>
+
+{{ end }}

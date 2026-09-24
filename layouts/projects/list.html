@@ -1,0 +1,50 @@
+{{ define "main" }}
+
+{{ $view := .Params.project_view | default "all" }}
+{{ $projects := where .Site.RegularPages "Section" "projects" }}
+
+{{ if eq $view "current" }}
+  {{ $projects = where $projects "Params.status" "current" }}
+{{ else if eq $view "available" }}
+  {{ $projects = where $projects "Params.open_for_collaboration" true }}
+{{ else if eq $view "funded" }}
+  {{ $projects = where $projects "Params.funding.status" "funded" }}
+{{ else if eq $view "completed" }}
+  {{ $projects = where $projects "Params.status" "completed" }}
+{{ end }}
+
+<article class="mx-auto max-w-5xl">
+  <header class="mb-8">
+    <h1 class="text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      {{ .Title }}
+    </h1>
+
+    {{ with .Params.description }}
+      <p class="mt-5 text-xl text-neutral-600 dark:text-neutral-400 max-w-4xl">
+        {{ . }}
+      </p>
+    {{ end }}
+  </header>
+
+  <nav
+    class="mb-10 text-sm text-neutral-600 dark:text-neutral-400"
+    aria-label="{{ if eq .Site.Language.Lang "el" }}Κατηγορίες ερευνητικών έργων{{ else }}Research project views{{ end }}">
+    {{ partial "project-view-links.html" . }}
+  </nav>
+
+  <div class="prose prose-neutral dark:prose-invert max-w-none">
+    {{ with .Content }}{{ . }}{{ end }}
+
+    {{ if gt (len $projects) 0 }}
+      {{ range $projects.ByWeight }}
+        {{ partial "project-summary.html" . }}
+      {{ end }}
+    {{ else }}
+      <p class="text-neutral-600 dark:text-neutral-400">
+        {{ if eq .Site.Language.Lang "el" }}Δεν υπάρχουν ερευνητικά έργα σε αυτή την κατηγορία.{{ else }}There are no research projects in this category.{{ end }}
+      </p>
+    {{ end }}
+  </div>
+</article>
+
+{{ end }}

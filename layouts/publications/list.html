@@ -1,0 +1,47 @@
+{{ define "main" }}
+
+  <article class="max-w-prose mx-auto">
+
+    <header class="mb-8">
+      <h1 class="text-4xl font-extrabold">
+        {{ .Title }}
+      </h1>
+    </header>
+
+    <div class="space-y-4">
+
+      <p>
+        <a href="{{ "publications/research-papers/" | relLangURL }}">
+          {{ if eq .Site.Language.Lang "el" }}
+            Ερευνητικές Δημοσιεύσεις
+          {{ else }}
+            Research Papers
+          {{ end }}
+        </a>
+      </p>
+
+      <p>
+        <a href="{{ "publications/phd-theses/" | relLangURL }}">
+          {{ if eq .Site.Language.Lang "el" }}
+            Διδακτορικές Διατριβές
+          {{ else }}
+            PhD Dissertations
+          {{ end }}
+        </a>
+      </p>
+
+      <p>
+        <a href="{{ "publications/msc-theses/" | relLangURL }}">
+          {{ if eq .Site.Language.Lang "el" }}
+            Μεταπτυχιακές Διπλωματικές Εργασίες
+          {{ else }}
+            MSc Theses
+          {{ end }}
+        </a>
+      </p>
+
+    </div>
+
+  </article>
+
+{{ end }}

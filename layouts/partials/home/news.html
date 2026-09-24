@@ -1,0 +1,41 @@
+{{ $newsPage := .Site.GetPage "/news" }}
+{{ $newsItems := where .Site.RegularPages "Section" "news" }}
+{{ $newsItems = first 4 $newsItems.ByDate.Reverse }}
+
+<section id="news" class="max-w-6xl mx-auto px-6  pb-24" aria-labelledby="news-heading">
+  <div class="border-t border-neutral-300 dark:border-neutral-700 pt-9">
+    <div class="mb-8 flex items-baseline justify-between gap-6">
+      <h2 id="news-heading" class="text-2xl font-bold">
+        {{ if eq .Site.Language.Lang "el" }}Νέα και ανακοινώσεις{{ else }}News and announcements{{ end }}
+      </h2>
+
+      {{ with $newsPage }}
+        <a href="{{ .RelPermalink }}" class="shrink-0 text-sm font-semibold hover:underline">
+          {{ if eq $.Site.Language.Lang "el" }}Όλα τα νέα{{ else }}All news{{ end }}
+        </a>
+      {{ end }}
+    </div>
+
+    {{ if gt (len $newsItems) 0 }}
+      <div class="divide-y divide-neutral-200 dark:divide-neutral-800">
+        {{ range $newsItems }}
+          <article class="py-6 first:pt-0">
+            <p class="mb-2 text-sm text-neutral-500 dark:text-neutral-400">
+              {{ .Date | time.Format ":date_long" }}
+            </p>
+            <h3 class="text-xl font-semibold">
+              <a href="{{ .RelPermalink }}" class="hover:underline">{{ .Title }}</a>
+            </h3>
+            {{ with .Params.description }}
+              <p class="mt-2 text-neutral-600 dark:text-neutral-400">{{ . }}</p>
+            {{ end }}
+          </article>
+        {{ end }}
+      </div>
+    {{ else }}
+      <p class="text-neutral-600 dark:text-neutral-400">
+        {{ if eq .Site.Language.Lang "el" }}Τα νέα και οι ανακοινώσεις του εργαστηρίου θα εμφανίζονται εδώ.{{ else }}Laboratory news and announcements will appear here.{{ end }}
+      </p>
+    {{ end }}
+  </div>
+</section>

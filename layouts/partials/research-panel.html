@@ -1,9 +1,11 @@
-<h2>
-  <a href="{{ .RelPermalink }}">
-    {{ .Title }}
-  </a>
-</h2>
+<section id="research-area-{{ .File.ContentBaseName }}" class="research-area-anchor">
+  <h2>
+    <a href="{{ .RelPermalink }}">
+      {{ .Title }}
+    </a>
+  </h2>
 
-<p>{{ .Description }}</p>
+  <p>{{ .Description }}</p>
+</section>
 
 <hr>

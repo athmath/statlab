@@ -1,40 +1,34 @@
-<article class="max-w-6xl mx-auto py-24 px-6 text-center">
+{{ $areasPage := .Site.GetPage "/areas" }}
+
+<article class="home-hero max-w-6xl mx-auto pt-20 pb-24 md:pb-28 px-6">
+
+  <h1 class="sr-only">{{ .Site.Title }}</h1>
 
   <!-- Logo -->
- <!-- Logo -->
-<img
-  src="{{ relURL .Site.Params.logo }}"
-  alt="CENTAUR"
-  class="mx-auto max-w-3xl w-full mb-16">
+  <img
+    src="{{ relURL .Site.Params.logo }}"
+    alt="CENTAUR"
+    class="home-logo mx-auto max-w-3xl w-full">
 
-  <!-- Quick navigation -->
-  <div class="flex flex-wrap justify-center gap-4">
+  {{ with .Content }}
+    <div class="home-intro mx-auto max-w-3xl mb-12">
+      {{ . }}
+    </div>
+  {{ end }}
+    
 
-    <a href="#research"
-       class="rounded-full border px-6 py-3 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition">
-      Research
-    </a>
-
-    <a href="#people"
-       class="rounded-full border px-6 py-3 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition">
-      People
-    </a>
-
-    <a href="#publications"
-       class="rounded-full border px-6 py-3 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition">
-      Publications
-    </a>
-
-    <a href="#seminars"
-       class="rounded-full border px-6 py-3 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition">
-      Seminars
-    </a>
-
-    <a href="#support"
-       class="rounded-full border px-6 py-3 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition">
-      Support
-    </a>
-
-  </div>
+  {{ with $areasPage }}
+    <nav
+      class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3"
+      aria-label="{{ if eq $.Site.Language.Lang "el" }}Ερευνητικές Περιοχές{{ else }}Research Areas{{ end }}">
+      {{ range .RegularPages.ByWeight }}
+        <a
+          href="{{ .RelPermalink }}"
+          class="flex min-h-20 items-center justify-center border border-neutral-300 px-5 py-4 text-center text-lg font-semibold text-neutral-900 no-underline transition-colors hover:bg-neutral-100 hover:underline dark:border-neutral-700 dark:text-neutral-100 dark:hover:bg-neutral-800">
+          {{ .Title }}
+        </a>
+      {{ end }}
+    </nav>
+  {{ end }}
 
 </article>

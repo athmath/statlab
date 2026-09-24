@@ -1,0 +1,42 @@
+{{ $project := . }}
+{{ $areas := slice }}
+{{ range $project.Params.research_areas }}
+  {{ with $project.Site.GetPage (printf "/areas/%s" .) }}
+    {{ $areas = $areas | append . }}
+  {{ end }}
+{{ end }}
+
+{{ $members := slice }}
+{{ range $project.Params.members }}
+  {{ with $project.Site.GetPage (printf "/people/%s" .) }}
+    {{ $members = $members | append . }}
+  {{ end }}
+{{ end }}
+
+{{ if or (gt (len $areas) 0) (gt (len $members) 0) }}
+  <div class="mt-3 mb-0 text-sm text-neutral-600 dark:text-neutral-400">
+    {{ if gt (len $areas) 0 }}
+      <p class="my-0">
+        <span class="font-semibold">
+          {{ if eq $project.Site.Language.Lang "el" }}Ερευνητικές Περιοχές:{{ else }}Research Areas:{{ end }}
+        </span>
+        {{ range $index, $area := $areas }}
+          {{ if gt $index 0 }}<span aria-hidden="true">, </span>{{ end }}
+          <a href="{{ $area.RelPermalink }}" class="hover:underline">{{ $area.Title }}</a>
+        {{ end }}
+      </p>
+    {{ end }}
+
+    {{ if gt (len $members) 0 }}
+      <p class="my-0">
+        <span class="font-semibold">
+          {{ if eq $project.Site.Language.Lang "el" }}Μέλη:{{ else }}Members:{{ end }}
+        </span>
+        {{ range $index, $member := $members }}
+          {{ if gt $index 0 }}<span aria-hidden="true">, </span>{{ end }}
+          <a href="{{ $member.RelPermalink }}" class="hover:underline">{{ $member.Title }}</a>
+        {{ end }}
+      </p>
+    {{ end }}
+  </div>
+{{ end }}

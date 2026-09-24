@@ -51,15 +51,15 @@ Objectives:
 
 ---
 
-## M3 – Hero Section
+## M3 – Homepage Design
 
-Status: Planned
+Status: In progress
 
 Objectives:
 
-* Update navigation chips
-* Improve hero buttons
-* Finalize introductory text
+* Replace the section-navigation chips with links to individual research areas
+* Use a simple, non-pill treatment for the research-area links
+* Keep the homepage single-column and retain only the News preview below them
 
 ---
 

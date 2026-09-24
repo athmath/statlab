@@ -13,6 +13,10 @@
     </p>
   {{ end }}
 
+  {{ partial "project-status.html" . }}
+
+  {{ partial "project-associations.html" . }}
+
   {{ with .Params.team }}
     <p class="mt-3 mb-0">
       {{ $project.RenderString (dict "display" "inline") . }}

@@ -5,5 +5,8 @@ status: current
 weight: 10
 research_areas:
   - operations-research
-  - reinforcement-learning
+  - machine-learning
+members:
+ - bekios
+ - burnetas
 ---

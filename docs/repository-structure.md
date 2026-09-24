@@ -58,6 +58,7 @@ statlab/
 ├── i18n/                    Optional interface translation strings
 ├── layouts/                 Project templates and theme overrides
 │   ├── areas/               Research-area list and detail templates
+│   ├── research_areas/      Generated area-specific project pages
 │   ├── people/              People list and profile templates
 │   ├── projects/             Research-project detail templates
 │   └── partials/            Reusable presentation components
@@ -99,7 +100,7 @@ copied unchanged should go in `static/` instead.
 Contains the site's global configuration, divided by responsibility:
 
 - `hugo.toml` defines the base URL, default language, outputs, taxonomies,
-  pagination, and other Hugo-wide behaviour.
+  project-page permalinks, pagination, and other Hugo-wide behaviour.
 - `languages.el.toml` and `languages.en.toml` define language-specific site
   settings.
 - `menus.el.toml` and `menus.en.toml` define navigation independently for each
@@ -135,10 +136,9 @@ This folder owns **editorial design and information hierarchy**: what the site
 says, which section a page belongs to, and how pages are ordered. Greek and
 English files are separate editorial sources, not automatic translations.
 
-#### Frozen research-area and project structure
+#### Research-area and project structure
 
-The Research Areas/Projects structure is currently considered stable. Each
-language has parallel `areas/` and `projects/` directories:
+Each language has parallel `areas/` and `projects/` directories:
 
 ```text
 content/
@@ -152,6 +152,10 @@ content/
 │   │   └── data-science.md
 │   └── projects/
 │       ├── _index.md
+│       ├── current/_index.md
+│       ├── available/_index.md
+│       ├── funded/_index.md
+│       ├── completed/_index.md
 │       └── project-slug.md
 └── el/
     ├── areas/
@@ -163,6 +167,10 @@ content/
     │   └── data-science.md
     └── projects/
         ├── _index.md
+        ├── current/_index.md
+        ├── available/_index.md
+        ├── funded/_index.md
+        ├── completed/_index.md
         └── project-slug.md
 ```
 
@@ -182,8 +190,9 @@ language-independent anchors so that the page navigation remains reliable:
 
 The corresponding Greek headings use the same `#overview` and
 `#research-themes` identifiers. The Current Research Projects navigation item
-and section appear only when the area has at least one matching current
-project.
+appears only when the area has at least one matching current project. It opens
+a separate page at `/areas/<area-id>/current-projects/`; projects are not
+embedded in the research-area overview.
 
 Each project is stored once per language under `projects/`. A typical project
 file begins:
@@ -192,30 +201,90 @@ file begins:
 ---
 title: "Project title"
 description: "A short description with an optional [link](https://example.com)."
-team: "**Lab Member**, in collaboration with External Collaborator from Institution."
+team: "In collaboration with External Collaborator from Institution."
 status: current
+open_for_collaboration: true
 weight: 10
 research_areas:
   - operations-research
   - data-science
+members:
+  - burnetas
+funding:
+  status: funded
+  funder: "Funding organization"
+  programme: "Programme or grant name"
+  period: "2025–2028"
+  url: "https://example.org/grant"
 ---
 ```
 
+Project discovery uses separate fields because lifecycle, collaboration, and
+funding can overlap:
+
+- `status` describes the project's lifecycle. Supported values are `current`,
+  `completed`, and `proposed`.
+- `open_for_collaboration: true` advertises that the project welcomes new
+  collaborators. Omit the field, or set it to `false`, when the project should
+  not be advertised in that view.
+- `funding.status` records `funded`, `seeking`, or `unfunded`. The remaining
+  funding fields are optional and are displayed only when supplied. Omit the
+  entire `funding` block when the funding position is not known.
+
+These values remain in English in both language versions because templates use
+them as stable identifiers; only titles, descriptions, and other visible prose
+are translated. The project archetype at `archetypes/projects.md` contains a
+ready-to-edit version of this structure.
+
+The main Research page links to five automatically generated project views:
+
+- All Projects includes every published project file;
+- Current Projects selects `status: current`;
+- Open for Collaboration selects `open_for_collaboration: true`;
+- Funded Projects selects `funding.status: funded`;
+- Completed Projects selects `status: completed`.
+
+A single project may appear in several views. For example, a current funded
+project that is open for collaboration appears in All, Current, Open for
+Collaboration, and Funded. The view pages contain no copied project content;
+their `_index.md` files only define the localized page title and filter.
+Navigation links to Current, Open for Collaboration, Funded, and Completed are
+shown only when the corresponding view contains at least one project. A hidden
+link appears automatically on the next build as soon as a project matches it.
+
 The `research_areas` values refer to area filenames, not translated titles. A
 project can list any number of areas and is added automatically to every
-matching area page. Unknown identifiers are ignored without causing a build
-error. If a matching area file is created later, the project appears there
-automatically on the next build. Only projects with `status: current` appear in
-the Current Research Projects sections.
+matching area's Current Research Projects page. Unknown identifiers are ignored
+by association links without causing a build error. If a matching area file is
+created later, its link appears automatically on the next build. Area-specific
+Current Research Projects pages continue to show only projects with
+`status: current`; completed projects remain discoverable through the global
+Completed Projects view.
 
-The optional `team` field is a Markdown-enabled prose line shown immediately
-below the project description without a visible label. Lab members can be
-emphasized manually with Markdown bold text while collaborators and affiliations
-remain ordinary prose. It deliberately does not link projects to People records.
+The `members` values refer to filenames under `content/<language>/people/`, in
+the same way that `research_areas` values refer to area filenames. A project can
+list one or more member identifiers. The website resolves those identifiers to
+the translated People pages and uses their titles and URLs automatically.
+Unknown member identifiers are ignored until matching People pages exist.
 
-Individual project pages list and link their existing research areas. Unknown
-or not-yet-created areas remain hidden until the corresponding area page
-exists. Short project descriptions and team lines support inline Markdown.
+Each research area's Current Research Projects page is generated from the
+`research_areas` taxonomy. It derives its member selector by collecting the
+`members` identifiers from the matching current projects; there is no member
+list in an area file, template, or data file to keep synchronized. Initially
+only that selector is visible. Selecting a member reveals only that member's
+projects in the current area, rendered with the shared project-summary partial.
+The project files are therefore the single source of truth for both kinds of
+association.
+
+The optional `team` field is a Markdown-enabled descriptive line shown below the
+project metadata and may mention collaborators and affiliations. It does not
+define member associations or links; use `members` for every CENTAUR member who
+must be associated with the project.
+
+Project summaries and individual project pages list and link both their existing
+research areas and members. Unknown or not-yet-created identifiers remain
+hidden until the corresponding area or People page exists. Short project
+descriptions and team lines support inline Markdown.
 
 ### `data/`
 
@@ -252,16 +321,21 @@ template from Blowfish without modifying the theme submodule.
 
 - `layouts/areas/list.html` controls the research-area listing.
 - `layouts/areas/single.html` controls individual research-area pages.
+- `layouts/research_areas/term.html` controls each area's automatically generated
+  Current Research Projects page and its member-based project browser.
 - `layouts/projects/single.html` controls individual project pages and links
-  each project back to its existing research areas.
+  each project to its existing research areas and members.
 - `layouts/people/list.html` groups and displays people.
 - `layouts/people/single.html` controls individual profile pages.
 - `layouts/partials/research-panel.html` is a reusable research-area component.
-- `layouts/partials/project-summary.html` renders projects within research-area
-  pages, including Markdown links in short descriptions.
-- `layouts/partials/home/` contains the components used to assemble the
-  homepage, including the hero, people, research, seminars, publications, and
-  support sections.
+- `layouts/partials/project-summary.html` renders a project consistently in the
+  member-filtered project browser.
+- `layouts/partials/project-associations.html` resolves and links a project's
+  research-area and member identifiers for summaries and project pages.
+- `layouts/partials/home/` contains the homepage components. The active
+  composition uses the hero for the logo and research-area directory, followed
+  by the news section. Older section partials remain available but are not
+  currently included on the homepage.
 
 This folder owns **structural and component design**: which fields are shown,
 their HTML hierarchy, and how reusable page sections are composed. Broad visual
@@ -322,16 +396,16 @@ For example, a research-area page gets its title and description from
 shared visual foundation from Blowfish, and global behaviour from
 `config/_default/`.
 
-Project associations follow this flow:
+Project associations and area-specific member filtering follow this flow:
 
 ```text
-project research_areas identifiers
-              |
-              v
-matching area filenames in the same language
-              |
-              v
-automatic project summaries on each matching area page
+project research_areas + members identifiers
+                  |
+                  v
+matching area and People filenames in the same language
+                  |
+                  v
+automatic area project page + derived member selector
 ```
 
 ## Change-placement examples
@@ -345,8 +419,9 @@ automatic project summaries on each matching area page
 - Add a research area: create matching Markdown files under the English and
   Greek `areas/` directories and assign their ordering weights.
 - Add a project: create matching Markdown files under the English and Greek
-  `projects/` directories and list the relevant area filename identifiers in
-  `research_areas`.
+  `projects/` directories and list the relevant area and People filename
+  identifiers in `research_areas` and `members`. Do not add the project or its
+  members to an area file separately.
 - Add a homepage section: create or update a partial under
   `layouts/partials/home/` and include it from the homepage composition.
 - Change colors or spacing across the site: use configuration where Blowfish
