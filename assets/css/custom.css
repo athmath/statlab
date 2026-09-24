@@ -3,95 +3,187 @@
    ========================================================== */
 
 .people-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
-    padding: 2rem 0;
-    border-bottom: 1px solid rgb(229 229 229);
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgb(229 229 229);
 }
 
 .people-photo {
-    flex: 0 0 112px;
-    width: 112px;
-    height: 112px;
+  flex: 0 0 112px;
+  width: 112px;
+  height: 112px;
 }
 
 .people-photo img {
-    display: block;
-    width: 112px;
-    height: 112px;
-    object-fit: cover;
+  display: block;
+  width: 112px;
+  height: 112px;
+  object-fit: cover;
 }
 
 .people-info {
-    flex: 1;
-    min-width: 0;
+  flex: 1;
+  min-width: 0;
 }
+
 
 /* ==========================================================
    RESEARCH NAVIGATION
    ========================================================== */
 
 .research-index-nav {
-    margin: 2.5rem 0;
-    padding: 1.25rem 0;
-    border-top: 1px solid rgb(229 229 229);
-    border-bottom: 1px solid rgb(229 229 229);
+  margin: 2.5rem 0;
+  padding: 1.25rem 0;
+  border-top: 1px solid rgb(229 229 229);
+  border-bottom: 1px solid rgb(229 229 229);
 }
 
 .dark .research-index-nav {
-    border-color: rgb(64 64 64);
+  border-color: rgb(64 64 64);
 }
 
 .research-index-nav-row + .research-index-nav-row {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .research-index-nav-label {
-    display: block;
-    margin-bottom: 0.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
 .research-index-nav-links,
 .project-view-links {
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 1.25rem;
-    row-gap: 0.5rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1.25rem;
+  row-gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .research-area-anchor {
-    scroll-margin-top: 6rem;
+  scroll-margin-top: 6rem;
 }
 
 @media (min-width: 640px) {
-    .research-index-nav-row {
-        display: flex;
-        align-items: baseline;
-        gap: 1.25rem;
-    }
+  .research-index-nav-row {
+    display: flex;
+    align-items: baseline;
+    gap: 1.25rem;
+  }
 
-    .research-index-nav-label {
-        flex: 0 0 10rem;
-        margin-bottom: 0;
-    }
+  .research-index-nav-label {
+    flex: 0 0 10rem;
+    margin-bottom: 0;
+  }
 }
+
 
 /* ==========================================================
    HOMEPAGE
    ========================================================== */
 
 .home-hero {
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
 }
 
 .home-intro {
-    text-align: justify;
+  text-align: justify;
 }
 
 .home-logo {
-    margin-bottom: -2rem;
+  margin-bottom: -2rem;
+}
+
+
+/* ==========================================================
+   NEWS
+   ========================================================== */
+
+/*
+  Category colors are presentation details and therefore belong
+  here, rather than in the Markdown records.
+*/
+
+.news-category--research-talk {
+  --news-accent: #3159c9;
+  --news-soft: #e9eefe;
+}
+
+.news-category--seminar {
+  --news-accent: #087f75;
+  --news-soft: #e2f4f1;
+}
+
+.news-category--phd-defense {
+  --news-accent: #9a3550;
+  --news-soft: #fae9ee;
+}
+
+.news-category--msc-presentation {
+  --news-accent: #b76a08;
+  --news-soft: #fff0d5;
+}
+
+.news-category-badge,
+.news-attendance-badge {
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+  max-width: 100%;
+  border-radius: 9999px;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.news-category-badge {
+  color: var(--news-accent);
+  background: var(--news-soft);
+}
+
+.news-category-badge::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-right: 0.45rem;
+  border-radius: 2px;
+  background: currentColor;
+}
+
+.news-attendance-badge {
+  color: rgb(82 82 82);
+  background: rgb(245 245 245);
+  border: 1px solid rgb(212 212 212);
+}
+
+.dark .news-category--research-talk {
+  --news-accent: #a9bfff;
+  --news-soft: rgb(49 89 201 / 22%);
+}
+
+.dark .news-category--seminar {
+  --news-accent: #73d5ca;
+  --news-soft: rgb(8 127 117 / 22%);
+}
+
+.dark .news-category--phd-defense {
+  --news-accent: #f1a5b8;
+  --news-soft: rgb(154 53 80 / 24%);
+}
+
+.dark .news-category--msc-presentation {
+  --news-accent: #f5bf68;
+  --news-soft: rgb(183 106 8 / 24%);
+}
+
+.dark .news-attendance-badge {
+  color: rgb(212 212 212);
+  background: rgb(38 38 38);
+  border-color: rgb(82 82 82);
 }

@@ -6,7 +6,7 @@ given_name: "Στυλιανός"
 
 last_name: "Τζωρτζάκης"
 
-sort_name: "Tzortzakis, Stylianos" 
+sort_name: "Τζωρτζάκης, Στυλιανός" 
 
 category: phd
 
