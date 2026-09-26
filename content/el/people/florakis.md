@@ -6,7 +6,7 @@ last_name: "Φλωράκης"
 
 sort_name: "Φλωράκης, Κωνσταντίνος"
 
-category: 
+category: alumni
 
 position: Διδακτορικός φοιτητής
 

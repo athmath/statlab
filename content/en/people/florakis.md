@@ -6,7 +6,7 @@ last_name: "Florakis"
 
 sort_name: "Florakis, Konstantinos"
 
-category: 
+category: alumni
 
 position: PhD student
 
