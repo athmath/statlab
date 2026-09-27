@@ -20,7 +20,7 @@ email: "vpapageor@math.uoa.gr"
 
 website: "https://www.researchgate.net/profile/Vasileios-Papageorgiou-3"
 
-scholar: "https://scholar.google.com/citations?user=TvY44voAAAAJ\&hl=el"
+scholar: "https://scholar.google.com/citations?user=TvY44voAAAAJ&hl=el"
 
 orcid: "https://orcid.org/0000-0002-8131-3484"
 
