@@ -113,7 +113,8 @@
   --news-soft: #e9eefe;
 }
 
-.news-category--seminar {
+.news-category--seminar,
+.news-category--seminar-session {
   --news-accent: #087f75;
   --news-soft: #e2f4f1;
 }
@@ -126,6 +127,11 @@
 .news-category--msc-presentation {
   --news-accent: #b76a08;
   --news-soft: #fff0d5;
+}
+
+.news-kind--news {
+  --news-accent: #6d3bb8;
+  --news-soft: #f0e8fb;
 }
 
 .news-category-badge,
@@ -167,7 +173,8 @@
   --news-soft: rgb(49 89 201 / 22%);
 }
 
-.dark .news-category--seminar {
+.dark .news-category--seminar,
+.dark .news-category--seminar-session {
   --news-accent: #73d5ca;
   --news-soft: rgb(8 127 117 / 22%);
 }
@@ -180,6 +187,11 @@
 .dark .news-category--msc-presentation {
   --news-accent: #f5bf68;
   --news-soft: rgb(183 106 8 / 24%);
+}
+
+.dark .news-kind--news {
+  --news-accent: #d4b3ff;
+  --news-soft: rgb(109 59 184 / 25%);
 }
 
 .dark .news-attendance-badge {

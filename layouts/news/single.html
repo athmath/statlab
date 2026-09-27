@@ -1,38 +1,7 @@
 {{ define "main" }}
 
-  {{ $category := .Params.category | default "seminar" }}
-  {{ $categoryClass := printf "news-category--%s" (replace $category "_" "-") }}
-
-  {{ $categoryLabel := "" }}
-
-  {{ if eq $category "research_talk" }}
-    {{ if eq .Site.Language.Lang "el" }}
-      {{ $categoryLabel = "Ερευνητική ομιλία" }}
-    {{ else }}
-      {{ $categoryLabel = "Research talk" }}
-    {{ end }}
-
-  {{ else if eq $category "seminar" }}
-    {{ if eq .Site.Language.Lang "el" }}
-      {{ $categoryLabel = "Σεμινάριο / ανακοίνωση" }}
-    {{ else }}
-      {{ $categoryLabel = "Seminar / announcement" }}
-    {{ end }}
-
-  {{ else if eq $category "phd_defense" }}
-    {{ if eq .Site.Language.Lang "el" }}
-      {{ $categoryLabel = "Υποστήριξη διδακτορικής διατριβής" }}
-    {{ else }}
-      {{ $categoryLabel = "PhD defense" }}
-    {{ end }}
-
-  {{ else if eq $category "msc_presentation" }}
-    {{ if eq .Site.Language.Lang "el" }}
-      {{ $categoryLabel = "Παρουσίαση μεταπτυχιακής εργασίας" }}
-    {{ else }}
-      {{ $categoryLabel = "MSc presentation" }}
-    {{ end }}
-  {{ end }}
+  {{ $presentation := partial "news/presentation.html" . }}
+  {{ $isEvent := eq $presentation.kind "event" }}
 
 
   {{ $attendance := .Params.attendance | default "in_person" }}
@@ -61,10 +30,13 @@
   {{ end }}
 
 
-  {{ $eventDate := time.AsTime .Params.event_date }}
+  {{ $displayDate := .Date }}
+  {{ if and $isEvent .Params.event_date }}
+    {{ $displayDate = time.AsTime .Params.event_date }}
+  {{ end }}
 
 
-  <article class="{{ $categoryClass }}">
+  <article class="{{ $presentation.categoryClass }}">
 
     <header
       id="single_header"
@@ -75,12 +47,14 @@
       <div class="mb-5 flex flex-wrap gap-2">
 
         <span class="news-category-badge">
-          {{ $categoryLabel }}
+          {{ $presentation.categoryLabel }}
         </span>
 
-        <span class="news-attendance-badge">
-          {{ $attendanceLabel }}
-        </span>
+        {{ if $isEvent }}
+          <span class="news-attendance-badge">
+            {{ $attendanceLabel }}
+          </span>
+        {{ end }}
 
       </div>
 
@@ -91,15 +65,17 @@
 
 
       <p class="mt-4 text-base font-semibold text-neutral-500 dark:text-neutral-400">
-        <time datetime="{{ $eventDate.Format "2006-01-02T15:04:05Z07:00" }}">
-          {{ $eventDate | time.Format ":date_long" }}
-          <span aria-hidden="true">·</span>
-          {{ $eventDate | time.Format "15:04" }}
+        <time datetime="{{ $displayDate.Format "2006-01-02T15:04:05Z07:00" }}">
+          {{ $displayDate | time.Format ":date_long" }}
+          {{ if $isEvent }}
+            <span aria-hidden="true">·</span>
+            {{ $displayDate | time.Format "15:04" }}
+          {{ end }}
         </time>
       </p>
 
 
-      {{ if or .Params.presenter .Params.affiliation }}
+      {{ if and $isEvent (or .Params.presenter .Params.affiliation) }}
 
         <div class="mt-6">
 
@@ -120,7 +96,8 @@
       {{ end }}
 
 
-      <div class="mt-6 space-y-2 text-sm text-neutral-600 dark:text-neutral-300">
+      {{ if $isEvent }}
+        <div class="mt-6 space-y-2 text-sm text-neutral-600 dark:text-neutral-300">
 
         {{ with .Params.venue }}
           <p>
@@ -179,7 +156,8 @@
           </p>
         {{ end }}
 
-      </div>
+        </div>
+      {{ end }}
 
     </header>
 

@@ -9,7 +9,7 @@
     </header>
 
 
-    {{ $newsItems := sort .Pages "Params.event_date" "desc" }}
+    {{ $newsItems := sort .Pages "Date" "desc" }}
 
 
     {{ if gt (len $newsItems) 0 }}
@@ -18,39 +18,8 @@
 
         {{ range $newsItems }}
 
-          {{ $category := .Params.category | default "seminar" }}
-          {{ $categoryClass := printf "news-category--%s" (replace $category "_" "-") }}
-
-          {{ $categoryLabel := "" }}
-
-          {{ if eq $category "research_talk" }}
-            {{ if eq $.Site.Language.Lang "el" }}
-              {{ $categoryLabel = "Ερευνητική ομιλία" }}
-            {{ else }}
-              {{ $categoryLabel = "Research talk" }}
-            {{ end }}
-
-          {{ else if eq $category "seminar" }}
-            {{ if eq $.Site.Language.Lang "el" }}
-              {{ $categoryLabel = "Σεμινάριο / ανακοίνωση" }}
-            {{ else }}
-              {{ $categoryLabel = "Seminar / announcement" }}
-            {{ end }}
-
-          {{ else if eq $category "phd_defense" }}
-            {{ if eq $.Site.Language.Lang "el" }}
-              {{ $categoryLabel = "Υποστήριξη διδακτορικής διατριβής" }}
-            {{ else }}
-              {{ $categoryLabel = "PhD defense" }}
-            {{ end }}
-
-          {{ else if eq $category "msc_presentation" }}
-            {{ if eq $.Site.Language.Lang "el" }}
-              {{ $categoryLabel = "Παρουσίαση μεταπτυχιακής εργασίας" }}
-            {{ else }}
-              {{ $categoryLabel = "MSc presentation" }}
-            {{ end }}
-          {{ end }}
+          {{ $presentation := partial "news/presentation.html" . }}
+          {{ $isEvent := eq $presentation.kind "event" }}
 
 
           {{ $attendance := .Params.attendance | default "in_person" }}
@@ -79,33 +48,40 @@
           {{ end }}
 
 
-          {{ $eventDate := time.AsTime .Params.event_date }}
+          {{ $displayDate := .Date }}
+          {{ if and $isEvent .Params.event_date }}
+            {{ $displayDate = time.AsTime .Params.event_date }}
+          {{ end }}
 
 
           <article
-            class="{{ $categoryClass }} flex h-full flex-col border border-neutral-200 bg-white p-6 shadow-sm dark:border-neutral-700 dark:bg-neutral-800"
+            class="{{ $presentation.categoryClass }} flex h-full flex-col border border-neutral-200 bg-white p-6 shadow-sm dark:border-neutral-700 dark:bg-neutral-800"
             style="border-top: 4px solid var(--news-accent);"
           >
 
             <div class="mb-5 flex flex-wrap gap-2">
 
               <span class="news-category-badge">
-                {{ $categoryLabel }}
+                {{ $presentation.categoryLabel }}
               </span>
 
-              <span class="news-attendance-badge">
-                {{ $attendanceLabel }}
-              </span>
+              {{ if $isEvent }}
+                <span class="news-attendance-badge">
+                  {{ $attendanceLabel }}
+                </span>
+              {{ end }}
 
             </div>
 
 
             <p class="mb-2 text-sm font-semibold text-neutral-500 dark:text-neutral-400">
 
-              <time datetime="{{ $eventDate.Format "2006-01-02T15:04:05Z07:00" }}">
-                {{ $eventDate | time.Format ":date_long" }}
-                <span aria-hidden="true">·</span>
-                {{ $eventDate | time.Format "15:04" }}
+              <time datetime="{{ $displayDate.Format "2006-01-02T15:04:05Z07:00" }}">
+                {{ $displayDate | time.Format ":date_long" }}
+                {{ if $isEvent }}
+                  <span aria-hidden="true">·</span>
+                  {{ $displayDate | time.Format "15:04" }}
+                {{ end }}
               </time>
 
             </p>
