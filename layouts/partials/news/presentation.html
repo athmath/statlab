@@ -32,6 +32,12 @@
   {{ else }}
     {{ $categoryLabel = "MSc presentation" }}
   {{ end }}
+{{ else if eq $category "general_event" }}
+  {{ if eq .Site.Language.Lang "el" }}
+    {{ $categoryLabel = "Εκδήλωση" }}
+  {{ else }}
+    {{ $categoryLabel = "Event" }}
+  {{ end }}
 {{ else if eq $category "outreach" }}
   {{ if eq .Site.Language.Lang "el" }}
     {{ $categoryLabel = "Εξωστρέφεια" }}

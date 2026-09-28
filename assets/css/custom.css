@@ -129,6 +129,11 @@
   --news-soft: #fff0d5;
 }
 
+.news-category--general-event {
+  --news-accent: #4f772d;
+  --news-soft: #edf5e7;
+}
+
 .news-kind--news {
   --news-accent: #6d3bb8;
   --news-soft: #f0e8fb;
@@ -187,6 +192,11 @@
 .dark .news-category--msc-presentation {
   --news-accent: #f5bf68;
   --news-soft: rgb(183 106 8 / 24%);
+}
+
+.dark .news-category--general-event {
+  --news-accent: #b8dc91;
+  --news-soft: rgb(79 119 45 / 25%);
 }
 
 .dark .news-kind--news {
