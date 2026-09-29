@@ -216,6 +216,19 @@ News should be concise.
 
 Whenever possible, include a link to additional information.
 
+To publish a news item or event through the social-media RSS feed, set:
+
+```yaml
+social_publish: true
+```
+
+Items without this setting, or with `social_publish: false`, remain on the
+website but are not included in the social-media feed. Social-media publishing
+is enabled only for English news items; the corresponding Greek translation is
+not published separately.
+
+The generated feed path is `/en/news/social.xml`.
+
 ---
 
 # Contact

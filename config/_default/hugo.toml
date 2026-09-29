@@ -45,6 +45,12 @@ enableEmoji = true
 [outputs]
   home = ["HTML", "RSS", "JSON"]
 
+[outputFormats.SocialRSS]
+  mediaType = "application/rss+xml"
+  baseName = "social"
+  isPlainText = true
+  notAlternative = true
+
 [related]
   threshold = 0
   toLower = false

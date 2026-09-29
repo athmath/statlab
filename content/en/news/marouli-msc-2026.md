@@ -19,6 +19,8 @@ online_url: ""
 event_link: ""
 
 draft: false
+
+social_publish: true
 ---
 
 Ms Maria Christina Marouli, an MSc student in the Statistics and Operations Research track, will present her thesis entitled *“Strategic customers in Markovian queueing networks with fork topology: comparison of reneging and non-reneging models.”*

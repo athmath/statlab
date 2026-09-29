@@ -1,0 +1,23 @@
+{{- $pages := where .RegularPages "Params.social_publish" true -}}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ printf "%s — social publishing" .Title | transform.XMLEscape | safeHTML }}</title>
+    <link>{{ .Permalink | transform.XMLEscape | safeHTML }}</link>
+    <description>{{ .Description | transform.XMLEscape | safeHTML }}</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>{{ site.Language.Locale }}</language>
+    {{- with .OutputFormats.Get "SocialRSS" }}
+    {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
+    {{- end }}
+    {{- range $pages.ByDate.Reverse }}
+    <item>
+      <title>{{ .Title | transform.XMLEscape | safeHTML }}</title>
+      <link>{{ .Permalink | transform.XMLEscape | safeHTML }}</link>
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+      <guid>{{ .Permalink | transform.XMLEscape | safeHTML }}</guid>
+      <description>{{ .Description | transform.XMLEscape | safeHTML }}</description>
+    </item>
+    {{- end }}
+  </channel>
+</rss>
