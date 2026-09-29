@@ -28,6 +28,21 @@
   min-width: 0;
 }
 
+.people-category-index {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    margin-bottom: 2.5rem;
+    font-size: 0.875rem;
+}
+
+.people-category-index a {
+    text-decoration: none;
+}
+
+.people-category-index a:hover {
+    text-decoration: underline;
+}
 
 /* ==========================================================
    RESEARCH NAVIGATION
