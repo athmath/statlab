@@ -11,12 +11,33 @@
     {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{- end }}
     {{- range $pages.ByDate.Reverse }}
+    {{- $description := .Description }}
+    {{- if and (eq .Params.news_kind "event") .Params.event_date }}
+      {{- $eventDate := time.AsTime .Params.event_date }}
+      {{- $eventDateText := $eventDate.Format "Monday, 2 January 2006 at 15:04" }}
+      {{- $description = printf "%s — %s" $eventDateText $description }}
+    {{- end }}
+    {{- $body := .Content }}
+    {{- $body = replaceRE `(?s)<span[^>]*not-prose[^>]*>.*?</span>` "" $body }}
+    {{- $body = replaceRE `(?i)<li[^>]*>` "CENTAURBULLET" $body }}
+    {{- $body = replaceRE `(?i)</(p|h[1-6]|li|ul|ol|blockquote)>` "CENTAURBREAK" $body }}
+    {{- $body = $body | plainify }}
+    {{- $body = replace $body "CENTAURBULLET" "\n• " }}
+    {{- $body = replace $body "CENTAURBREAK" "\n" }}
+    {{- $body = $body | strings.TrimSpace }}
+    {{- $body = replaceRE `(?m)^[ \t]+` "" $body }}
+    {{- $body = replaceRE `(?m)[ \t]+$` "" $body }}
+    {{- $body = replaceRE `\n{2,}` "\n" $body }}
+    {{- with $body }}
+      {{- $description = printf "%s\n\n%s" $description . }}
+    {{- end }}
+    {{- $description = $description | truncate 2400 }}
     <item>
       <title>{{ .Title | transform.XMLEscape | safeHTML }}</title>
       <link>{{ .Permalink | transform.XMLEscape | safeHTML }}</link>
       <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
       <guid>{{ .Permalink | transform.XMLEscape | safeHTML }}</guid>
-      <description>{{ .Description | transform.XMLEscape | safeHTML }}</description>
+      <description>{{ $description | transform.XMLEscape | safeHTML }}</description>
     </item>
     {{- end }}
   </channel>

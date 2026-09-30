@@ -30,4 +30,3 @@ Ms Maria Christina Marouli, an MSc student in the Statistics and Operations Rese
 - Athanasia Manou
 - Apostolos Burnetas
 - Antonios Economou, supervisor
-```

@@ -229,6 +229,15 @@ not published separately.
 
 The generated feed path is `/en/news/social.xml`.
 
+For events, the social feed prepends `event_date` to the item description. In
+Zapier, use the RSS **Description** field for the event date and summary. The
+RSS **Pubdate** field is the website publication date, not the event date.
+
+The feed also appends a plain-text version of the Markdown body to the
+description. The combined description is limited to 2,400 characters so the
+LinkedIn post has room for its title and link; the link leads to the complete
+announcement when the body is longer.
+
 ---
 
 # Contact
