@@ -2,13 +2,14 @@
 
   {{ $seminarSeries := where .Site.RegularPages "Section" "seminars" }}
   {{ $newsItems := where .Site.RegularPages "Section" "news" }}
-  {{ $eventItems := where $newsItems "Params.news_kind" "event" }}
+  {{ $eventItems := where
+    (where $newsItems "Params.news_kind" "event")
+    "Params.category" "in" (slice "research_talk" "seminar_session")
+  }}
 
   {{ $eventSections := slice
     (dict "id" "research-talks" "category" "research_talk" "en" "Research Talks" "el" "Ερευνητικές Ομιλίες")
-    (dict "id" "phd-defenses" "category" "phd_defense" "en" "PhD Defenses" "el" "Υποστηρίξεις Διδακτορικών Διατριβών")
-    (dict "id" "msc-presentations" "category" "msc_presentation" "en" "MSc Thesis Presentations" "el" "Παρουσιάσεις Μεταπτυχιακών Εργασιών")
-    (dict "id" "events" "category" "general_event" "en" "Events" "el" "Εκδηλώσεις")
+    (dict "id" "seminar-sessions" "category" "seminar_session" "en" "Seminar Sessions" "el" "Συναντήσεις Σεμιναρίου")
   }}
 
   {{ $currentSeries := slice }}
