@@ -1,6 +1,8 @@
 {{- $pages := where .RegularPages "Params.social_publish" true -}}
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>{{ printf "%s — social publishing" .Title | transform.XMLEscape | safeHTML }}</title>
     <link>{{ .Permalink | transform.XMLEscape | safeHTML }}</link>
@@ -15,7 +17,11 @@
     {{- if and (eq .Params.news_kind "event") .Params.event_date }}
       {{- $eventDate := time.AsTime .Params.event_date }}
       {{- $eventDateText := $eventDate.Format "Monday, 2 January 2006 at 15:04" }}
-      {{- $description = printf "%s — %s" $eventDateText $description }}
+      {{- with .Params.venue }}
+        {{- $description = printf "%s — %s — %s" $eventDateText . $description }}
+      {{- else }}
+        {{- $description = printf "%s — %s" $eventDateText $description }}
+      {{- end }}
     {{- end }}
     {{- $body := .Content }}
     {{- $body = replaceRE `(?s)<span[^>]*not-prose[^>]*>.*?</span>` "" $body }}
@@ -28,16 +34,17 @@
     {{- $body = replaceRE `(?m)^[ \t]+` "" $body }}
     {{- $body = replaceRE `(?m)[ \t]+$` "" $body }}
     {{- $body = replaceRE `\n{2,}` "\n" $body }}
-    {{- with $body }}
-      {{- $description = printf "%s\n\n%s" $description . }}
-    {{- end }}
-    {{- $description = $description | truncate 2400 }}
+    {{- $description = $description | truncate 500 }}
+    {{- $body = $body | truncate 1900 }}
     <item>
       <title>{{ .Title | transform.XMLEscape | safeHTML }}</title>
       <link>{{ .Permalink | transform.XMLEscape | safeHTML }}</link>
       <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
       <guid>{{ .Permalink | transform.XMLEscape | safeHTML }}</guid>
       <description>{{ $description | transform.XMLEscape | safeHTML }}</description>
+      {{- with $body }}
+      <content:encoded>{{ . | transform.XMLEscape | safeHTML }}</content:encoded>
+      {{- end }}
     </item>
     {{- end }}
   </channel>
