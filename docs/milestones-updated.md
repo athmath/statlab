@@ -14,7 +14,7 @@
 
 **Status: completed for current stage**
 
-- Member categories established: Faculty, Special Teaching Staff, PhD Students, Graduate Students, Alumni, Visiting Researchers.
+- Member categories established: Faculty, Special Teaching Staff, Postdoctoral Researchers, PhD Students, Graduate Students, Alumni, External Collaborators.
 - Greek navigation label set to `Μέλη`.
 - Two-column People cards implemented with fixed 112×112 photos.
 - Placeholder-image support added.
@@ -95,7 +95,7 @@ Deferred until the core content is more mature:
 
 - reconsider an **About** item/page;
 - add further homepage sections only if they provide information not already represented clearly elsewhere;
-- expand publications, seminars, support, and related sections as content grows;
+- expand publication, News, seminar-series, and related content as it grows;
 - refine compact logo variants for uses outside the homepage;
 - clean up or document historical/alternate layout files such as `layouts/areas/single0.html`.
 

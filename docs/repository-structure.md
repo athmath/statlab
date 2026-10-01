@@ -49,21 +49,37 @@ statlab/
 ├── content/
 │   ├── el/                  Greek pages and section directories
 │   │   ├── areas/           Greek research-area pages
-│   │   └── projects/        Greek research-project pages
+│   │   ├── collaborations/  Greek collaboration page
+│   │   ├── contact/         Greek contact page
+│   │   ├── news/            Greek news and event records
+│   │   ├── people/          Greek member records
+│   │   ├── projects/        Greek research-project pages
+│   │   ├── publications/    Greek publication landing pages
+│   │   └── seminars/        Greek seminar-series records
 │   └── en/                  English pages and section directories
 │       ├── areas/           English research-area pages
-│       └── projects/        English research-project pages
-├── data/                    Structured, reusable site data
+│       ├── collaborations/  English collaboration page
+│       ├── contact/         English contact page
+│       ├── news/            English news and event records
+│       ├── people/          English member records
+│       ├── projects/        English research-project pages
+│       ├── publications/    English publication records and indexes
+│       └── seminars/        English seminar-series records
+├── data/                    Reserved for shared structured data
 ├── docs/                    Project documentation
 ├── i18n/                    Optional interface translation strings
 ├── layouts/                 Project templates and theme overrides
 │   ├── areas/               Research-area list and detail templates
+│   ├── news/                News list, detail and social-feed templates
 │   ├── research_areas/      Generated area-specific project pages
 │   ├── people/              People list and profile templates
-│   ├── projects/             Research-project detail templates
+│   ├── projects/            Research-project list and detail templates
+│   ├── publications/        Publication list and category templates
+│   ├── seminars/            Combined series and seminar-event list
 │   └── partials/            Reusable presentation components
-│       └── home/            Homepage sections
-├── static/                  Files copied directly to the built site
+│       ├── home/            Homepage sections
+│       └── news/            Shared News category presentation
+├── static/images/           Logos, People images and placeholders
 ├── themes/blowfish/         Upstream theme Git submodule
 └── public/                  Generated site output; never edit by hand
 ```
@@ -81,8 +97,9 @@ website. It does not own page content or visual layout.
 
 ### `archetypes/`
 
-Contains templates used when creating new pages with `hugo new`. The current
-`default.md` supplies default front matter.
+Contains templates used when creating new pages with `hugo new`. In addition to
+`default.md`, the repository provides `news.md` and `projects.md` with the
+current front-matter fields for those record types.
 
 This folder owns **authoring defaults**, not the rendering of existing pages.
 
@@ -120,11 +137,11 @@ sections:
 - `areas/` — research-area overview and individual research areas;
 - `projects/` — individual research projects and the projects section index;
 - `people/` — member listing and individual profiles;
-- `seminars/` — seminar information;
+- `seminars/` — persistent academic seminar-series records;
 - `publications/` — publication information;
-- `news/` — news and announcements;
+- `news/` — ordinary news and dated event records;
+- `collaborations/` — collaboration information;
 - `contact/` — contact details;
-- `support/` — support information;
 - `_index.md` — the homepage or a section's landing-page content.
 
 Files named `_index.md` describe a section itself. Other Markdown files usually
@@ -286,6 +303,32 @@ research areas and members. Unknown or not-yet-created identifiers remain
 hidden until the corresponding area or People page exists. Short project
 descriptions and team lines support inline Markdown.
 
+#### News and Seminars structure
+
+News and dated events share the collection under `content/<language>/news/`.
+Each record uses `news_kind: event` or `news_kind: news`, then a category from
+the corresponding vocabulary:
+
+- events: `research_talk`, `seminar_session`, `phd_defense`, or
+  `msc_presentation`; `general_event` is used for other events;
+- news: `outreach`, `media`, or `general`.
+
+The News page is the complete stream. The Seminars list reads the same event
+records but includes only `research_talk` and `seminar_session`.
+`phd_defense`, `msc_presentation`, and `general_event` remain News-only. Event
+records use `date` as their publication date and `event_date` as the scheduled
+date and time.
+
+Academic seminar series have a separate, persistent record under
+`content/<language>/seminars/`. Series metadata may include `semester`,
+`start_date`, `end_date`, and `eclass_url`; eClass is the external home for
+materials. A `seminar_session` event links back to its series through
+`seminar_id`, whose value is the seminar-series filename without `.md`.
+
+The section indexes retain the public titles `Seminars` and `Σεμινάρια`.
+Matching English and Greek records should use the same filenames where both
+translations are supplied.
+
 ### `data/`
 
 Contains reusable structured information when a collection of facts needs to
@@ -323,15 +366,29 @@ template from Blowfish without modifying the theme submodule.
 - `layouts/areas/single.html` controls individual research-area pages.
 - `layouts/research_areas/term.html` controls each area's automatically generated
   Current Research Projects page and its member-based project browser.
+- `layouts/projects/list.html` filters the All, Current, Open for Collaboration,
+  Funded, and Completed project views.
 - `layouts/projects/single.html` controls individual project pages and links
   each project to its existing research areas and members.
 - `layouts/people/list.html` groups and displays people.
 - `layouts/people/single.html` controls individual profile pages.
+- `layouts/news/list.html` and `layouts/news/single.html` render the complete
+  News stream and individual announcement pages.
+- `layouts/news/list.socialrss.xml` generates the opt-in English social feed.
+- `layouts/seminars/list.html` combines persistent seminar-series records with
+  the selected `research_talk` and `seminar_session` event records.
+- `layouts/publications/list.html` and
+  `layouts/publications/publication-category.html` render publication indexes.
+- `layouts/partials/news/presentation.html` centralizes News/event category
+  labels and styling classes.
 - `layouts/partials/research-panel.html` is a reusable research-area component.
 - `layouts/partials/project-summary.html` renders a project consistently in the
   member-filtered project browser.
 - `layouts/partials/project-associations.html` resolves and links a project's
   research-area and member identifiers for summaries and project pages.
+- `layouts/partials/project-status.html`, `project-funding.html`, and
+  `project-view-links.html` render shared project metadata and navigation.
+- `layouts/partials/people-card.html` renders each member in the People list.
 - `layouts/partials/home/` contains the homepage components. The active
   composition uses the hero for the logo and research-area directory, followed
   by the news section. Older section partials remain available but are not
@@ -349,9 +406,9 @@ comparison so that future maintainers do not mistake it for an active layout.
 ### `static/`
 
 Contains files Hugo copies directly to the published site without processing.
-The current files are the CENTAUR logo variants under `static/images/logo/`.
-Future photographs and downloadable documents can also live here, organized by
-purpose.
+The current files include CENTAUR logo variants under `static/images/logo/` and
+member photographs and placeholders under `static/images/people/`. Future
+downloads can also live here, organized by purpose.
 
 This folder owns **final static media**. Do not edit generated copies under
 `public/`.
@@ -422,6 +479,11 @@ automatic area project page + derived member selector
   `projects/` directories and list the relevant area and People filename
   identifiers in `research_areas` and `members`. Do not add the project or its
   members to an area file separately.
+- Add ordinary news or a dated event: create matching records under
+  `content/<language>/news/` and set `news_kind` plus the appropriate category.
+- Add a seminar series: create matching records under
+  `content/<language>/seminars/`, set `eclass_url` when materials exist, and use
+  the filename as `seminar_id` on its `seminar_session` events.
 - Add a homepage section: create or update a partial under
   `layouts/partials/home/` and include it from the homepage composition.
 - Change colors or spacing across the site: use configuration where Blowfish

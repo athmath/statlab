@@ -26,23 +26,40 @@ statlab/
 │   ├── el/
 │   │   ├── _index.md        Greek homepage introduction
 │   │   ├── areas/           Greek research-area pages
-│   │   └── projects/        Greek research-project pages
+│   │   ├── collaborations/  Greek collaboration page
+│   │   ├── contact/         Greek contact page
+│   │   ├── news/            Greek news and event records
+│   │   ├── people/          Greek member records
+│   │   ├── projects/        Greek research-project pages
+│   │   ├── publications/    Greek publication landing pages
+│   │   └── seminars/        Greek seminar-series records
 │   └── en/
 │       ├── _index.md        English homepage introduction
 │       ├── areas/           English research-area pages
-│       └── projects/        English research-project pages
-├── data/                    Structured, reusable site data
+│       ├── collaborations/  English collaboration page
+│       ├── contact/         English contact page
+│       ├── news/            English news and event records
+│       ├── people/          English member records
+│       ├── projects/        English research-project pages
+│       ├── publications/    English publication records and indexes
+│       └── seminars/        English seminar-series records
+├── data/                    Reserved for shared structured data
 ├── docs/                    Project documentation
 ├── i18n/                    Optional interface translation strings
 ├── layouts/
 │   ├── areas/
+│   ├── news/
 │   ├── research_areas/
 │   ├── people/
 │   ├── projects/
+│   ├── publications/
+│   ├── seminars/
 │   └── partials/
-│       └── home/
-├── static/
-│   └── images/logo/         CENTAUR logo variants
+│       ├── home/
+│       └── news/
+├── static/images/
+│   ├── logo/                CENTAUR logo variants
+│   └── people/              Member images and placeholders
 ├── themes/blowfish/         Upstream theme Git submodule
 └── public/                  Generated site output; never edit by hand
 ```
@@ -135,10 +152,11 @@ The People section groups members into:
 
 - Faculty
 - Special Teaching Staff
+- Postdoctoral Researchers
 - PhD Students
 - Graduate Students
 - Alumni
-- Visiting Researchers
+- External Collaborators
 
 People cards use a two-column layout with a fixed 112×112 image area, optional placeholder image, language-specific sorting, and optional links such as website, Google Scholar, ORCID, GitHub, and LinkedIn.
 
@@ -159,10 +177,38 @@ members:
 
 The `research_areas` and `members` identifiers are the single source of truth for associations. Area-specific Current Research Projects pages and member selectors are derived automatically from project metadata.
 
+## News and Seminars model
+
+All ordinary news and dated events are Markdown records under
+`content/<language>/news/`. Their top-level discriminator is:
+
+```yaml
+news_kind: event  # dated event
+# or
+news_kind: news   # non-event announcement
+```
+
+Event categories are `research_talk`, `seminar_session`, `phd_defense`, and
+`msc_presentation`; `general_event` is available for other events. News
+categories include `outreach`, `media`, and `general`.
+
+The News list and homepage preview use the shared presentation logic in
+`layouts/partials/news/presentation.html`. The News page contains the complete
+stream. `layouts/seminars/list.html` deliberately selects only records with
+`news_kind: event` and category `research_talk` or `seminar_session`.
+`phd_defense`, `msc_presentation`, and `general_event` therefore remain
+News-only.
+
+Persistent academic seminar series are separate Markdown records under
+`content/<language>/seminars/`. They may link to their teaching materials with
+`eclass_url`. A session connects to its series by setting `seminar_id` to the
+series filename without `.md`. The visible section titles remain `Seminars`
+and `Σεμινάρια`.
+
 ## Directory responsibilities
 
 - `content/`: page wording, biographies, research descriptions, homepage prose, and metadata.
-- `data/`: reusable structured facts that are not naturally standalone pages.
+- `data/`: reserved for reusable structured facts that are not naturally standalone pages; current core collections live under `content/`.
 - `config/`: navigation, languages, URLs, Markdown behaviour, theme options, and language-specific logo paths.
 - `layouts/`: custom page composition and reusable presentation components.
 - `assets/`: project-owned CSS and other source assets processed by Hugo.
@@ -179,6 +225,8 @@ The `research_areas` and `members` identifiers are the single source of truth fo
 - Change homepage spacing/alignment: edit `assets/css/custom.css`.
 - Add a research area: create matching Markdown files under the English and Greek `areas/` directories.
 - Add a project: create matching project files and declare `research_areas` and `members`; do not duplicate these associations elsewhere.
+- Add ordinary news or an event: create matching records under `content/<language>/news/` and set `news_kind` plus the appropriate `category`.
+- Add an academic seminar series: create matching records under `content/<language>/seminars/`; use the filename as the `seminar_id` on related `seminar_session` events and set `eclass_url` on the series when materials exist.
 - Change People layout: edit `layouts/people/` and project CSS as appropriate.
 - Reorder navigation: edit the language-specific menu files under `config/_default/`.
 

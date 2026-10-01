@@ -76,6 +76,7 @@ Create the top-level navigation:
 * Research
 * Seminars
 * Publications
+* Collaborations
 * News
 * Contact
 
@@ -132,24 +133,22 @@ Future versions may include:
 
 ## M7 – Seminars
 
-Status: Planned
+Status: Implemented for the current architecture
 
 Objectives:
 
-Create the Seminars page.
+Maintain the Seminars page as a focused view of actual seminar activity.
 
-Structure:
+Current structure:
 
-Semester Seminar Series
+* persistent academic seminar-series records under `content/<language>/seminars/`;
+* current/upcoming and past series derived from `start_date` and `end_date`;
+* eClass links for series materials through `eclass_url`;
+* research talks and seminar sessions reused from the News collection;
+* sessions linked to their series through `seminar_id`;
+* only `research_talk` and `seminar_session` events surfaced here.
 
-* current series
-* archive
-
-Statistics & Operations Research Seminar
-
-* Talks
-* Presentations
-* Archive
+The public titles remain `Seminars` and `Σεμινάρια`.
 
 ---
 
@@ -177,20 +176,21 @@ Future versions:
 
 ## M9 – News
 
-Status: Planned
+Status: Implemented for the current architecture
 
 Objectives:
 
-Create the News page.
+Maintain one complete announcement stream for ordinary news and dated events.
 
-Typical announcements:
+Current model:
 
-* publications
-* awards
-* grants
-* conferences
-* seminar announcements
-* laboratory activities
+* `news_kind: event` or `news_kind: news`;
+* academic event categories `research_talk`, `seminar_session`, `phd_defense`,
+  and `msc_presentation`;
+* news categories such as `outreach`, `media`, and `general`;
+* PhD defenses and MSc presentations remain News-only;
+* an opt-in English social-media RSS feed is generated for records with
+  `social_publish: true`.
 
 ---
 

@@ -125,10 +125,11 @@ The supported categories are
 
 - `faculty`
 - `edip`
+- `postdoc`
 - `phd`
 - `graduate`
-- `visiting`
 - `alumni`
+- `external`
 
 Each category is displayed only if it contains at least one member.
 

@@ -1,4 +1,4 @@
-# CENTAUR Website Content Guide
+# CENTAUR Website Data Model
 
 This document explains where the content of the website is stored and how it should be maintained.
 
@@ -26,7 +26,7 @@ HTML templates should only be modified when changing the design.
 content/
 ```
 
-Contains complete pages.
+Contains the site's canonical pages and content records.
 
 Examples:
 
@@ -34,6 +34,7 @@ Examples:
 * People
 * Seminars
 * Publications
+* Collaborations
 * News
 * Contact
 
@@ -43,15 +44,9 @@ Examples:
 data/
 ```
 
-Contains structured information used throughout the website.
-
-Examples:
-
-* research areas
-* seminar information
-* people
-* publications
-* news
+Reserved for structured information that must be reused by several templates
+and is not naturally a page. The current research areas, people, projects,
+publications, News items, events, and seminar series live under `content/`.
 
 ---
 
@@ -103,19 +98,14 @@ Typical information:
 * email
 * webpage
 
-Future location:
+Current location:
 
 ```text
-data/people.yaml
+content/<language>/people/
 ```
 
-or
-
-```text
-data/people/
-```
-
-depending on the final organization.
+The filename without `.md` is the stable member identifier used by project
+records.
 
 ---
 
@@ -136,48 +126,48 @@ Each research area should include:
 Current location
 
 ```text
-data/research.yaml
+content/<language>/areas/
 ```
+
+The filename without `.md` is the stable research-area identifier used by
+project records.
 
 ---
 
 # Seminars
 
-The seminar activities are divided into two categories.
+Academic seminar series and individual dated sessions are different record
+types.
 
-## Semester Seminar Series
+## Seminar-series record
 
-Examples:
+Persistent series live under `content/<language>/seminars/`. Their filename
+without `.md` is the series identifier. Supported series metadata includes:
 
-* Strategic Queueing
-* Mathematics of Machine Learning
+```yaml
+title: "Series title"
+description: "Short description"
+semester: "Spring 2027"
+start_date: 2027-02-15
+end_date: 2027-06-15
+eclass_url: "https://eclass.uoa.gr/..."
+```
 
-Each series contains:
+`eclass_url` is the link to the external location for seminar materials.
 
-* title
-* semester
-* organizers
-* description
-* sessions
+## Seminar-session relationship
 
----
+An individual session is an event under `content/<language>/news/`:
 
-## Statistics & Operations Research Seminar
+```yaml
+news_kind: event
+category: seminar_session
+seminar_id: series-filename
+```
 
-Contains:
-
-* Talks
-* Presentations
-* Archive
-
-Each session should include:
-
-* title
-* speaker
-* affiliation
-* date
-* abstract
-* category
+`seminar_id` refers to the series filename without `.md`. Research talks use
+`category: research_talk`; only these two categories are selected by the
+Seminars page. The public titles remain `Seminars` and `Σεμινάρια`.
 
 ---
 
@@ -199,22 +189,20 @@ Future versions may use:
 
 # News
 
-Purpose
+All announcements and dated events live under `content/<language>/news/`.
+`news_kind` is the primary discriminator:
 
-Announce laboratory activities.
+| `news_kind` | Meaning | Categories |
+| --- | --- | --- |
+| `event` | Dated event | `research_talk`, `seminar_session`, `phd_defense`, `msc_presentation` |
+| `news` | Non-event announcement | `outreach`, `media`, `general` |
 
-Typical news items:
+`general_event` is also supported for other dated events. An event uses `date`
+for its publication date and `event_date` for its scheduled date and time.
 
-* publications
-* grants
-* awards
-* conference participation
-* seminar announcements
-* new members
-
-News should be concise.
-
-Whenever possible, include a link to additional information.
+The News page contains all records. The Seminars page is a filtered secondary
+view containing only `research_talk` and `seminar_session`. PhD defenses, MSc
+presentations, and general events remain News-only.
 
 ---
 
