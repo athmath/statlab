@@ -26,7 +26,7 @@ HTML templates should only be modified when changing the design.
 content/
 ```
 
-Contains complete pages.
+Contains the site's canonical pages and content records.
 
 Examples:
 
@@ -34,6 +34,7 @@ Examples:
 * People
 * Seminars
 * Publications
+* Collaborations
 * News
 * Contact
 
@@ -43,15 +44,9 @@ Examples:
 data/
 ```
 
-Contains structured information used throughout the website.
-
-Examples:
-
-* research areas
-* seminar information
-* people
-* publications
-* news
+Reserved for structured information that must be reused by several templates
+and is not naturally a page. The current research areas, people, projects,
+publications, News items, events, and seminar series live under `content/`.
 
 ---
 
@@ -103,19 +98,14 @@ Typical information:
 * email
 * webpage
 
-Future location:
+Current location:
 
 ```text
-data/people.yaml
+content/<language>/people/
 ```
 
-or
-
-```text
-data/people/
-```
-
-depending on the final organization.
+Use matching filenames in the English and Greek directories for translated
+versions of the same member.
 
 ---
 
@@ -136,48 +126,58 @@ Each research area should include:
 Current location
 
 ```text
-data/research.yaml
+content/<language>/areas/
 ```
+
+Projects are stored under `content/<language>/projects/` and declare their
+research-area and member relationships in front matter.
 
 ---
 
 # Seminars
 
-The seminar activities are divided into two categories.
+The visible section titles remain **Seminars** and **Σεμινάρια**. The page
+combines persistent academic seminar-series records with selected dated events.
 
-## Semester Seminar Series
+## Academic seminar series
 
-Examples:
+Store each series as a Markdown record under:
 
-* Strategic Queueing
-* Mathematics of Machine Learning
+```text
+content/<language>/seminars/
+```
 
-Each series contains:
+A typical series defines:
 
-* title
-* semester
-* organizers
-* description
-* sessions
+```yaml
+title: "Series title"
+description: "Short description"
+semester: "Spring 2027"
+start_date: 2027-02-15
+end_date: 2027-06-15
+eclass_url: "https://eclass.uoa.gr/..."
+```
 
----
+The filename without `.md` is the stable series identifier. The series page is
+the persistent public record; use `eclass_url` to direct participants to eClass
+for teaching materials.
 
-## Statistics & Operations Research Seminar
+## Talks and seminar sessions
 
-Contains:
+Dated talks and sessions are event records under
+`content/<language>/news/`, not child pages of a seminar series. Use:
 
-* Talks
-* Presentations
-* Archive
+```yaml
+news_kind: event
+category: seminar_session
+seminar_id: series-filename
+```
 
-Each session should include:
+`seminar_id` links a `seminar_session` to its series. Independent research
+talks use `category: research_talk` and do not require `seminar_id`.
 
-* title
-* speaker
-* affiliation
-* date
-* abstract
-* category
+Only `research_talk` and `seminar_session` events are surfaced on the Seminars
+page. PhD defenses and MSc presentations remain on the News page only.
 
 ---
 
@@ -199,22 +199,56 @@ Future versions may use:
 
 # News
 
-Purpose
+The News collection is the canonical source for all announcements and dated
+events:
 
-Announce laboratory activities.
+```text
+content/<language>/news/
+```
 
-Typical news items:
+Use `news_kind: event` for dated events and `news_kind: news` for ordinary
+announcements. Their category vocabularies are:
 
-* publications
-* grants
-* awards
-* conference participation
-* seminar announcements
-* new members
+| Kind | Categories |
+| --- | --- |
+| `event` | `research_talk`, `seminar_session`, `phd_defense`, `msc_presentation` |
+| `news` | `outreach`, `media`, `general` |
 
-News should be concise.
+`general_event` may be used for a dated event outside the four academic event
+categories. Like defenses and MSc presentations, it is News-only.
 
-Whenever possible, include a link to additional information.
+For events, `date` is the publication date and `event_date` is the scheduled
+date and time. Event records may also define `presenter`, `affiliation`,
+`attendance`, `venue`, `online_url`, and `event_link`. Use `seminar_id` only for
+a `seminar_session` linked to a persistent seminar-series record.
+
+The News page displays every record. The homepage displays the four most recent
+records by publication date. The Seminars page independently selects only the
+`research_talk` and `seminar_session` event categories.
+
+To publish a news item or event through the social-media RSS feed, set:
+
+```yaml
+social_publish: true
+```
+
+Items without this setting, or with `social_publish: false`, remain on the
+website but are not included in the social-media feed. Social-media publishing
+is enabled only for English news items; the corresponding Greek translation is
+not published separately.
+
+The generated feed path is `/en/news/social.xml`.
+
+For events, the social feed prepends `event_date` and, when present, `venue` to
+the item description. The RSS **Description** field therefore contains the
+event date, venue, and short summary, while **Content** contains a plain-text
+version of the Markdown body. The RSS **Pubdate** field is the website
+publication date, not the event date.
+
+Description is limited to 500 characters and Content to 1,900 characters so a
+LinkedIn post assembled from Title, Description, Content, and Link remains
+within the platform's post length limit. The link leads to the complete
+announcement when the body is longer.
 
 ---
 

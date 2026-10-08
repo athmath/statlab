@@ -27,7 +27,7 @@ orcid: ""
 
 github: ""
 
-linkedin: "www.linkedin.com/in/thodoris-varelis-6b4942438"
+linkedin: "https://www.linkedin.com/in/thodoris-varelis-6b4942438"
 
 interests:
 

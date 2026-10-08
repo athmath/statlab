@@ -103,17 +103,20 @@ Each milestone:
 ```
 statlab/
 
-├── archetypes/
-├── assets/
-├── config/
+├── .github/workflows/       GitHub Pages build and deployment
+├── archetypes/              Defaults for new content
+├── assets/css/              Project CSS processed by Hugo
+├── config/_default/         Site, language, menu and theme settings
 ├── content/
-├── data/
-├── docs/
-├── i18n/
-├── layouts/
-├── static/
-├── themes/
-└── public/      (generated)
+│   ├── en/                  English pages and records
+│   └── el/                  Greek pages and records
+├── data/                    Reserved for shared structured data
+├── docs/                    Project documentation
+├── i18n/                    Reusable interface translations
+├── layouts/                 Project templates and theme overrides
+├── static/images/           Logos and People images
+├── themes/blowfish/         Upstream theme submodule
+└── public/                  Generated output; never edit manually
 ```
 
 ---
@@ -130,6 +133,7 @@ Examples:
 * People
 * Seminars
 * Publications
+* Collaborations
 * News
 * Contact
 
@@ -138,24 +142,30 @@ Language-specific content is organized as
 ```
 content/
     en/
+        areas/
+        collaborations/
+        contact/
+        news/
+        people/
+        projects/
+        publications/
+        seminars/
     el/
+        ...matching sections...
 ```
+
+Research areas, people, projects, publications, News items and seminar-series
+records are canonical Markdown content. Greek and English records use parallel
+directories; matching filenames act as stable identifiers where templates
+resolve relationships.
 
 ---
 
 ## data/
 
-Contains structured information used to build parts of the website.
-
-Examples:
-
-* research areas
-* seminar information
-* publications
-* people
-* news
-
-The goal is to keep structured information separate from HTML.
+Reserved for reusable structured facts that are shared by several templates
+and are not naturally standalone pages. The current core collections are
+stored under `content/`, not duplicated in `data/`.
 
 ---
 
@@ -166,6 +176,20 @@ Contains the presentation layer.
 Templates determine **how** information is displayed.
 
 The project overrides only the templates that require customization.
+
+Current custom template areas are:
+
+```text
+layouts/
+    areas/
+    news/
+    people/
+    projects/
+    publications/
+    research_areas/
+    seminars/
+    partials/
+```
 
 ---
 
@@ -183,7 +207,9 @@ Current homepage partials reside in
 layouts/partials/home/
 ```
 
-Future reusable components (cards, widgets, etc.) may be organized into additional subdirectories.
+News presentation metadata is normalized by
+`layouts/partials/news/presentation.html`; People, project and research
+components are also implemented as project-owned partials.
 
 ---
 
@@ -249,7 +275,7 @@ The homepage acts as the entry point to the website.
 
 Research-area entries link directly to their corresponding area pages. The
 homepage does not duplicate the People, Research, Seminars, Publications, or
-Support sections; those remain available through the main navigation.
+Collaborations sections; those remain available through the main navigation.
 
 ---
 
@@ -258,8 +284,9 @@ Support sections; those remain available through the main navigation.
 Version 1.0 contains the following sections.
 
 1. Institutional logo
-2. Research Areas directory
-3. Latest News and announcements
+2. Language-specific introduction
+3. Research Areas directory
+4. Latest News and announcements
 
 Future versions may extend the homepage, but unnecessary sections should be avoided.
 
@@ -274,6 +301,7 @@ Version 1.0 navigation:
 * Research
 * Seminars
 * Publications
+* Collaborations
 * News
 * Contact
 
@@ -281,30 +309,46 @@ Each navigation item corresponds to a dedicated page.
 
 ---
 
-# 8. Seminars
+# 8. News and Seminars
 
-The seminar activities are organized into two categories.
+News and dated events share one announcement collection under
+`content/<language>/news/`. The `news_kind` field identifies the record type:
 
-## Semester Seminar Series
+* `event` for a dated event;
+* `news` for a non-event announcement.
 
-Semester-long thematic seminars.
+The category vocabulary is separate for each kind. Academic event categories
+are `research_talk`, `seminar_session`, `phd_defense`, and
+`msc_presentation`. General events may use `general_event`. News categories
+include `outreach`, `media`, and `general`.
 
-Examples:
+The News page is the complete announcement stream. The Seminars page reuses
+only event records whose category is `research_talk` or `seminar_session`.
+Consequently, `phd_defense`, `msc_presentation`, and `general_event` remain
+News-only and are not surfaced on the Seminars page.
 
-* Strategic Queueing
-* Mathematics of Machine Learning
+Academic seminar series are persistent records under
+`content/<language>/seminars/`. A series may define `semester`, `start_date`,
+`end_date`, and `eclass_url`; the last field links to the eClass location where
+materials are maintained. A `seminar_session` event links to its parent series
+with `seminar_id`, using the seminar-series filename without `.md` as the
+stable identifier.
 
----
+This gives the two sections distinct responsibilities:
 
-## Statistics & Operations Research Seminar
+```text
+content/<language>/news/       dated events and ordinary news
+              |
+              +--> News page: all records
+              +--> Seminars page: research_talk + seminar_session only
 
-The laboratory's permanent research seminar.
+content/<language>/seminars/   persistent academic seminar-series records
+```
 
-Contains:
-
-* Talks
-* Presentations
-* Archive
+The public page titles remain `Seminars` in English and `Σεμινάρια` in
+Greek. The custom rendering is owned by `layouts/news/`,
+`layouts/seminars/list.html`, and
+`layouts/partials/news/presentation.html`.
 
 ---
 
@@ -365,11 +409,9 @@ When extending the website:
 
 Potential future additions include:
 
-* Research Projects
 * Software
 * Teaching
 * Resources
-* Collaborations
 * Search
 * Publication database integration
 

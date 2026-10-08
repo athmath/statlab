@@ -1,0 +1,65 @@
+{{ $newsKind := .Params.news_kind | default "event" }}
+{{ $category := .Params.category | default (cond (eq $newsKind "news") "general" "seminar_session") }}
+
+{{ $categoryClass := printf "news-category--%s" (replace $category "_" "-") }}
+{{ if eq $newsKind "news" }}
+  {{ $categoryClass = "news-kind--news" }}
+{{ end }}
+
+{{ $categoryLabel := $category | humanize }}
+
+{{ if eq $category "research_talk" }}
+  {{ if eq .Site.Language.Lang "el" }}
+    {{ $categoryLabel = "Ερευνητική ομιλία" }}
+  {{ else }}
+    {{ $categoryLabel = "Research talk" }}
+  {{ end }}
+{{ else if or (eq $category "seminar_session") (eq $category "seminar") }}
+  {{ if eq .Site.Language.Lang "el" }}
+    {{ $categoryLabel = "Συνάντηση σεμιναρίου" }}
+  {{ else }}
+    {{ $categoryLabel = "Seminar session" }}
+  {{ end }}
+{{ else if eq $category "phd_defense" }}
+  {{ if eq .Site.Language.Lang "el" }}
+    {{ $categoryLabel = "Υποστήριξη διδακτορικής διατριβής" }}
+  {{ else }}
+    {{ $categoryLabel = "PhD defense" }}
+  {{ end }}
+{{ else if eq $category "msc_presentation" }}
+  {{ if eq .Site.Language.Lang "el" }}
+    {{ $categoryLabel = "Παρουσίαση μεταπτυχιακής εργασίας" }}
+  {{ else }}
+    {{ $categoryLabel = "MSc presentation" }}
+  {{ end }}
+{{ else if eq $category "general_event" }}
+  {{ if eq .Site.Language.Lang "el" }}
+    {{ $categoryLabel = "Εκδήλωση" }}
+  {{ else }}
+    {{ $categoryLabel = "Event" }}
+  {{ end }}
+{{ else if eq $category "outreach" }}
+  {{ if eq .Site.Language.Lang "el" }}
+    {{ $categoryLabel = "Εξωστρέφεια" }}
+  {{ else }}
+    {{ $categoryLabel = "Outreach" }}
+  {{ end }}
+{{ else if eq $category "media" }}
+  {{ if eq .Site.Language.Lang "el" }}
+    {{ $categoryLabel = "Μέσα ενημέρωσης" }}
+  {{ else }}
+    {{ $categoryLabel = "Media" }}
+  {{ end }}
+{{ else if eq $category "general" }}
+  {{ if eq .Site.Language.Lang "el" }}
+    {{ $categoryLabel = "Γενικά νέα" }}
+  {{ else }}
+    {{ $categoryLabel = "General news" }}
+  {{ end }}
+{{ end }}
+
+{{ return (dict
+  "kind" $newsKind
+  "categoryClass" $categoryClass
+  "categoryLabel" $categoryLabel
+) }}

@@ -11,7 +11,7 @@ team: >-
   **Ανδρέας Μαρκουλιδάκης** και **Λουκία Μελιγκοτσίδου** σε συνεργασία με τους
   M. Hickman, M. Glancy, N. Welton και H. Jones από την Ιατρική Σχολή του
   Πανεπιστημίου του Μπρίστολ.
-status: current
+status: completed
 weight: 80
 research_areas:
   - statistics

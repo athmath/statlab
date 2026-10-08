@@ -1,0 +1,179 @@
+{{ define "main" }}
+
+  {{ $presentation := partial "news/presentation.html" . }}
+  {{ $isEvent := eq $presentation.kind "event" }}
+
+
+  {{ $attendance := .Params.attendance | default "in_person" }}
+  {{ $attendanceLabel := "" }}
+
+  {{ if eq $attendance "online" }}
+    {{ if eq .Site.Language.Lang "el" }}
+      {{ $attendanceLabel = "Διαδικτυακά" }}
+    {{ else }}
+      {{ $attendanceLabel = "Online" }}
+    {{ end }}
+
+  {{ else if eq $attendance "hybrid" }}
+    {{ if eq .Site.Language.Lang "el" }}
+      {{ $attendanceLabel = "Υβριδικά" }}
+    {{ else }}
+      {{ $attendanceLabel = "Hybrid" }}
+    {{ end }}
+
+  {{ else }}
+    {{ if eq .Site.Language.Lang "el" }}
+      {{ $attendanceLabel = "Με φυσική παρουσία" }}
+    {{ else }}
+      {{ $attendanceLabel = "In person" }}
+    {{ end }}
+  {{ end }}
+
+
+  {{ $displayDate := .Date }}
+  {{ if and $isEvent .Params.event_date }}
+    {{ $displayDate = time.AsTime .Params.event_date }}
+  {{ end }}
+
+
+  <article class="{{ $presentation.categoryClass }}">
+
+    <header
+      id="single_header"
+      class="mt-5 max-w-prose border-t-4 pt-6"
+      style="border-color: var(--news-accent);"
+    >
+
+      <div class="mb-5 flex flex-wrap gap-2">
+
+        <span class="news-category-badge">
+          {{ $presentation.categoryLabel }}
+        </span>
+
+        {{ if $isEvent }}
+          <span class="news-attendance-badge">
+            {{ $attendanceLabel }}
+          </span>
+        {{ end }}
+
+      </div>
+
+
+      <h1 class="mt-0 text-3xl font-bold leading-tight text-neutral-900 dark:text-neutral">
+        {{ .Title | emojify }}
+      </h1>
+
+
+      <p class="mt-4 text-base font-semibold text-neutral-500 dark:text-neutral-400">
+        <time datetime="{{ $displayDate.Format "2006-01-02T15:04:05Z07:00" }}">
+          {{ $displayDate | time.Format ":date_long" }}
+          {{ if $isEvent }}
+            <span aria-hidden="true">·</span>
+            {{ $displayDate | time.Format "15:04" }}
+          {{ end }}
+        </time>
+      </p>
+
+
+      {{ if and $isEvent (or .Params.presenter .Params.affiliation) }}
+
+        <div class="mt-6">
+
+          {{ with .Params.presenter }}
+            <p class="text-lg font-semibold">
+              {{ . }}
+            </p>
+          {{ end }}
+
+          {{ with .Params.affiliation }}
+            <p class="mt-1 text-neutral-500 dark:text-neutral-400">
+              {{ . }}
+            </p>
+          {{ end }}
+
+        </div>
+
+      {{ end }}
+
+
+      {{ if $isEvent }}
+        <div class="mt-6 space-y-2 text-sm text-neutral-600 dark:text-neutral-300">
+
+        {{ with .Params.venue }}
+          <p>
+            <strong>
+              {{ if eq $.Site.Language.Lang "el" }}
+                Χώρος:
+              {{ else }}
+                Venue:
+              {{ end }}
+            </strong>
+            {{ . }}
+          </p>
+        {{ end }}
+
+
+        {{ if or (eq $attendance "online") (eq $attendance "hybrid") }}
+
+          {{ with .Params.online_url }}
+            <p>
+              <strong>
+                {{ if eq $.Site.Language.Lang "el" }}
+                  Σύνδεσμος:
+                {{ else }}
+                  Online:
+                {{ end }}
+              </strong>
+
+              <a
+                href="{{ . }}"
+                class="underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ . }}
+              </a>
+            </p>
+          {{ end }}
+
+        {{ end }}
+
+
+        {{ with .Params.event_link }}
+          <p>
+            <a
+              href="{{ . }}"
+              class="font-semibold underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ if eq $.Site.Language.Lang "el" }}
+                Περισσότερες πληροφορίες
+              {{ else }}
+                More information
+              {{ end }}
+            </a>
+          </p>
+        {{ end }}
+
+        </div>
+      {{ end }}
+
+    </header>
+
+
+    <section class="mt-10 flex flex-col max-w-full prose dark:prose-invert lg:flex-row">
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+
+        <div class="article-content max-w-prose mb-20">
+          {{ .Content }}
+        </div>
+
+      </div>
+
+    </section>
+
+  </article>
+
+{{ end }}

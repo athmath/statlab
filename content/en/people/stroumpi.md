@@ -18,7 +18,7 @@ image: stroumpi.jpg
 
 email: "aggeliki.stroumpi@gmail.com"
 
-linkedin: "www.linkedin.com/in/angeliki-anna-stroumpi-a08a2a325"
+linkedin: "https://www.linkedin.com/in/angeliki-anna-stroumpi-a08a2a325"
 
 interests:
  - Operations Research  
