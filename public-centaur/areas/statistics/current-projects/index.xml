@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Statistics on StatLab</title>
+    <link>https://centaur.math.uoa.gr/areas/statistics/current-projects/</link>
+    <description>Recent content in Statistics on StatLab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>el</language>
+    <copyright>© 2026 </copyright>
+    <atom:link href="https://centaur.math.uoa.gr/areas/statistics/current-projects/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Μπεϋζιανή Ημιπαραμετρική Κοινή Μοντελοποίηση Διαχρονικών Δεδομένων και Δεδομένων Επιβίωσης</title>
+      <link>https://centaur.math.uoa.gr/projects/bayesian-semiparametric-joint-modeling-longitudinal-survival-data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/projects/bayesian-semiparametric-joint-modeling-longitudinal-survival-data/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Επεξηγησιμότητα Νευρωνικών Δικτύων με Επίγνωση της Αβεβαιότητας και Αιτιώδη Θεμελίωση</title>
+      <link>https://centaur.math.uoa.gr/projects/uncertainty-aware-causally-informed-explainability-neural-networks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/projects/uncertainty-aware-causally-informed-explainability-neural-networks/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Διεπιστημονικές Προσαρμογές του Δικτύου GAMLSS (MAGNET Δράση COST 2026-2030)</title>
+      <link>https://centaur.math.uoa.gr/projects/project-lm3-el/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/projects/project-lm3-el/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Κοινή μοντελοποίηση διαχρονικών δεδομένων και δεδομένων ανταγωνιστικών κινδύνων υπό το πρίσμα εσφαλμένης ταξινόμησης της αιτίας αποτυχίας και μη πληροφοριακής δεξιάς λογοκρισίας</title>
+      <link>https://centaur.math.uoa.gr/projects/project-l%CE%BC1-el/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/projects/project-l%CE%BC1-el/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Πολυμεταβλητές Χρονοσειρές και Δομικά Αυτοπαλίνδρομα Υποδείγματα: Μπεϋζιανή Συμπερασματολογία και Προβλέψεις</title>
+      <link>https://centaur.math.uoa.gr/projects/melig_kotsifakou_mult_time_series/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/projects/melig_kotsifakou_mult_time_series/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Στοχαστική μοντελοποίηση πληθυσμιακών δυναμικών: εκτίμηση, λήψη αποφάσεων και βελτιστοποίηση</title>
+      <link>https://centaur.math.uoa.gr/projects/papageorgiou_econ_populations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/projects/papageorgiou_econ_populations/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Υβριδική Μπεϋζιανή Προσέγγιση και Μηχανική Μάθηση για Χωροχρονικά Δεδομένα</title>
+      <link>https://centaur.math.uoa.gr/projects/bayesian-machine-learning-spatio-temporal-data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/projects/bayesian-machine-learning-spatio-temporal-data/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Μάθηση Αιτιώδους Δομής για την Αξιολόγηση της Επίδρασης της Άσκησης στην Ογκολογία στην Ανοχή της Αντικαρκινικής Θεραπείας και την Κλινική Πορεία</title>
+      <link>https://centaur.math.uoa.gr/projects/causal-structure-learning-exercise-oncology/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/projects/causal-structure-learning-exercise-oncology/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Μπεϋζιανή Επιλογή Μεταβλητών στο Πλαίσιο Πολυπαραμετρικής Εκτίμησης Επιπολασμού</title>
+      <link>https://centaur.math.uoa.gr/projects/bayesian-variable-selection-mpep/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/projects/bayesian-variable-selection-mpep/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Πολυπαραμετρική Εκτίμηση Επιπολασμού: Μια Μπεϋζιανή Προσέγγιση Μοντελοποίησης για την Εκτίμηση του Επιπολασμού της Εξάρτησης από Οπιοειδή</title>
+      <link>https://centaur.math.uoa.gr/projects/project-lm2-el/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/projects/project-lm2-el/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>

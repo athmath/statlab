@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Machine Learning on StatLab</title>
+    <link>https://centaur.math.uoa.gr/areas/machine-learning/current-projects/</link>
+    <description>Recent content in Machine Learning on StatLab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>el</language>
+    <copyright>© 2026 </copyright>
+    <atom:link href="https://centaur.math.uoa.gr/areas/machine-learning/current-projects/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Ενισχυτική Μάθηση σε Ουρές με Βλάβες Εξυπηρετητή λόγω Κόπωσης</title>
+      <link>https://centaur.math.uoa.gr/projects/reinforcement-learning-in-queues-with-fatigue-driven-server-failures/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/projects/reinforcement-learning-in-queues-with-fatigue-driven-server-failures/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Επεξηγησιμότητα Νευρωνικών Δικτύων με Επίγνωση της Αβεβαιότητας και Αιτιώδη Θεμελίωση</title>
+      <link>https://centaur.math.uoa.gr/projects/uncertainty-aware-causally-informed-explainability-neural-networks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/projects/uncertainty-aware-causally-informed-explainability-neural-networks/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Aνάπτυξη   προβλεπτικών   μοντέλων   για   τον   καθορισμό   ποσοτήτων παραγγελίας</title>
+      <link>https://centaur.math.uoa.gr/projects/burnetas-bekios-forecasting-el/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/projects/burnetas-bekios-forecasting-el/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Polya-Gamma μέθοδοι για Μπεϋζιανή μάθηση σε Contextual Multi-Armed Bandits</title>
+      <link>https://centaur.math.uoa.gr/projects/current/burnetas-bekios-pasiouras-contextual/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/projects/current/burnetas-bekios-pasiouras-contextual/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Πολυμεταβλητές Χρονοσειρές και Δομικά Αυτοπαλίνδρομα Υποδείγματα: Μπεϋζιανή Συμπερασματολογία και Προβλέψεις</title>
+      <link>https://centaur.math.uoa.gr/projects/melig_kotsifakou_mult_time_series/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/projects/melig_kotsifakou_mult_time_series/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Υβριδική Μπεϋζιανή Προσέγγιση και Μηχανική Μάθηση για Χωροχρονικά Δεδομένα</title>
+      <link>https://centaur.math.uoa.gr/projects/bayesian-machine-learning-spatio-temporal-data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/projects/bayesian-machine-learning-spatio-temporal-data/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Μάθηση Αιτιώδους Δομής για την Αξιολόγηση της Επίδρασης της Άσκησης στην Ογκολογία στην Ανοχή της Αντικαρκινικής Θεραπείας και την Κλινική Πορεία</title>
+      <link>https://centaur.math.uoa.gr/projects/causal-structure-learning-exercise-oncology/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/projects/causal-structure-learning-exercise-oncology/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>

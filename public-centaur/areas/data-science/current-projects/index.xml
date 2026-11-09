@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data-Science on StatLab</title>
+    <link>https://centaur.math.uoa.gr/areas/data-science/current-projects/</link>
+    <description>Recent content in Data-Science on StatLab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>el</language>
+    <copyright>© 2026 </copyright>
+    <atom:link href="https://centaur.math.uoa.gr/areas/data-science/current-projects/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Πολυμεταβλητές Χρονοσειρές και Δομικά Αυτοπαλίνδρομα Υποδείγματα: Μπεϋζιανή Συμπερασματολογία και Προβλέψεις</title>
+      <link>https://centaur.math.uoa.gr/projects/melig_kotsifakou_mult_time_series/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/projects/melig_kotsifakou_mult_time_series/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Υβριδική Μπεϋζιανή Προσέγγιση και Μηχανική Μάθηση για Χωροχρονικά Δεδομένα</title>
+      <link>https://centaur.math.uoa.gr/projects/bayesian-machine-learning-spatio-temporal-data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/projects/bayesian-machine-learning-spatio-temporal-data/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Μάθηση Αιτιώδους Δομής για την Αξιολόγηση της Επίδρασης της Άσκησης στην Ογκολογία στην Ανοχή της Αντικαρκινικής Θεραπείας και την Κλινική Πορεία</title>
+      <link>https://centaur.math.uoa.gr/projects/causal-structure-learning-exercise-oncology/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/projects/causal-structure-learning-exercise-oncology/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Μπεϋζιανή Επιλογή Μεταβλητών στο Πλαίσιο Πολυπαραμετρικής Εκτίμησης Επιπολασμού</title>
+      <link>https://centaur.math.uoa.gr/projects/bayesian-variable-selection-mpep/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/projects/bayesian-variable-selection-mpep/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Πολυπαραμετρική Εκτίμηση Επιπολασμού: Μια Μπεϋζιανή Προσέγγιση Μοντελοποίησης για την Εκτίμηση του Επιπολασμού της Εξάρτησης από Οπιοειδή</title>
+      <link>https://centaur.math.uoa.gr/projects/project-lm2-el/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/projects/project-lm2-el/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>

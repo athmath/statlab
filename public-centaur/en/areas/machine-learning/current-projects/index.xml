@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Machine Learning on StatLab</title>
+    <link>https://centaur.math.uoa.gr/en/areas/machine-learning/current-projects/</link>
+    <description>Recent content in Machine Learning on StatLab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2026 </copyright>
+    <atom:link href="https://centaur.math.uoa.gr/en/areas/machine-learning/current-projects/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Reinforcement Learning in Queues with Fatigue-Driven Server Failures</title>
+      <link>https://centaur.math.uoa.gr/en/projects/reinforcement-learning-in-queues-with-fatigue-driven-server-failures/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/projects/reinforcement-learning-in-queues-with-fatigue-driven-server-failures/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Uncertainty-Aware and Causally Informed Explainability for Neural Networks</title>
+      <link>https://centaur.math.uoa.gr/en/projects/uncertainty-aware-causally-informed-explainability-neural-networks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/projects/uncertainty-aware-causally-informed-explainability-neural-networks/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>A Bayesian and Machine Learning Hybrid Approach for Spatio-Temporal Data</title>
+      <link>https://centaur.math.uoa.gr/en/projects/bayesian-machine-learning-spatio-temporal-data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/projects/bayesian-machine-learning-spatio-temporal-data/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Development of Predictive Models for Determining Order Quantities</title>
+      <link>https://centaur.math.uoa.gr/en/projects/burnetas-bekios-forecasting-en/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/projects/burnetas-bekios-forecasting-en/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Multivariate Time Series and Structural Vector Autoregressive Models: Bayesian Inference and Forecasting</title>
+      <link>https://centaur.math.uoa.gr/en/projects/melig_kotsifakou_mult_time_series/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/projects/melig_kotsifakou_mult_time_series/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Pólya-Gamma Methods for Bayesian Learning in Contextual Multi-Armed Bandits</title>
+      <link>https://centaur.math.uoa.gr/en/projects/burnetas-bekios-pasiouras-contextual/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/projects/burnetas-bekios-pasiouras-contextual/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Causal Structure Learning to Assess the Impact of Exercise Oncology on Oncological Treatment Tolerance and Clinical Course</title>
+      <link>https://centaur.math.uoa.gr/en/projects/causal-structure-learning-exercise-oncology/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/projects/causal-structure-learning-exercise-oncology/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>

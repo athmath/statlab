@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://centaur.math.uoa.gr/sitemap.xml

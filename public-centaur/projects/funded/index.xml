@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Χρηματοδοτούμενα Ερευνητικά Έργα on StatLab</title>
+    <link>https://centaur.math.uoa.gr/projects/funded/</link>
+    <description>Recent content in Χρηματοδοτούμενα Ερευνητικά Έργα on StatLab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>el</language>
+    <copyright>© 2026 </copyright>
+    <atom:link href="https://centaur.math.uoa.gr/projects/funded/index.xml" rel="self" type="application/rss+xml" />
+    
+  </channel>
+</rss>

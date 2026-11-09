@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Votsi on StatLab</title>
+    <link>https://centaur.math.uoa.gr/en/authors/votsi/</link>
+    <description>Recent content in Votsi on StatLab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2026 </copyright>
+    <atom:link href="https://centaur.math.uoa.gr/en/authors/votsi/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/papageorgiou-votsi-trevezas-2026-markovian-switching/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/papageorgiou-votsi-trevezas-2026-markovian-switching/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/papageorgiou-votsi-tsaklidis-2026-epidemic-severity/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/papageorgiou-votsi-tsaklidis-2026-epidemic-severity/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>

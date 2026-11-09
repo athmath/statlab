@@ -1,17 +1,23 @@
 {{ define "main" }}
-
   {{ $seminarSeries := where .Site.RegularPages "Section" "seminars" }}
   {{ $newsItems := where .Site.RegularPages "Section" "news" }}
-  {{ $eventItems := where
-    (where $newsItems "Params.news_kind" "event")
-    "Params.category" "in" (slice "research_talk" "seminar_session")
+  {{ $eventItems := where (where $newsItems "Params.news_kind" "event") "Params.category" "in" (slice "research_talk" "seminar_session") }}
+  {{ $sections := slice
+    (dict "id" "research-seminars" "category" "research_talk" "en" "Research Seminars" "el" "Ερευνητικά Σεμινάρια"
+      "descriptionEn" "Individual talks presenting current research."
+      "descriptionEl" "Αυτοτελείς ομιλίες με παρουσίαση ερευνητικών αποτελεσμάτων.")
+    (dict "id" "academic-seminar-series" "category" "seminar_session" "en" "Academic Seminars" "el" "Ακαδημαϊκά Σεμινάρια"
+      "descriptionEn" "Semester-long or year-long seminar series devoted to an academic subject."
+      "descriptionEl" "Εξαμηνιαία ή ετήσια σεμινάρια με αντικείμενο τη συστηματική μελέτη ενός επιστημονικού θέματος.")
   }}
-
-  {{ $eventSections := slice
-    (dict "id" "research-talks" "category" "research_talk" "en" "Research Talks" "el" "Ερευνητικές Ομιλίες")
-    (dict "id" "seminar-sessions" "category" "seminar_session" "en" "Seminar Sessions" "el" "Συναντήσεις Σεμιναρίου")
-  }}
-
+  {{ $visibleSections := slice }}
+  {{ range $sections }}
+    {{ $hasEvents := gt (len (where $eventItems "Params.category" .category)) 0 }}
+    {{ $hasSeries := and (eq .category "seminar_session") (gt (len $seminarSeries) 0) }}
+    {{ if or $hasEvents $hasSeries }}
+      {{ $visibleSections = $visibleSections | append . }}
+    {{ end }}
+  {{ end }}
   {{ $currentSeries := slice }}
   {{ $pastSeries := slice }}
 
@@ -44,60 +50,33 @@
     ) }}
   {{ end }}
 
-  {{ $hasVisibleCategories := gt (len $seminarSeries) 0 }}
-  {{ range $eventSections }}
-    {{ if gt (len (where $eventItems "Params.category" .category)) 0 }}
-      {{ $hasVisibleCategories = true }}
-    {{ end }}
-  {{ end }}
 
   <article class="mx-auto max-w-6xl px-6 pb-24">
-
     <header class="mt-5 mb-8">
-      <h1 class="text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        {{ .Title }}
-      </h1>
-
+      <h1 class="text-4xl font-extrabold text-neutral-900 dark:text-neutral">{{ .Title }}</h1>
       {{ with .Params.description }}
-        <p class="mt-4 text-lg text-neutral-600 dark:text-neutral-400">
-          {{ . }}
-        </p>
+        <p class="mt-4 text-lg text-neutral-600 dark:text-neutral-400">{{ . }}</p>
       {{ end }}
     </header>
-
-    {{ if $hasVisibleCategories }}
-      <nav
-        class="mb-12 text-sm text-neutral-600 dark:text-neutral-400"
-        aria-label="{{ if eq .Site.Language.Lang "el" }}Κατηγορίες σεμιναρίων και εκδηλώσεων{{ else }}Seminar and event categories{{ end }}"
-      >
-        <div class="flex flex-wrap gap-x-5 gap-y-2">
-          {{ if gt (len $seminarSeries) 0 }}
-            <a href="#academic-seminar-series" class="font-semibold hover:underline">
-              {{ if eq .Site.Language.Lang "el" }}Ακαδημαϊκά Σεμινάρια{{ else }}Academic Seminar Series{{ end }}
-            </a>
-          {{ end }}
-
-          {{ range $eventSections }}
-            {{ if gt (len (where $eventItems "Params.category" .category)) 0 }}
-              <a href="#{{ .id }}" class="font-semibold hover:underline">
-                {{ if eq $.Site.Language.Lang "el" }}{{ .el }}{{ else }}{{ .en }}{{ end }}
-              </a>
-            {{ end }}
-          {{ end }}
-        </div>
-      </nav>
+    {{ if gt (len $visibleSections) 0 }}
+    <nav class="mb-12 text-sm text-neutral-600 dark:text-neutral-400"
+      aria-label="{{ if eq .Site.Language.Lang "el" }}Κατηγορίες σεμιναρίων{{ else }}Seminar categories{{ end }}">
+      <div class="flex flex-wrap gap-x-5 gap-y-2">
+        {{ range $visibleSections }}
+          <a href="#{{ .id }}" class="font-semibold hover:underline">{{ if eq $.Site.Language.Lang "el" }}{{ .el }}{{ else }}{{ .en }}{{ end }}</a>
+        {{ end }}
+      </div>
+    </nav>
     {{ end }}
-
-    {{ if gt (len $seriesGroups) 0 }}
-      <section id="academic-seminar-series" class="mb-14 scroll-mt-24" aria-labelledby="academic-seminar-series-heading">
-        <h2 id="academic-seminar-series-heading" class="mb-6 text-2xl font-semibold">
-          {{ if eq .Site.Language.Lang "el" }}
-            Ακαδημαϊκά Σεμινάρια
-          {{ else }}
-            Academic Seminar Series
-          {{ end }}
-        </h2>
-
+    {{ range $visibleSections }}
+      {{ $section := . }}
+      {{ $isAcademic := eq .category "seminar_session" }}
+      {{ $groupHeading := cond $isAcademic "4" "3" }}
+      {{ $cardHeading := cond $isAcademic "5" "4" }}
+      <section id="{{ .id }}" class="mb-14 scroll-mt-24" aria-labelledby="{{ .id }}-heading">
+        <h2 id="{{ .id }}-heading" class="mb-3 text-2xl font-semibold">{{ if eq $.Site.Language.Lang "el" }}{{ .el }}{{ else }}{{ .en }}{{ end }}</h2>
+        <p class="mb-6 text-neutral-600 dark:text-neutral-400">{{ if eq $.Site.Language.Lang "el" }}{{ .descriptionEl }}{{ else }}{{ .descriptionEn }}{{ end }}</p>
+        {{ if $isAcademic }}
         {{ range $seriesGroups }}
           <div class="mb-10 last:mb-0">
             <h3 class="mb-4 text-xl font-semibold">
@@ -159,11 +138,8 @@
             </div>
           </div>
         {{ end }}
-      </section>
-    {{ end }}
 
-    {{ range $eventSections }}
-      {{ $section := . }}
+        {{ end }}
       {{ $items := where $eventItems "Params.category" $section.category }}
       {{ $upcomingItems := slice }}
       {{ $pastItems := slice }}
@@ -185,7 +161,7 @@
       {{ if gt (len $upcomingItems) 0 }}
         {{ $eventGroups = $eventGroups | append (dict
           "labelEn" "Upcoming"
-          "labelEl" "Προσεχείς"
+          "labelEl" (cond $isAcademic "Προσεχείς" "Προσεχή")
           "items" (sort $upcomingItems "Params.event_date" "asc")
           "statusEn" "Upcoming"
           "statusEl" "Προσεχώς"
@@ -194,25 +170,24 @@
       {{ if gt (len $pastItems) 0 }}
         {{ $eventGroups = $eventGroups | append (dict
           "labelEn" "Past"
-          "labelEl" "Παλαιότερες"
+          "labelEl" (cond $isAcademic "Παλαιότερες" "Παλαιότερα")
           "items" (sort $pastItems "Params.event_date" "desc")
           "statusEn" "Past"
           "statusEl" "Ολοκληρώθηκε"
         ) }}
       {{ end }}
 
-      {{ if gt (len $eventGroups) 0 }}
-        <section id="{{ $section.id }}" class="mb-14 scroll-mt-24" aria-labelledby="{{ $section.id }}-heading">
-          <h2 id="{{ $section.id }}-heading" class="mb-6 text-2xl font-semibold">
-            {{ if eq $.Site.Language.Lang "el" }}{{ $section.el }}{{ else }}{{ $section.en }}{{ end }}
-          </h2>
 
+        {{ if and $isAcademic (gt (len $eventGroups) 0) }}
+          <h3 id="seminar-sessions" class="mb-6 text-xl font-semibold">{{ if eq $.Site.Language.Lang "el" }}Συναντήσεις σεμιναρίων{{ else }}Seminar sessions{{ end }}</h3>
+        {{ end }}
+        {{ if not $isAcademic }}<span id="research-talks" aria-hidden="true"></span>{{ end }}
           {{ range $eventGroups }}
             {{ $group := . }}
             <div class="mb-10 last:mb-0">
-              <h3 class="mb-4 text-xl font-semibold">
+              <h{{ $groupHeading }} class="mb-4 text-xl font-semibold">
                 {{ if eq $.Site.Language.Lang "el" }}{{ $group.labelEl }}{{ else }}{{ $group.labelEn }}{{ end }}
-              </h3>
+              </h{{ $groupHeading }}>
 
               <div class="grid gap-6 md:grid-cols-2">
                 {{ range $group.items }}
@@ -242,9 +217,9 @@
                       </time>
                     </p>
 
-                    <h4 class="text-xl font-semibold leading-snug">
+                    <h{{ $cardHeading }} class="text-xl font-semibold leading-snug">
                       <a href="{{ .RelPermalink }}" class="hover:underline">{{ .Title }}</a>
-                    </h4>
+                    </h{{ $cardHeading }}>
 
                     {{ with .Params.description }}
                       <p class="mt-3 text-neutral-600 dark:text-neutral-300">{{ . }}</p>
@@ -267,10 +242,8 @@
               </div>
             </div>
           {{ end }}
-        </section>
-      {{ end }}
+
+      </section>
     {{ end }}
-
   </article>
-
 {{ end }}

@@ -1,0 +1,83 @@
+name: Deploy to CENTAUR
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      HUGO_VERSION: 0.163.3
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: ${{ env.HUGO_VERSION }}
+          extended: true
+
+      - name: Install Node.js dependencies
+        run: |
+          [[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true
+
+      - name: Build
+        run: |
+          hugo \
+            --gc \
+            --minify \
+            --baseURL https://centaur.math.uoa.gr/ \
+            --destination public-centaur
+
+      - name: Configure SSH
+        env:
+          SSH_KEY: ${{ secrets.CENTAUR_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.CENTAUR_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+
+          test -n "$SSH_KEY"
+          test -n "$KNOWN_HOSTS"
+
+          mkdir -p "$HOME/.ssh"
+          chmod 700 "$HOME/.ssh"
+          printf '%s\n' "$SSH_KEY" > "$HOME/.ssh/centaur_key"
+          chmod 600 "$HOME/.ssh/centaur_key"
+          printf '%s\n' "$KNOWN_HOSTS" > "$HOME/.ssh/known_hosts"
+          chmod 600 "$HOME/.ssh/known_hosts"
+
+          ssh-keygen -F centaur.math.uoa.gr \
+            -f "$HOME/.ssh/known_hosts" >/dev/null
+
+      - name: Preview CENTAUR deployment
+        run: |
+          set -euo pipefail
+
+          rsync \
+            --dry-run \
+            --recursive \
+            --links \
+            --times \
+            --compress \
+            --human-readable \
+            --itemize-changes \
+            --no-perms \
+            --no-owner \
+            --no-group \
+            --omit-dir-times \
+            -e "ssh -i $HOME/.ssh/centaur_key -o BatchMode=yes -o IdentitiesOnly=yes -o UserKnownHostsFile=$HOME/.ssh/known_hosts -o StrictHostKeyChecking=yes" \
+            public-centaur/ \
+            deploy@centaur.math.uoa.gr:/

@@ -1,0 +1,20 @@
+name: Test CENTAUR SSH connectivity
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-ssh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+
+    steps:
+      - name: Test TCP port 22
+        run: |
+          echo "Testing centaur.math.uoa.gr:22"
+          timeout 15 bash -c \
+            'echo > /dev/tcp/centaur.math.uoa.gr/22'
+          echo "SSH port is reachable"

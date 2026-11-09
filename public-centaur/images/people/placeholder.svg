@@ -1,0 +1,16 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+
+  <!-- Background -->
+  <rect x="1" y="1" width="126" height="126" rx="2" ry="2" fill="#f8fafc" stroke="#d1d5db" stroke-width="2"></rect>
+
+  <!-- Head -->
+  <circle cx="64" cy="42" r="18" fill="#9ca3af"></circle>
+
+  <!-- Shoulders -->
+  <path d="M28 100
+         C28 80 44 68 64 68
+         C84 68 100 80 100 100
+         Z" fill="#9ca3af"></path>
+
+</svg>
