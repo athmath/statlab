@@ -1,0 +1,34 @@
+name: Deploy to CENTAUR
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Configure SSH
+        env:
+          SSH_KEY: ${{ secrets.CENTAUR_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.CENTAUR_KNOWN_HOSTS }}
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/centaur_key
+          chmod 600 ~/.ssh/centaur_key
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Test rsync deployment
+        run: |
+          echo "GitHub Actions deployment test" > /tmp/centaur-test.txt
+
+          rsync -av \
+            -e "ssh -i $HOME/.ssh/centaur_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes" \
+            /tmp/centaur-test.txt \
+            deploy@centaur.math.uoa.gr:/
