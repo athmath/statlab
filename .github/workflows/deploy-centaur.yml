@@ -36,4 +36,4 @@ jobs:
           rsync -av \
             -e "ssh -i $HOME/.ssh/centaur_key -o IdentitiesOnly=yes -o UserKnownHostsFile=$HOME/.ssh/known_hosts -o StrictHostKeyChecking=yes" \
             /tmp/centaur-test.txt \
-            deploy@centaur.math.uoa.gr:~/
+            deploy@centaur.math.uoa.gr:/
