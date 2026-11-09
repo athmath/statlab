@@ -62,12 +62,11 @@ jobs:
           ssh-keygen -F centaur.math.uoa.gr \
             -f "$HOME/.ssh/known_hosts" >/dev/null
 
-      - name: Preview CENTAUR deployment
+      - name: Deploy to CENTAUR
         run: |
           set -euo pipefail
 
           rsync \
-            --dry-run \
             --recursive \
             --links \
             --times \
