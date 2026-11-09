@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zissis on StatLab</title>
+    <link>https://centaur.math.uoa.gr/en/authors/zissis/</link>
+    <description>Recent content in Zissis on StatLab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2026 </copyright>
+    <atom:link href="https://centaur.math.uoa.gr/en/authors/zissis/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/benioudakis-2023-aggregator-platform/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/benioudakis-2023-aggregator-platform/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/zissis-2020-lot-sizing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/zissis-2020-lot-sizing/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>

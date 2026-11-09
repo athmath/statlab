@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>News — social publishing</title>
+    <link>https://centaur.math.uoa.gr/en/news/</link>
+    <description>News and announcements</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <atom:link href="https://centaur.math.uoa.gr/en/news/social.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bayesian Covariate Selection for Generalized Linear Models with Extension to the Multi-Parameter Estimation of Prevalence Framework</title>
+      <link>https://centaur.math.uoa.gr/en/news/tsetso-msc-2026/</link>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://centaur.math.uoa.gr/en/news/tsetso-msc-2026/</guid>
+      <description>Friday, 23 October 2026 at 13:00 — Centaur, Room B Computer Lab — MSc thesis presentation by Alexandros Tsetso</description>
+      <content:encoded>Mr. Alexandros Tsetso, an MSc student in the Statistics and Operations Research track, will present his thesis titled &amp;amp;ldquo;Bayesian Covariate Selection for Generalized Linear Models with Extension to the Multi-Parameter Estimation of Prevalence Framework&amp;amp;rdquo;&#xA;Examination committee&#xA;• Apostolos Burnetas&#xA;• Andreas Markoulidakis&#xA;• Loukia Meligotsidou, supervisor</content:encoded>
+    </item>
+    <item>
+      <title>Academic seminar: Introduction to Programming with Python</title>
+      <link>https://centaur.math.uoa.gr/en/news/python-seminar-2026-27/</link>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 +0000</pubDate>
+      <guid>https://centaur.math.uoa.gr/en/news/python-seminar-2026-27/</guid>
+      <description>Winter semester 2026–27: every Friday, 09:30–11:00, in Room A of the Computer Laboratory, Department of Mathematics.</description>
+      <content:encoded>The academic seminar “Introduction to Programming with Python” will be held during the winter semester of the 2026–27 academic year.&#xA;Meetings will take place every Friday, from 09:30 to 11:00, in Room A of the Computer Laboratory, Department of Mathematics.&#xA;Seminar materials are posted on the eClass platform:&#xA;https://eclass.uoa.gr/courses/MATH926/&#xA;Seminar page</content:encoded>
+    </item>
+    <item>
+      <title>Strategic customers in Markovian queueing networks with fork topology: comparison of reneging and non-reneging models</title>
+      <link>https://centaur.math.uoa.gr/en/news/marouli-msc-2026/</link>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>https://centaur.math.uoa.gr/en/news/marouli-msc-2026/</guid>
+      <description>Friday, 2 October 2026 at 11:00 — Room Γ22 — MSc thesis presentation by Maria Christina Marouli.</description>
+      <content:encoded>Ms Maria Christina Marouli, an MSc student in the Statistics and Operations Research track, will present her thesis titled “Strategic customers in Markovian queueing networks with fork topology: comparison of reneging and non-reneging models.”&#xA;Examination committee&#xA;• Athanasia Manou&#xA;• Apostolos Burnetas&#xA;• Antonios Economou, supervisor</content:encoded>
+    </item>
+  </channel>
+</rss>

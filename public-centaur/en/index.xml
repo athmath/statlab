@@ -1,0 +1,953 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CENTAUR on StatLab</title>
+    <link>https://centaur.math.uoa.gr/en/</link>
+    <description>Recent content in CENTAUR on StatLab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2026 </copyright>
+    <lastBuildDate>Fri, 16 Oct 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://centaur.math.uoa.gr/en/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Reinforcement Learning in Queues with Fatigue-Driven Server Failures</title>
+      <link>https://centaur.math.uoa.gr/en/projects/reinforcement-learning-in-queues-with-fatigue-driven-server-failures/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/projects/reinforcement-learning-in-queues-with-fatigue-driven-server-failures/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Statistics</title>
+      <link>https://centaur.math.uoa.gr/en/areas/statistics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/areas/statistics/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Bayesian Semi-Parametric Joint Modeling of Longitudinal and Survival Data</title>
+      <link>https://centaur.math.uoa.gr/en/projects/bayesian-semiparametric-joint-modeling-longitudinal-survival-data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/projects/bayesian-semiparametric-joint-modeling-longitudinal-survival-data/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Data Science</title>
+      <link>https://centaur.math.uoa.gr/en/areas/data-science/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/areas/data-science/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>https://centaur.math.uoa.gr/en/areas/machine-learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/areas/machine-learning/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Uncertainty-Aware and Causally Informed Explainability for Neural Networks</title>
+      <link>https://centaur.math.uoa.gr/en/projects/uncertainty-aware-causally-informed-explainability-neural-networks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/projects/uncertainty-aware-causally-informed-explainability-neural-networks/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>A Bayesian and Machine Learning Hybrid Approach for Spatio-Temporal Data</title>
+      <link>https://centaur.math.uoa.gr/en/projects/bayesian-machine-learning-spatio-temporal-data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/projects/bayesian-machine-learning-spatio-temporal-data/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Development of Predictive Models for Determining Order Quantities</title>
+      <link>https://centaur.math.uoa.gr/en/projects/burnetas-bekios-forecasting-en/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/projects/burnetas-bekios-forecasting-en/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Joint modelling of longitudinal and competing-risk data under failure cause and non-informative right censoring  misclassification</title>
+      <link>https://centaur.math.uoa.gr/en/projects/project-lm1-en/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/projects/project-lm1-en/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Multi-Parameter Estimation of Prevalence: A Bayesian modeling approach to   estimate the prevalence of opioid dependence</title>
+      <link>https://centaur.math.uoa.gr/en/projects/project-lm2-en/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/projects/project-lm2-en/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Multidisciplinary Adaptations of GAMLSS NETwork (MAGNET COST Action 2026-2030)</title>
+      <link>https://centaur.math.uoa.gr/en/projects/project-lm3-en/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/projects/project-lm3-en/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Multivariate Time Series and Structural Vector Autoregressive Models: Bayesian Inference and Forecasting</title>
+      <link>https://centaur.math.uoa.gr/en/projects/melig_kotsifakou_mult_time_series/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/projects/melig_kotsifakou_mult_time_series/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Operations Research</title>
+      <link>https://centaur.math.uoa.gr/en/areas/operations-research/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/areas/operations-research/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Pólya-Gamma Methods for Bayesian Learning in Contextual Multi-Armed Bandits</title>
+      <link>https://centaur.math.uoa.gr/en/projects/burnetas-bekios-pasiouras-contextual/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/projects/burnetas-bekios-pasiouras-contextual/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Stochastic modeling of population dynamics: estimation, decision-making and optimization</title>
+      <link>https://centaur.math.uoa.gr/en/projects/papageorgiou_econ_populations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/projects/papageorgiou_econ_populations/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Causal Structure Learning to Assess the Impact of Exercise Oncology on Oncological Treatment Tolerance and Clinical Course</title>
+      <link>https://centaur.math.uoa.gr/en/projects/causal-structure-learning-exercise-oncology/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/projects/causal-structure-learning-exercise-oncology/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Probability</title>
+      <link>https://centaur.math.uoa.gr/en/areas/probability/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/areas/probability/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Bayesian Variable Selection within the Multi-Parameter Estimation of Prevalence Framework</title>
+      <link>https://centaur.math.uoa.gr/en/projects/bayesian-variable-selection-mpep/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/projects/bayesian-variable-selection-mpep/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Academic seminar: Introduction to Programming with Python</title>
+      <link>https://centaur.math.uoa.gr/en/news/python-seminar-2026-27/</link>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/news/python-seminar-2026-27/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Bayesian Covariate Selection for Generalized Linear Models with Extension to the Multi-Parameter Estimation of Prevalence Framework</title>
+      <link>https://centaur.math.uoa.gr/en/news/tsetso-msc-2026/</link>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/news/tsetso-msc-2026/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Strategic customers in Markovian queueing networks with fork topology: comparison of reneging and non-reneging models</title>
+      <link>https://centaur.math.uoa.gr/en/news/marouli-msc-2026/</link>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/news/marouli-msc-2026/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/bekios-msc-thesis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/bekios-msc-thesis/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/benioudakis-2021-unobservable-systems/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/benioudakis-2021-unobservable-systems/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/benioudakis-2022-lead-time-quotations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/benioudakis-2022-lead-time-quotations/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/benioudakis-2023-aggregator-platform/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/benioudakis-2023-aggregator-platform/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/benioudakisetal2026/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/benioudakisetal2026/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/bonatis-et-al-2026-post-seismic-transients/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/bonatis-et-al-2026-post-seismic-transients/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/bountali-2022-join-balk-jettison/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/bountali-2022-join-balk-jettison/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/burnetas-2022-learning-queues/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/burnetas-2022-learning-queues/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/burnetas-2025-resource-allocation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/burnetas-2025-resource-allocation/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/burnetas-economou-2026/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/burnetas-economou-2026/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/deligiannis-2024-pricing-capacity/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/deligiannis-2024-pricing-capacity/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/elpidoforou-2026-parkinsons/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/elpidoforou-2026-parkinsons/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/florakis-trevezas-2026/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/florakis-trevezas-2026/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/florakis-trevezas-2027/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/florakis-trevezas-2027/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/goikon-research-paper-1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/goikon-research-paper-1/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/goikon-research-paper-2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/goikon-research-paper-2/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/karampatzakis-et-al-2025-heart-sounds/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/karampatzakis-et-al-2025-heart-sounds/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/koki-2020-hidden-markov/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/koki-2020-hidden-markov/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/kordalis-msc_thesis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/kordalis-msc_thesis/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/manou-paper-1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/manou-paper-1/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/manou-paper-2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/manou-paper-2/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/manou-paper-3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/manou-paper-3/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/manou-paper-4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/manou-paper-4/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/manou-paper-5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/manou-paper-5/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/manou-paper-6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/manou-paper-6/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/meligkotsidou-2021-equity-premium/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/meligkotsidou-2021-equity-premium/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/meligkotsidou-lyritzis-2026/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/meligkotsidou-lyritzis-2026/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/msc-thesis-goikon/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/msc-thesis-goikon/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/msc-thesis-kampa/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/msc-thesis-kampa/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/msc-thesis-lefkakis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/msc-thesis-lefkakis/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/msc-thesis-liolis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/msc-thesis-liolis/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/msc-thesis-mavrikos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/msc-thesis-mavrikos/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/msc-thesis-vidali/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/msc-thesis-vidali/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/papageorgiou-2026-embedding-dimensions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/papageorgiou-2026-embedding-dimensions/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/papageorgiou-2026-terrorism-radicalization/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/papageorgiou-2026-terrorism-radicalization/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/papageorgiou-economou-2026-epidemic-cost/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/papageorgiou-economou-2026-epidemic-cost/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/papageorgiou-et-al-2026-multi-cancer-detection/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/papageorgiou-et-al-2026-multi-cancer-detection/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/papageorgiou-votsi-trevezas-2026-markovian-switching/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/papageorgiou-votsi-trevezas-2026-markovian-switching/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/papageorgiou-votsi-tsaklidis-2026-epidemic-severity/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/papageorgiou-votsi-tsaklidis-2026-epidemic-severity/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/pasiouras-2023-bayesian-inversion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/pasiouras-2023-bayesian-inversion/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/phd-thesis-goikon/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/phd-thesis-goikon/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/thomadakis-2020-mar-dropout/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/thomadakis-2020-mar-dropout/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/thomadakis-2023-joint-modeling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/thomadakis-2023-joint-modeling/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/thomadakis-2024-shared-parameter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/thomadakis-2024-shared-parameter/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://centaur.math.uoa.gr/en/publications/zissis-2020-lot-sizing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/zissis-2020-lot-sizing/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Alexandros Tsetso</title>
+      <link>https://centaur.math.uoa.gr/en/people/tsetso/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/people/tsetso/</guid>
+      <description>Mathematician, Master in Statistics and Operations Research</description>
+      
+    </item>
+    
+    <item>
+      <title>Andreas Markoulidakis</title>
+      <link>https://centaur.math.uoa.gr/en/people/markoulidakis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/people/markoulidakis/</guid>
+      <description>Senior Research Associate in Statistical Modelling</description>
+      
+    </item>
+    
+    <item>
+      <title>Angeliki-Anna Stroumpi</title>
+      <link>https://centaur.math.uoa.gr/en/people/stroumpi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/people/stroumpi/</guid>
+      <description>Mathematician, Master in Statistics and Operations Research</description>
+      
+    </item>
+    
+    <item>
+      <title>Antonis Economou</title>
+      <link>https://centaur.math.uoa.gr/en/people/economou/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/people/economou/</guid>
+      <description>Professor of Operations Resaerch</description>
+      
+    </item>
+    
+    <item>
+      <title>Apostolos Burnetas</title>
+      <link>https://centaur.math.uoa.gr/en/people/burnetas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/people/burnetas/</guid>
+      <description>Professor of Operations Research.</description>
+      
+    </item>
+    
+    <item>
+      <title>Athanasia Manou</title>
+      <link>https://centaur.math.uoa.gr/en/people/manou/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/people/manou/</guid>
+      <description>Assistant Professor of Operations Research</description>
+      
+    </item>
+    
+    <item>
+      <title>Bayesian Inversion Techniques for Stochastic Differential Equations</title>
+      <link>https://centaur.math.uoa.gr/en/publications/pasiouras-2023/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/pasiouras-2023/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Christodoulos Lefkakis</title>
+      <link>https://centaur.math.uoa.gr/en/people/lefkakis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/people/lefkakis/</guid>
+      <description>PhD Candidate in Statistics</description>
+      
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>https://centaur.math.uoa.gr/en/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/contact/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Extreme eigenvalues of Random Matrices Macroscopic and Microscopic Results</title>
+      <link>https://centaur.math.uoa.gr/en/publications/louvaris-2024/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/louvaris-2024/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Foteini Kampa</title>
+      <link>https://centaur.math.uoa.gr/en/people/kampa/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/people/kampa/</guid>
+      <description>Mathematician, MSc in Statistics and Operations Research</description>
+      
+    </item>
+    
+    <item>
+      <title>Introduction to Programming with Python</title>
+      <link>https://centaur.math.uoa.gr/en/seminars/python-2026-27/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/seminars/python-2026-27/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Ioannis Oikonomidis</title>
+      <link>https://centaur.math.uoa.gr/en/people/goikon/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/people/goikon/</guid>
+      <description>Researcher in Statistics</description>
+      
+    </item>
+    
+    <item>
+      <title>Konstantinos Bekios</title>
+      <link>https://centaur.math.uoa.gr/en/people/bekios/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/people/bekios/</guid>
+      <description>PhD student</description>
+      
+    </item>
+    
+    <item>
+      <title>Konstantinos Florakis</title>
+      <link>https://centaur.math.uoa.gr/en/people/florakis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/people/florakis/</guid>
+      <description>PhD student of applied mathematics</description>
+      
+    </item>
+    
+    <item>
+      <title>Konstantinos Kitsios</title>
+      <link>https://centaur.math.uoa.gr/en/people/kitsios/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/people/kitsios/</guid>
+      <description>Mathematician, Master in Statistics and Operations Research</description>
+      
+    </item>
+    
+    <item>
+      <title>Leonidas Kordalis</title>
+      <link>https://centaur.math.uoa.gr/en/people/kordalis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/people/kordalis/</guid>
+      <description>PhD Student in Statistics</description>
+      
+    </item>
+    
+    <item>
+      <title>Loukia Meligkotsidou</title>
+      <link>https://centaur.math.uoa.gr/en/people/meligkotsidou/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/people/meligkotsidou/</guid>
+      <description>Professor of Statistics</description>
+      
+    </item>
+    
+    <item>
+      <title>Maritina Marouli</title>
+      <link>https://centaur.math.uoa.gr/en/people/marouli/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/people/marouli/</guid>
+      <description>Mathematician, Master in Statistics and Operations Research</description>
+      
+    </item>
+    
+    <item>
+      <title>Michail Axarlis</title>
+      <link>https://centaur.math.uoa.gr/en/people/axarlis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/people/axarlis/</guid>
+      <description>PhD candidate researching asymptotic statistics in nonparametric Markov and semi-Markov models, under the supervision of Samis Trevezas.</description>
+      
+    </item>
+    
+    <item>
+      <title>MSc Theses</title>
+      <link>https://centaur.math.uoa.gr/en/publications/msc-theses/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/msc-theses/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Paraskevi Kotsifakou</title>
+      <link>https://centaur.math.uoa.gr/en/people/kotsifakou/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/people/kotsifakou/</guid>
+      <description>Mathematician, Specialisation in Statistics and Operations Research</description>
+      
+    </item>
+    
+    <item>
+      <title>PhD Dissertations</title>
+      <link>https://centaur.math.uoa.gr/en/publications/phd-theses/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/phd-theses/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Research Papers</title>
+      <link>https://centaur.math.uoa.gr/en/publications/research-papers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/research-papers/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Stylianos Tzortzakis</title>
+      <link>https://centaur.math.uoa.gr/en/people/tzortzakis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/people/tzortzakis/</guid>
+      <description>Phd candidate in Statistics</description>
+      
+    </item>
+    
+    <item>
+      <title>Theodoros Varelis</title>
+      <link>https://centaur.math.uoa.gr/en/people/varelis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/people/varelis/</guid>
+      <description>Graduate Student of Statistics and Operations Research</description>
+      
+    </item>
+    
+    <item>
+      <title>Vasileios Papageorgiou</title>
+      <link>https://centaur.math.uoa.gr/en/people/papageorgiou/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/people/papageorgiou/</guid>
+      <description>Postdoctoral researcher in the Department of Mathematics at the National and Kapodistrian University of Athens.</description>
+      
+    </item>
+    
+    <item>
+      <title>Στρατηγική Συμπεριφορά Πελατών σε Συστήματα Εξυπηρέτησης</title>
+      <link>https://centaur.math.uoa.gr/en/publications/logothetis-2022/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/publications/logothetis-2022/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>

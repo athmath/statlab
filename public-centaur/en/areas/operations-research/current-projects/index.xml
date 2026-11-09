@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Operations-Research on StatLab</title>
+    <link>https://centaur.math.uoa.gr/en/areas/operations-research/current-projects/</link>
+    <description>Recent content in Operations-Research on StatLab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2026 </copyright>
+    <atom:link href="https://centaur.math.uoa.gr/en/areas/operations-research/current-projects/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Reinforcement Learning in Queues with Fatigue-Driven Server Failures</title>
+      <link>https://centaur.math.uoa.gr/en/projects/reinforcement-learning-in-queues-with-fatigue-driven-server-failures/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/projects/reinforcement-learning-in-queues-with-fatigue-driven-server-failures/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Development of Predictive Models for Determining Order Quantities</title>
+      <link>https://centaur.math.uoa.gr/en/projects/burnetas-bekios-forecasting-en/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/projects/burnetas-bekios-forecasting-en/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Pólya-Gamma Methods for Bayesian Learning in Contextual Multi-Armed Bandits</title>
+      <link>https://centaur.math.uoa.gr/en/projects/burnetas-bekios-pasiouras-contextual/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/projects/burnetas-bekios-pasiouras-contextual/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Stochastic modeling of population dynamics: estimation, decision-making and optimization</title>
+      <link>https://centaur.math.uoa.gr/en/projects/papageorgiou_econ_populations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://centaur.math.uoa.gr/en/projects/papageorgiou_econ_populations/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>
