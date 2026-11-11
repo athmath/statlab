@@ -18,7 +18,7 @@ online_url: ""
 
 event_link: ""
 
-announcement_pdf: "files/news/tzortzakis_seminar_nov26.pdf"
+announcement_pdf: "files/news/tzotzakis_seminar_nov26.pdf"
 
 draft: false
 
