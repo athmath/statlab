@@ -1,7 +1,7 @@
 ---
 title: "Bayesian Covariate Selection for Generalized Linear Models with Extension to the Multi-Parameter Estimation of Prevalence Framework"
 
-description: "Παρουσίαση μεταπτυχιακής διπλωματικής εργασίας από τον Αλέξανδρο Τσέτσο"
+description: "Reserach Talk by Stylianos Tzortzakis"
 
 news_kind: "event"
 category: "research_talk"
@@ -9,8 +9,8 @@ category: "research_talk"
 date: 2026-11-11
 event_date: 2026-11-13T13:00:00+01:00
 
-presenter: "Stelios Tzortzakis"
-affiliation: "PhD Candidate, Department of Mathematics, NKUA""
+presenter: "Styiianos Tzortzakis"
+affiliation: "PhD Candidate, Department of Mathematics, NKUA"
 
 attendance: "in_person"
 venue: "Centaur, Room B Computer Lab"
@@ -24,5 +24,5 @@ draft: false
 
 social_publish: true
 ---
-Mr. Stelios Tzorzakis, Phd candidate in the Department of Mathematics NKUA will present his paper titled  "A Rank-Based Test for Dependent Censoring in Survival Analysis".
+Mr. Styiianos Tzorzakis, Phd candidate in the Department of Mathematics NKUA will present his paper titled  "A Rank-Based Test for Dependent Censoring in Survival Analysis".
 

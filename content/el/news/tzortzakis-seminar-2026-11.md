@@ -1,7 +1,7 @@
 ---
 title: "Bayesian Covariate Selection for Generalized Linear Models with Extension to the Multi-Parameter Estimation of Prevalence Framework"
 
-description: "Παρουσίαση μεταπτυχιακής διπλωματικής εργασίας από τον Αλέξανδρο Τσέτσο"
+description: "Ερευνητική Ομιλία από τον κ. Στυλιανό Τζωρτζάκη"
 
 news_kind: "event"
 category: "research_talk"
