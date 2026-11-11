@@ -25,4 +25,4 @@ draft: false
 social_publish: true
 ---
 Ο κ. Χαράλαμπος Πασσαλίδης, υποψήφιος διδάκτορας του Τμήματος Στατιστικής και Αναλογιστικών-Χρηματοοικονομικών Μαθηματικών του  Πανεπιστήμιο Αιγαίου θα παρουσιάσει την εργασία του με τίτλο  "Uniform Asymptotics for a Multidimensional Renewal Risk Model with Random Number of Delayed Claims and 
-
+Multivariate Subexponentiality"
