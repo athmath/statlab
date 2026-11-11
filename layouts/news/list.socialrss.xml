@@ -35,7 +35,25 @@
     {{- $body = replaceRE `(?m)[ \t]+$` "" $body }}
     {{- $body = replaceRE `\n{2,}` "\n" $body }}
     {{- $description = $description | truncate 500 }}
-    {{- $body = $body | truncate 1900 }}
+    {{- $bodyLimit := 1900 }}
+    {{- $pdfText := "" }}
+    {{- with partial "news/announcement-pdf.html" . }}
+      {{- $pdfText = printf "%s: %s" .label .url }}
+      {{- /* Reserve two newlines and truncate's default space + ellipsis suffix. */}}
+      {{- $bodyLimit = sub $bodyLimit (add (len $pdfText) 4) }}
+    {{- end }}
+    {{- if gt $bodyLimit 0 }}
+      {{- $body = $body | truncate $bodyLimit }}
+    {{- else }}
+      {{- $body = "" }}
+    {{- end }}
+    {{- with $pdfText }}
+      {{- if $body }}
+        {{- $body = printf "%s\n\n%s" $body . }}
+      {{- else }}
+        {{- $body = . }}
+      {{- end }}
+    {{- end }}
     <item>
       <title>{{ .Title | transform.XMLEscape | safeHTML }}</title>
       <link>{{ .Permalink | transform.XMLEscape | safeHTML }}</link>

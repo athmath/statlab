@@ -1,0 +1,13 @@
+{{- $attachment := dict -}}
+{{- with .Params.announcement_pdf -}}
+  {{- with strings.TrimSpace . -}}
+    {{- /* Static paths are relative to baseURL, including its deployment subdirectory. */ -}}
+    {{- $url := strings.TrimPrefix "/" . | absURL -}}
+    {{- $label := "Talk announcement and abstract (PDF)" -}}
+    {{- if eq $.Site.Language.Lang "el" -}}
+      {{- $label = "Ανακοίνωση και περίληψη ομιλίας (PDF)" -}}
+    {{- end -}}
+    {{- $attachment = dict "url" $url "label" $label -}}
+  {{- end -}}
+{{- end -}}
+{{- return $attachment -}}

@@ -250,6 +250,46 @@ LinkedIn post assembled from Title, Description, Content, and Link remains
 within the platform's post length limit. The link leads to the complete
 announcement when the body is longer.
 
+## Optional PDF announcement
+
+Research talks may include a PDF containing the abstract, speaker photograph,
+and other event information. Save it under `static/files/news/`, for example:
+
+```text
+static/files/news/2026-11-20-speaker.pdf
+```
+
+Then add this optional field to the announcement's front matter:
+
+```yaml
+announcement_pdf: "files/news/2026-11-20-speaker.pdf"
+```
+
+Use the path without `static/` or a domain. Hugo generates the full public URL
+for the current deployment, including `/statlab/` on GitHub Pages. A leading
+slash is also accepted. An external PDF's full `https://...` URL may be used
+instead.
+
+The announcement page displays a link below the event information, labelled
+“Talk announcement and abstract (PDF)” in English or “Ανακοίνωση και περίληψη
+ομιλίας (PDF)” in Greek. Omit `announcement_pdf` or leave it empty when no PDF
+is available; no PDF link is rendered. Both translations can reference the
+same file, or each can reference its own translated PDF.
+
+When `announcement_pdf` is supplied, RSS Content reserves space for the PDF
+label and full URL before truncating the body. The PDF link is included even
+when the announcement has no Markdown body. RSS Link and GUID continue to
+point to the announcement page.
+
+Upload the PDF together with the announcement, before social publishing is
+enabled. Make sure the Zapier LinkedIn post text includes RSS Content as well
+as Title, Description, and Link. A link in the website's template alone is not
+sent by RSS. This publishes a clickable PDF URL, not a native LinkedIn document
+attachment.
+
+Adding a PDF to an already published announcement does not update the existing
+LinkedIn post automatically; edit that post separately if required.
+
 ---
 
 # Contact
