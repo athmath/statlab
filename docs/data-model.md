@@ -200,6 +200,14 @@ All announcements and dated events live under `content/<language>/news/`.
 `general_event` is also supported for other dated events. An event uses `date`
 for its publication date and `event_date` for its scheduled date and time.
 
+`announcement_pdf` is optional. It references a PDF using a path relative to
+`static/` (for example, `files/news/2026-11-20-speaker.pdf`) or an absolute
+external HTTP(S) URL. An omitted, empty, or whitespace-only value renders no
+attachment. Greek and English records may share a file or use separate files.
+The News detail page and the opt-in social feed use the same resolved URL;
+the feed includes it in Content while keeping Link and GUID as the announcement
+page URL. See `content-guide.md` for the publishing workflow.
+
 The News page contains all records. The Seminars page is a filtered secondary
 view containing only `research_talk` and `seminar_session`. PhD defenses, MSc
 presentations, and general events remain News-only.

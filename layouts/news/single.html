@@ -159,6 +159,14 @@
         </div>
       {{ end }}
 
+      {{ with partial "news/announcement-pdf.html" . }}
+        <p class="mt-6 text-sm">
+          <a href="{{ .url }}" class="font-semibold underline" target="_blank" rel="noopener noreferrer">
+            {{ .label }}
+          </a>
+        </p>
+      {{ end }}
+
     </header>
 
 

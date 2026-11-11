@@ -30,5 +30,9 @@ online_url: ""
 # Optional public page containing further information
 event_link: ""
 
+# Optional PDF announcement; omit or leave empty if unavailable.
+# Store the file in static/files/news/ and use its path without the static/ prefix.
+announcement_pdf: ""
+
 draft: true
 ---
