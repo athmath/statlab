@@ -1,5 +1,6 @@
 ---
-title: "Bayesian Covariate Selection for Generalized Linear Models with Extension to the Multi-Parameter Estimation of Prevalence Framework"
+title: "A Rank-Based Test for Dependent Censoring in
+Survival Analysis"
 
 description: "Ερευνητική Ομιλία από τον κ. Στυλιανό Τζωρτζάκη"
 
